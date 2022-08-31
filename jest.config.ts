@@ -10,7 +10,7 @@ const config: Config.InitialOptions = {
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'json', 'text', 'text-summary'],
   roots: ['<rootDir>/src'],
-  setupFilesAfterEnv: ['<rootDir>/src/test/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/application/test/setup.ts'],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/'],
 };
