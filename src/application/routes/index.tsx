@@ -1,15 +1,6 @@
-import React, { ReactNode } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { LoginPage, PayStub } from '../../pages';
-
-function AllRoutes() {
-  return (
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/paystub" element={<PayStub />} />
-    </Routes>
-  );
-}
+import { ReactNode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { AllRoutes } from './AllRoutes';
 
 type RouterProviderProps = {
   children: ReactNode;
