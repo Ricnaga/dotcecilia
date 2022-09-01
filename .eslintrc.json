@@ -54,7 +54,8 @@
       {
         "varsIgnorePattern": "React"
       }
-    ]
+    ],
+    "react/button-has-type": "off"
   },
   "settings": {
     "import/resolver": {
