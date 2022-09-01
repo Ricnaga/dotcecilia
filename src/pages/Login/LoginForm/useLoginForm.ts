@@ -1,11 +1,14 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { FormFields } from '.';
-import { PAYSTUB } from '../../../application/routes/routes';
+import { CALCULATOR } from '../../../application/routes/routes';
+import { ENV_PASSWORD, ENV_USER } from '../../../config';
+import { useLocalStorage } from '../../../shared/hooks/useLocalStorage';
 
 type FormikValues = { name: string; password: string };
 
 export const useLoginForm = () => {
+  const { saveUserData } = useLocalStorage();
   const navigate = useNavigate();
   const initialValues = {
     [FormFields.name]: '',
@@ -13,12 +16,13 @@ export const useLoginForm = () => {
   };
 
   const validateCredentials = (values: FormikValues) =>
-    [import.meta.env.VITE_USER].includes(values.name) &&
-    [import.meta.env.VITE_USER].includes(values.name);
+    [ENV_USER].includes(values.name) &&
+    [ENV_PASSWORD].includes(values.password);
 
   const onSubmit = (values: FormikValues) => {
     if (validateCredentials(values)) {
-      navigate(PAYSTUB);
+      saveUserData(values);
+      navigate(CALCULATOR);
     }
   };
 

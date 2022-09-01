@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AllRoutes } from './AllRoutes';
 
 type RouterProviderProps = {
-  children: ReactNode;
+  children?: React.ReactNode | JSX.Element;
 };
 
 export function RouterProvider({ children }: RouterProviderProps) {

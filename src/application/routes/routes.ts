@@ -1,2 +1,2 @@
 export const LOGIN = '/';
-export const PAYSTUB = '/paystub';
+export const CALCULATOR = '/calculator';

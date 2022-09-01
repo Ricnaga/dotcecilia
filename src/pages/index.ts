@@ -1,2 +1,2 @@
 export * from './Login';
-export * from './PayStub';
+export * from './Calculator';
