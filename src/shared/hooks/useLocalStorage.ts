@@ -16,8 +16,11 @@ export const useLocalStorage = () => {
     return userData ? unMaskData(userData) : null;
   };
 
+  const deleteUserData = () => localStorage.removeItem(ENV_USER_STORAGE_KEY);
+
   return {
     saveUserData,
     getUserData,
+    deleteUserData,
   };
 };
