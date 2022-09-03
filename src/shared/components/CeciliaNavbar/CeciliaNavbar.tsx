@@ -11,7 +11,7 @@ export function CeciliaNavbar() {
     <div className="grid grid-cols-12 my-4">
       <nav className="col-span-11">
         {links.map(({ href, children }) => (
-          <a key={children} href={href} className="anchor-sky mr-4">
+          <a key={children} href={href} className="mr-4">
             {children}
           </a>
         ))}

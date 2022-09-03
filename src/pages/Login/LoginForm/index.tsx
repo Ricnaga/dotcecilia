@@ -1,4 +1,4 @@
-import { CeciliaButton, CeciliaInput } from '../../../shared/components';
+import { CeciliaButton, CeciliaText } from '../../../shared/components';
 import { useLoginForm } from './useLoginForm';
 
 export enum FormFields {
@@ -15,7 +15,7 @@ export function LoginForm() {
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <CeciliaInput
+        <CeciliaText
           placeholder="Digite o usuário"
           value={values[FormFields.name]}
           onChange={onChange(FormFields.name)}
@@ -23,7 +23,7 @@ export function LoginForm() {
       </div>
 
       <div>
-        <CeciliaInput
+        <CeciliaText
           placeholder="Digite a senha"
           type="password"
           value={values[FormFields.password]}
