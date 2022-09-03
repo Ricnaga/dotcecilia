@@ -1,8 +1,8 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
-import { LoginPage, CalculatorPage } from '../../pages';
+import { CalculatorPage, LoginPage } from '../../pages';
 import { CeciliaNavbar } from '../../shared/components';
 import { useRoute } from './hooks/useRoute';
-import { LOGIN, CALCULATOR } from './routes';
+import { CALCULATOR, LOGIN } from './routes';
 
 function PublicRoute() {
   const { hasAuthentication } = useRoute();
@@ -32,8 +32,8 @@ export function AllRoutes() {
       <Route path={LOGIN} element={<PublicRoute />}>
         <Route index element={<LoginPage />} />
       </Route>
-      <Route path={CALCULATOR} element={<PrivateRoute />}>
-        <Route index element={<CalculatorPage />} />
+      <Route path={LOGIN} element={<PrivateRoute />}>
+        <Route path={CALCULATOR} element={<CalculatorPage />} />
       </Route>
     </Routes>
   );
