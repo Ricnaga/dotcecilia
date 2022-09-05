@@ -40,6 +40,6 @@
   }
 
   .accordion-content {
-    @apply grid grid-cols-12 gap-6 mt-4 px-8;
+    @apply grid grid-cols-12 items-end gap-6 mt-4 px-8;
   }
 }
