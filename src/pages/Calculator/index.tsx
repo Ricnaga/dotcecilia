@@ -11,13 +11,13 @@ export function CalculatorPage() {
 
       <div className="grid grid-cols-12 gap-10">
         <div className="grid grid-cols-12 col-span-7">
-          <div className="col-span-12">
+          <div className="col-span-12 mb-4">
             <CalculatorExtraHour />
           </div>
-          <div className="col-span-12">
+          <div className="col-span-12 mb-4">
             <CalculatorDiscount />
           </div>
-          <div className="col-span-12">
+          <div className="col-span-12 mb-4">
             <CalculatorTransport />
           </div>
         </div>
