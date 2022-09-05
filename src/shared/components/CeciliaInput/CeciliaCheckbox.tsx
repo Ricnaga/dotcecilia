@@ -1,17 +1,27 @@
-type CeciliaCheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
+import React from 'react';
+import { Switch } from '@headlessui/react';
+
+type CeciliaCheckboxProps = {
   label?: string | null;
 };
-export function CeciliaCheckbox({ label, ...props }: CeciliaCheckboxProps) {
+export function CeciliaCheckbox({ label }: CeciliaCheckboxProps) {
+  const [enabled, setEnabled] = React.useState(false);
   return (
-    <div>
-      <label className="text-xl" htmlFor="checkbox">
-        <input
-          type="checkbox"
-          className="h-5 w-5 mr-2 mb-2 accent-sky-900"
-          {...props}
-        />
-        {label}
-      </label>
-    </div>
+    <Switch.Group>
+      <div className="flex items-center">
+        <Switch.Label className="mr-4">{label}</Switch.Label>
+        <Switch
+          checked={enabled}
+          onChange={setEnabled}
+          className={`btn-switch ${enabled && 'bg-teal-500'} `}
+        >
+          <span
+            className={`${
+              enabled ? 'translate-x-6' : 'translate-x-1'
+            } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+          />
+        </Switch>
+      </div>
+    </Switch.Group>
   );
 }
