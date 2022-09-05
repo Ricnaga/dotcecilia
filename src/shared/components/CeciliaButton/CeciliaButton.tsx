@@ -12,7 +12,7 @@ export function CeciliaButton({
   ...props
 }: CeciliaButtonButtonProps) {
   return (
-    <button className={`btn-yellow ${className}`} type="button" {...props}>
+    <button className={`btn btn-yellow ${className}`} type="button" {...props}>
       {title}
     </button>
   );

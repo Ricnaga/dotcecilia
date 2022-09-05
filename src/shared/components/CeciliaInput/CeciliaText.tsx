@@ -8,7 +8,7 @@ export function CeciliaText({
   ...props
 }: CeciliaTextProps) {
   return (
-    <label htmlFor="text" className="text-2xl">
+    <label htmlFor="text" className="text-xl">
       {label}
       <input type={type} {...props} />
     </label>
