@@ -1,23 +1,90 @@
-import { CeciliaText, CeciliaCheckbox } from '../../../../shared/components';
+import React from 'react';
+import { CeciliaCheckbox, CeciliaNumber } from '../../../../shared/components';
 import { CalculatorDisclosure } from '../CalculatorDisclosure/CalculatorDisclosure';
 
-export function CalculatorExtraHour() {
+export type CalculatorExtraHourData = {
+  salary: number;
+  hours: number;
+  unsanitary: boolean;
+  minimumWage: number;
+  agreement: boolean;
+  workedHours: number;
+};
+
+type CalculatorExtraHourProps = {
+  onChangeExtraHour: (
+    key: keyof CalculatorExtraHourData,
+    value: number,
+  ) => void;
+  onCheckedExtraHour: (
+    key: keyof Pick<CalculatorExtraHourData, 'unsanitary' | 'agreement'>,
+  ) => void;
+  extraHour: CalculatorExtraHourData;
+};
+
+export function CalculatorExtraHour({
+  onChangeExtraHour,
+  onCheckedExtraHour,
+  extraHour,
+}: CalculatorExtraHourProps) {
   return (
     <CalculatorDisclosure title="Hora extra">
       <div className="accordion-content">
         <div className="col-span-3">
-          <CeciliaText label="Salário" placeholder="R$" />
+          <CeciliaCheckbox
+            label="Insalubridade"
+            checked={extraHour.unsanitary}
+            onChecked={() => onCheckedExtraHour('unsanitary')}
+          />
+          <CeciliaNumber
+            value={extraHour.salary}
+            onChange={(e) =>
+              onChangeExtraHour('salary', e.target.valueAsNumber)
+            }
+            currency
+            label="Salário"
+            placeholder="R$"
+          />
         </div>
         <div className="col-span-3">
-          <CeciliaText label="Horas" placeholder="Horas" />
+          <CeciliaCheckbox
+            label="Acerto"
+            checked={extraHour.agreement}
+            onChecked={() => onCheckedExtraHour('agreement')}
+          />
+          <CeciliaNumber
+            value={extraHour.hours}
+            onChange={(e) => onChangeExtraHour('hours', e.target.valueAsNumber)}
+            currency
+            label="Horas"
+            placeholder="Horas"
+          />
         </div>
-        <div className="col-span-3">
-          <CeciliaCheckbox label="Insalubridade" />
-          <CeciliaText label="Salário mínimo" placeholder="R$ 1200,00" />
+        <div className="col-span-3 grid items-end h-full">
+          {extraHour.unsanitary && (
+            <CeciliaNumber
+              value={extraHour.minimumWage}
+              onChange={(e) =>
+                onChangeExtraHour('minimumWage', e.target.valueAsNumber)
+              }
+              currency
+              label="Salário mínimo"
+              placeholder="R$ 1200,00"
+            />
+          )}
         </div>
-        <div className="col-span-3">
-          <CeciliaCheckbox label="Acerto" />
-          <CeciliaText label="Meses trabalhados" placeholder="Meses" />
+        <div className="col-span-3 grid items-end h-full">
+          {extraHour.agreement && (
+            <CeciliaNumber
+              value={extraHour.workedHours}
+              onChange={(e) =>
+                onChangeExtraHour('workedHours', e.target.valueAsNumber)
+              }
+              currency
+              label="Meses trabalhados"
+              placeholder="Meses"
+            />
+          )}
         </div>
       </div>
     </CalculatorDisclosure>
