@@ -4,3 +4,6 @@ export * from './CeciliaInput/CeciliaNumber';
 export * from './CeciliaInput/CeciliaText';
 export * from './CeciliaNavbar/CeciliaNavbar';
 export * from './CeciliaPageHeader/CeciliaPageHeader';
+export * from './CeciliaTable/CeciliaTable';
+export * from './CeciliaTableCell/CeciliaTableCell';
+export * from './CeciliaTableRow/CeciliaTRow';

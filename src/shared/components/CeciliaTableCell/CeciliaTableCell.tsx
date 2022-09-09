@@ -1,13 +1,13 @@
-type PaystubTableCellProps = React.DetailedHTMLProps<
+type CeciliaTableCellProps = React.DetailedHTMLProps<
   React.TdHTMLAttributes<HTMLTableCellElement>,
   HTMLTableCellElement
 > & {
   className?: string;
 };
 
-export function PaystubTableCell({
+export function CeciliaTableCell({
   className,
   ...props
-}: PaystubTableCellProps) {
+}: CeciliaTableCellProps) {
   return <td className={`border-r border-slate-800 ${className}`} {...props} />;
 }
