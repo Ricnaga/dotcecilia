@@ -8,7 +8,7 @@ export type CalculatorExtraHourData = {
   unsanitary: boolean;
   minimumWage: number;
   agreement: boolean;
-  workedHours: number;
+  workedMonths: number;
 };
 
 type CalculatorExtraHourProps = {
@@ -60,8 +60,8 @@ export function CalculatorExtraHour({
             placeholder="Horas"
           />
         </div>
-        <div className="col-span-3 grid items-end h-full">
-          {extraHour.unsanitary && (
+        {extraHour.unsanitary && (
+          <div className="col-span-3 grid items-end h-full">
             <CeciliaNumber
               value={extraHour.minimumWage}
               onChange={(e) =>
@@ -71,21 +71,21 @@ export function CalculatorExtraHour({
               label="Salário mínimo"
               placeholder="R$ 1200,00"
             />
-          )}
-        </div>
-        <div className="col-span-3 grid items-end h-full">
-          {extraHour.agreement && (
+          </div>
+        )}
+        {extraHour.agreement && (
+          <div className="col-span-3 grid items-end h-full">
             <CeciliaNumber
-              value={extraHour.workedHours}
+              value={extraHour.workedMonths}
               onChange={(e) =>
-                onChangeExtraHour('workedHours', e.target.valueAsNumber)
+                onChangeExtraHour('workedMonths', e.target.valueAsNumber)
               }
               currency
               label="Meses trabalhados"
               placeholder="Meses"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </CalculatorDisclosure>
   );
