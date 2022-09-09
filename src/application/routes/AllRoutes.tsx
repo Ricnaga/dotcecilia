@@ -4,10 +4,17 @@ import {
   LoginPage,
   PaystubPage,
   AdvancePaymentPage,
+  AgreementPage,
 } from '../../pages';
 import { CeciliaNavbar } from '../../shared/components';
 import { useRoute } from './hooks/useRoute';
-import { CALCULATOR, LOGIN, PAYSTUB, ADVANCEPAYMENT } from './routes';
+import {
+  CALCULATOR,
+  LOGIN,
+  PAYSTUB,
+  ADVANCEPAYMENT,
+  AGREEMENT,
+} from './routes';
 
 function PublicRoute() {
   const { hasAuthentication } = useRoute();
@@ -39,6 +46,7 @@ export function AllRoutes() {
       </Route>
       <Route path={LOGIN} element={<PrivateRoute />}>
         <Route path={ADVANCEPAYMENT} element={<AdvancePaymentPage />} />
+        <Route path={AGREEMENT} element={<AgreementPage />} />
         <Route path={CALCULATOR} element={<CalculatorPage />} />
         <Route path={PAYSTUB} element={<PaystubPage />} />
       </Route>
