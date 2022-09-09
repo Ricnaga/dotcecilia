@@ -43,6 +43,15 @@ export function CeciliaTable({
         <tr>
           <th colSpan={8}>CNPJ: {ENV_COMPANY_CPNJ}</th>
         </tr>
+        {headerType === 'ACERTO' && (
+          <tr>
+            <th colSpan={8}>
+              <p className="mt-4 border-y border-slate-800 bg-yellow-100">
+                ACERTO:
+              </p>
+            </th>
+          </tr>
+        )}
         <tr>
           <th colSpan={8}>
             <p className="my-4 border-y border-slate-800">{name}</p>
