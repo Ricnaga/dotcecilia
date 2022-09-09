@@ -4,7 +4,7 @@ import {
   CALCULATOR,
   LOGIN,
   PAYSTUB,
-  SALARY,
+  ADVANCEPAYMENT,
 } from '../../../application/routes/routes';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
@@ -21,12 +21,12 @@ export const useCeciliaNavbar = () => {
       children: 'Holerite',
     },
     {
-      href: AGREEMENT,
-      children: 'Acerto',
+      href: ADVANCEPAYMENT,
+      children: 'Adiantamento',
     },
     {
-      href: SALARY,
-      children: 'Adiantamento',
+      href: AGREEMENT,
+      children: 'Acerto',
     },
   ];
 
