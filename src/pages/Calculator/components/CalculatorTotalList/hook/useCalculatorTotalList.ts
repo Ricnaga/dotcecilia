@@ -1,13 +1,14 @@
-import { CalculatorPageProps } from '../..';
+import { CalculatorPageProps } from '../../..';
 import {
   convertToCurrencyFloat,
   convertToBRL,
-} from '../../../../shared/utils/number';
-import { TitleItems } from '.';
+} from '../../../../../shared/utils/number';
+import { TitleItems } from '..';
 
 const MINIMUM_WAGE = 120000; // pela lei o valor do salário mínimo é R$ 1200,00
 const MONTH_HOUR = convertToCurrencyFloat(22000); // pela lei o valor da hora/mês é 220
 const VTR_DISCOUNT_VALUE = 0.06; // pela lei o valor do desconto do VTR é 6%
+const DISCOUNT_VALUE = 30; // pela lei o valor do desconto é 30 dias
 const PREVIOUS_ADVANCE_VALUE = 0.4; // pela lei o valor do adiantamento anterior é 40%
 const UNSANITARY_VALUE = 0.2; // pela lei o valor insalubridade é 2f0%
 
@@ -26,12 +27,13 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
 
   const getVTRDiscountValue = () => formatSalary() * VTR_DISCOUNT_VALUE;
 
+  const getDiscountValue = () => formatSalary() / DISCOUNT_VALUE;
+
   const getPreviousAdvanceValue = () => formatSalary() * PREVIOUS_ADVANCE_VALUE;
 
   const getVacationValue = () => (formatSalary() / 12) * values.workedMonths;
 
-  const getOneThirdVacationValue = () =>
-    getVacationValue() * values.workedMonths * 3;
+  const getOneThirdVacationValue = () => getVacationValue() / 3;
 
   const totalListItems: Array<TitleItems> = [
     {
@@ -55,11 +57,6 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
       show: values.unsanitary,
     },
     {
-      title: 'Transporte',
-      formattedValue: convertToBRL(values.transportValue),
-      show: true,
-    },
-    {
       title: 'Dias faltados',
       formattedValue: values.missingDays,
       show: true,
@@ -75,8 +72,8 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
       show: true,
     },
     {
-      title: 'Desconto',
-      formattedValue: convertToBRL(values.salary),
+      title: 'Desconto do dia faltado',
+      formattedValue: convertToBRL(getDiscountValue()),
       show: true,
     },
     {

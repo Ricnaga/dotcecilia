@@ -1,6 +1,6 @@
 import React from 'react';
 import { CalculatorPageProps } from '../..';
-import { useCalculatorTotalList } from './useCalculatorTotalList';
+import { useCalculatorTotalList } from './hook/useCalculatorTotalList';
 
 type CalculatorTotalListProps = {
   values: CalculatorPageProps;
@@ -15,7 +15,7 @@ const listTitle = {
   'Dias faltados': 'Dias faltados',
   'Desconto 6% VTR': 'Desconto 6% VTR',
   'Adiantamento anterior': 'Adiantamento anterior',
-  Desconto: 'Desconto',
+  'Desconto do dia faltado': 'Desconto do dia faltado',
   Férias: 'Férias',
   '13º': '13º',
   'Férias - 1/3': 'Férias - 1/3',
