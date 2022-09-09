@@ -3,7 +3,7 @@ import {
   CalculatorPage,
   LoginPage,
   PaystubPage,
-  AdvancePayment,
+  AdvancePaymentPage,
 } from '../../pages';
 import { CeciliaNavbar } from '../../shared/components';
 import { useRoute } from './hooks/useRoute';
@@ -38,7 +38,7 @@ export function AllRoutes() {
         <Route index element={<LoginPage />} />
       </Route>
       <Route path={LOGIN} element={<PrivateRoute />}>
-        <Route path={ADVANCEPAYMENT} element={<AdvancePayment />} />
+        <Route path={ADVANCEPAYMENT} element={<AdvancePaymentPage />} />
         <Route path={CALCULATOR} element={<CalculatorPage />} />
         <Route path={PAYSTUB} element={<PaystubPage />} />
       </Route>

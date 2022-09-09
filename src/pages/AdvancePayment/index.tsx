@@ -1,7 +1,7 @@
 import { CeciliaPageHeader, CeciliaTable } from '../../shared/components';
 import { AdvancePaymentTableBody } from './components';
 
-export function AdvancePayment() {
+export function AdvancePaymentPage() {
   return (
     <CeciliaPageHeader title="Vale adiantamento">
       <div className="grid grid-cols-12 gap-10">
