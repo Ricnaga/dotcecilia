@@ -1,3 +1,141 @@
-export function PaystubCalculator() {
-  return <p className="text-4xl text-center font-bold mb-4">Cálculos</p>;
+import React from 'react';
+import {
+  CeciliaCheckbox,
+  CeciliaMonth,
+  CeciliaNumber,
+  CeciliaText,
+} from '../../../../shared/components';
+
+export type PaystubCalculatorFields = {
+  name: string;
+  hasUnsanitary: boolean;
+  unsanitary: number;
+  extraHour: boolean;
+  fullExtra: boolean;
+  hours: number;
+  salary: number;
+  RefDate: string;
+  vtr: number;
+  missingDays: number;
+  discountedDays: number;
+};
+
+type PaystubCalculatorProps = Record<'values', PaystubCalculatorFields> & {
+  onChange: (
+    key: keyof PaystubCalculatorFields,
+    value: number | string,
+  ) => void;
+  onChecked: (
+    key: keyof Pick<
+      PaystubCalculatorFields,
+      'hasUnsanitary' | 'extraHour' | 'fullExtra'
+    >,
+  ) => void;
+};
+
+export function PaystubCalculator({
+  values,
+  onChange,
+  onChecked,
+}: PaystubCalculatorProps) {
+  return (
+    <>
+      <p className="text-4xl text-center font-bold mb-4">Cálculos</p>
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-12">
+          <CeciliaText
+            placeholder="Digite o nome"
+            value={values.name}
+            onChange={({ target }) => onChange('name', target.value)}
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaCheckbox
+            label="Insalubridade ?"
+            checked={values.hasUnsanitary}
+            onChecked={() => onChecked('hasUnsanitary')}
+          />
+          {values.hasUnsanitary && (
+            <div className="mt-3">
+              <CeciliaNumber
+                placeholder="Insalubridade"
+                value={values.unsanitary}
+                onChange={({ target }) =>
+                  onChange('unsanitary', target.valueAsNumber)
+                }
+              />
+            </div>
+          )}
+        </div>
+        <div className="col-span-6 grid grid-cols-12 justify-around">
+          <div className="col-span-6">
+            <CeciliaCheckbox
+              label="HE?"
+              checked={values.extraHour}
+              onChecked={() => onChecked('extraHour')}
+            />
+          </div>
+          {values.extraHour && (
+            <>
+              <div className="col-span-6">
+                <CeciliaCheckbox
+                  label="100% ?"
+                  checked={values.fullExtra}
+                  onChecked={() => onChecked('fullExtra')}
+                />
+              </div>
+              <div className="mt-3 col-span-12">
+                <CeciliaNumber
+                  placeholder="horas"
+                  value={values.hours}
+                  onChange={({ target }) =>
+                    onChange('hours', target.valueAsNumber)
+                  }
+                />
+              </div>
+            </>
+          )}
+        </div>
+        <div className="col-span-6">
+          <CeciliaNumber
+            placeholder="salário"
+            value={values.salary}
+            onChange={({ target }) => onChange('salary', target.valueAsNumber)}
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaMonth
+            placeholder="Ref"
+            value={values.RefDate}
+            onChange={({ target }) => onChange('RefDate', target.value)}
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaNumber
+            placeholder="Valor diário VTR"
+            value={values.vtr}
+            onChange={({ target }) => onChange('vtr', target.valueAsNumber)}
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaNumber
+            placeholder="Dias faltados"
+            value={values.missingDays}
+            onChange={({ target }) =>
+              onChange('missingDays', target.valueAsNumber)
+            }
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaNumber
+            placeholder="Desconto de dias"
+            value={values.discountedDays}
+            onChange={({ target }) =>
+              onChange('discountedDays', target.valueAsNumber)
+            }
+          />
+        </div>
+      </div>
+    </>
+  );
 }
