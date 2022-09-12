@@ -58,6 +58,7 @@ export function PaystubCalculator({
           {values.hasUnsanitary && (
             <div className="mt-3">
               <CeciliaNumber
+                currency
                 placeholder="Insalubridade"
                 value={values.unsanitary}
                 onChange={({ target }) =>
@@ -98,6 +99,7 @@ export function PaystubCalculator({
         </div>
         <div className="col-span-6">
           <CeciliaNumber
+            currency
             placeholder="salário"
             value={values.salary}
             onChange={({ target }) => onChange('salary', target.valueAsNumber)}
@@ -112,6 +114,7 @@ export function PaystubCalculator({
         </div>
         <div className="col-span-6">
           <CeciliaNumber
+            currency
             placeholder="Valor diário VTR"
             value={values.vtr}
             onChange={({ target }) => onChange('vtr', target.valueAsNumber)}

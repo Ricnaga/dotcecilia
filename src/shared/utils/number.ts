@@ -7,8 +7,13 @@ export function convertToCurrencyFloat(value: number) {
   return parseFloat(floatString);
 }
 
-export const convertToBRL = (num: number) =>
-  new Intl.NumberFormat('pt-br', {
+export const convertToBRL = (num: number, currency = true) => {
+  const formattedBRL = new Intl.NumberFormat('pt-br', {
     style: 'currency',
     currency: 'BRL',
   }).format(num);
+
+  if (!currency) return formattedBRL.split('R$')[1];
+
+  return formattedBRL;
+};

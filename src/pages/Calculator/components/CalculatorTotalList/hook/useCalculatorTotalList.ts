@@ -1,54 +1,52 @@
 import { CalculatorPageProps } from '../../..';
-import {
-  convertToCurrencyFloat,
-  convertToBRL,
-} from '../../../../../shared/utils/number';
+import { convertToBRL } from '../../../../../shared/utils/number';
 import { TitleItems } from '..';
-
-const MINIMUM_WAGE = 120000; // pela lei o valor do salário mínimo é R$ 1200,00
-const MONTH_HOUR = convertToCurrencyFloat(22000); // pela lei o valor da hora/mês é 220
-const VTR_DISCOUNT_VALUE = 0.06; // pela lei o valor do desconto do VTR é 6%
-const DISCOUNT_VALUE = 30; // pela lei o valor do desconto é 30 dias
-const PREVIOUS_ADVANCE_VALUE = 0.4; // pela lei o valor do adiantamento anterior é 40%
-const UNSANITARY_VALUE = 0.2; // pela lei o valor insalubridade é 2f0%
+import { useCalcPayments } from '../../../../../shared/hooks/useCalcPayments';
 
 export const useCalculatorTotalList = (values: CalculatorPageProps) => {
-  const formatSalary = () => convertToCurrencyFloat(values.salary);
+  const {
+    functions: {
+      formatBRL,
+      getExtraHour,
+      getUnsanitaryValue,
+      getPreviousAdvanceValue,
+      getVTRDiscountValue,
+      getValueHour,
+      getMissingDaysDiscount,
+    },
+  } = useCalcPayments();
 
-  const getValueHour = () => formatSalary() / MONTH_HOUR;
-
-  const getExtraHourPercentage = (percentage: number) =>
-    getValueHour() * values.hours * percentage;
-
-  const getUnsanitaryValue = (minimumWage: number) =>
-    minimumWage
-      ? convertToCurrencyFloat(minimumWage) * UNSANITARY_VALUE
-      : convertToCurrencyFloat(MINIMUM_WAGE) * UNSANITARY_VALUE;
-
-  const getVTRDiscountValue = () => formatSalary() * VTR_DISCOUNT_VALUE;
-
-  const getDiscountValue = () => formatSalary() / DISCOUNT_VALUE;
-
-  const getPreviousAdvanceValue = () => formatSalary() * PREVIOUS_ADVANCE_VALUE;
-
-  const getVacationValue = () => (formatSalary() / 12) * values.workedMonths;
+  const getVacationValue = () =>
+    (formatBRL(values.salary) / 12) * values.workedMonths;
 
   const getOneThirdVacationValue = () => getVacationValue() / 3;
 
   const totalListItems: Array<TitleItems> = [
     {
       title: 'Valor/hora',
-      formattedValue: convertToBRL(getValueHour()),
+      formattedValue: convertToBRL(getValueHour(values.salary)),
       show: true,
     },
     {
       title: '60%',
-      formattedValue: convertToBRL(getExtraHourPercentage(1.6)),
+      formattedValue: convertToBRL(
+        getExtraHour({
+          hours: values.hours,
+          percentage: 1.6,
+          money: values.salary,
+        }),
+      ),
       show: true,
     },
     {
       title: '100%',
-      formattedValue: convertToBRL(getExtraHourPercentage(2)),
+      formattedValue: convertToBRL(
+        getExtraHour({
+          hours: values.hours,
+          percentage: 2,
+          money: values.salary,
+        }),
+      ),
       show: true,
     },
     {
@@ -63,17 +61,17 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
     },
     {
       title: 'Desconto 6% VTR',
-      formattedValue: convertToBRL(getVTRDiscountValue()),
+      formattedValue: convertToBRL(getVTRDiscountValue(values.salary)),
       show: true,
     },
     {
       title: 'Adiantamento anterior',
-      formattedValue: convertToBRL(getPreviousAdvanceValue()),
+      formattedValue: convertToBRL(getPreviousAdvanceValue(values.salary)),
       show: true,
     },
     {
       title: 'Desconto do dia faltado',
-      formattedValue: convertToBRL(getDiscountValue()),
+      formattedValue: convertToBRL(getMissingDaysDiscount(values.salary)),
       show: true,
     },
     {
