@@ -7,6 +7,12 @@ import {
 } from './components';
 
 export function PaystubPage() {
+  const formattedRefDate = `${new Date().getFullYear()}-${(
+    new Date().getMonth() + 1
+  )
+    .toString()
+    .padStart(2, '0')}`;
+
   const [values, setValues] = React.useState<PaystubCalculatorFields>({
     name: '',
     hasUnsanitary: false,
@@ -15,12 +21,11 @@ export function PaystubPage() {
     fullExtra: false,
     hours: 0,
     salary: 0,
-    RefDate: new Date().toLocaleDateString('pt-br'),
+    RefDate: formattedRefDate,
     vtr: 0,
     missingDays: 0,
     discountedDays: 0,
   });
-  console.log(values);
   const onChangeValue = (
     key: keyof PaystubCalculatorFields,
     value: number | string,
@@ -46,8 +51,12 @@ export function PaystubPage() {
     <CeciliaPageHeader title="Holerite">
       <div className="grid grid-cols-12 gap-10">
         <div className="grid grid-cols-12 col-span-7">
-          <CeciliaTable headerType="PAGAMENTO">
-            <PaystubTableBody />
+          <CeciliaTable
+            headerType="PAGAMENTO"
+            monthRef={values.RefDate}
+            name={values.name}
+          >
+            <PaystubTableBody values={values} />
           </CeciliaTable>
         </div>
         <div className="col-span-5">
