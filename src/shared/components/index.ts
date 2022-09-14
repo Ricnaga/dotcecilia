@@ -1,5 +1,6 @@
 export * from './CeciliaButton/CeciliaButton';
 export * from './CeciliaInput/CeciliaCheckbox';
+export * from './CeciliaInput/CeciliaDate';
 export * from './CeciliaInput/CeciliaMonth';
 export * from './CeciliaInput/CeciliaNumber';
 export * from './CeciliaInput/CeciliaText';
