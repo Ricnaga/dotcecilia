@@ -19,22 +19,9 @@ export function CeciliaTable({
   headerType,
   monthRef,
 }: CeciliaTableProps) {
-  const formatDate = () => {
-    const month = monthRef
-      ? monthRef.split('-')[1]
-      : (new Date().getMonth() + 1).toString().padStart(2, '0');
-
-    const event = new Date();
-    event.setMonth(Number(month) - 1);
-    return event
-      .toLocaleDateString('pt-br', {
-        month: 'long',
-      })
-      .toUpperCase();
-  };
-
-  const formattedMonthRef = formatDate();
-  const formattedName = name || 'Nome';
+  const formattedMonthRef =
+    monthRef ||
+    new Date().toLocaleDateString('pt-br', { month: 'long' }).toUpperCase();
 
   return (
     <table className="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900">
@@ -65,7 +52,9 @@ export function CeciliaTable({
         )}
         <tr>
           <th colSpan={8}>
-            <p className="my-4 border-y border-slate-800">{formattedName}</p>
+            <p className="my-4 border-y border-slate-800">
+              {!name ? 'Nome' : name}
+            </p>
           </th>
         </tr>
       </thead>

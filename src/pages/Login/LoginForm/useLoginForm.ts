@@ -5,7 +5,7 @@ import { CALCULATOR } from '../../../application/routes/routes';
 import { ENV_PASSWORD, ENV_USER } from '../../../config';
 import { useLocalStorage } from '../../../shared/hooks/useLocalStorage';
 
-type FormikValues = { name: string; password: string };
+type FormikValues = Record<'name' | 'password', string>;
 
 export const useLoginForm = () => {
   const { saveUserData } = useLocalStorage();
