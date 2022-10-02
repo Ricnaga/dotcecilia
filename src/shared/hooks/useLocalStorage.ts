@@ -1,6 +1,6 @@
 import { ENV_USER_STORAGE_KEY } from '../../config';
 
-type UserLogin = { name: string; password: string };
+type UserLogin = Record<'name' | 'password', string>;
 
 export const useLocalStorage = () => {
   const maskData = (userData: UserLogin) =>
