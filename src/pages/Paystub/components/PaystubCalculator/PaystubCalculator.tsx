@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   CeciliaCheckbox,
-  CeciliaMonth,
+  CeciliaDate,
   CeciliaNumber,
   CeciliaText,
 } from '../../../../shared/components';
@@ -14,7 +14,8 @@ export type PaystubCalculatorFields = {
   fullExtra: boolean;
   hours: number;
   salary: number;
-  RefDate: string;
+  initialWorkdayMonth: string;
+  lastWorkdayMonth: string;
   vtr: number;
   missingDays: number;
   discountedDays: number;
@@ -106,21 +107,6 @@ export function PaystubCalculator({
           />
         </div>
         <div className="col-span-6">
-          <CeciliaMonth
-            placeholder="Ref"
-            value={values.RefDate}
-            onChange={({ target }) => onChange('RefDate', target.value)}
-          />
-        </div>
-        <div className="col-span-6">
-          <CeciliaNumber
-            currency
-            placeholder="Valor diário VTR"
-            value={values.vtr}
-            onChange={({ target }) => onChange('vtr', target.valueAsNumber)}
-          />
-        </div>
-        <div className="col-span-6">
           <CeciliaNumber
             placeholder="Dias faltados"
             value={values.missingDays}
@@ -131,10 +117,43 @@ export function PaystubCalculator({
         </div>
         <div className="col-span-6">
           <CeciliaNumber
+            currency
+            placeholder="Valor diário VTR"
+            value={values.vtr}
+            onChange={({ target }) => onChange('vtr', target.valueAsNumber)}
+          />
+        </div>
+
+        <div className="col-span-6">
+          <CeciliaNumber
             placeholder="Desconto de dias"
             value={values.discountedDays}
             onChange={({ target }) =>
               onChange('discountedDays', target.valueAsNumber)
+            }
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaDate
+            label="Primeiro dia útil"
+            value={values.initialWorkdayMonth}
+            onChange={({ target }) => {
+              onChange(
+                'initialWorkdayMonth',
+                target.value ? target.value.toString() : new Date().toString(),
+              );
+            }}
+          />
+        </div>
+        <div className="col-span-6">
+          <CeciliaDate
+            label="Último dia útil"
+            value={values.lastWorkdayMonth}
+            onChange={({ target }) =>
+              onChange(
+                'lastWorkdayMonth',
+                target.value ? target.value.toString() : new Date().toString(),
+              )
             }
           />
         </div>

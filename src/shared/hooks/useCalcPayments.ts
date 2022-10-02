@@ -7,23 +7,22 @@ const DISCOUNT_VALUE = 30; // pela lei o valor do desconto é 30 dias
 const PREVIOUS_ADVANCE_VALUE = 0.4; // pela lei o valor do adiantamento anterior é 40%
 const UNSANITARY_VALUE = 0.2; // pela lei o valor insalubridade é 20%
 
-type GetExtraHourItems = {
-  percentage: number;
-  money: number;
-  hours: number;
-};
+type GetExtraHourItems = Record<'percentage' | 'money' | 'hours', number>;
 
 export const useCalcPayments = () => {
   const formatBRL = (money: number) => convertToCurrencyFloat(money);
-  const getValueHour = (money: number) => formatBRL(money) / MONTH_HOUR;
+  const getValueHour = (money: number) => money / MONTH_HOUR;
 
-  const getExtraHour = ({ hours, percentage, money }: GetExtraHourItems) =>
-    getValueHour(money) * hours * percentage;
+  const getExtraHour = ({ hours, percentage, money }: GetExtraHourItems) => {
+    const extraHourValue = (getValueHour(money) * hours * percentage) / 100;
+    const formatToCurrencyString = extraHourValue.toFixed(2);
+    return parseFloat(formatToCurrencyString);
+  };
 
   const getUnsanitaryValue = (minimumWage: number) =>
     minimumWage
-      ? convertToCurrencyFloat(minimumWage) * UNSANITARY_VALUE
-      : convertToCurrencyFloat(MINIMUM_WAGE) * UNSANITARY_VALUE;
+      ? minimumWage * UNSANITARY_VALUE
+      : MINIMUM_WAGE * UNSANITARY_VALUE;
 
   const getPreviousAdvanceValue = (salary: number) =>
     formatBRL(salary) * PREVIOUS_ADVANCE_VALUE;

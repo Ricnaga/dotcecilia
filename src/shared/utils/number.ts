@@ -17,3 +17,6 @@ export const convertToBRL = (num: number, currency = true) => {
 
   return formattedBRL;
 };
+
+export const currencyStringToFloat = (currencyString: string) =>
+  parseFloat(currencyString);
