@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { CeciliaPageHeader, CeciliaTable } from '../../shared/components';
 import {
   PaystubCalculator,
@@ -7,7 +7,7 @@ import {
 } from './components';
 
 export function PaystubPage() {
-  const [values, setValues] = React.useState<PaystubCalculatorFields>({
+  const [values, setValues] = useState<PaystubCalculatorFields>({
     name: '',
     hasUnsanitary: false,
     unsanitary: 0,
@@ -46,7 +46,11 @@ export function PaystubPage() {
     <CeciliaPageHeader title="Holerite">
       <div className="grid grid-cols-12 gap-10">
         <div className="grid grid-cols-12 col-span-7">
-          <CeciliaTable headerType="PAGAMENTO" name={values.name}>
+          <CeciliaTable
+            headerType="PAGAMENTO"
+            name={values.name}
+            monthRef={values.initialWorkdayMonth}
+          >
             <PaystubTableBody values={values} />
           </CeciliaTable>
         </div>

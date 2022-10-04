@@ -6,11 +6,9 @@ import {
 
 type TableTypeProps = 'PAGAMENTO' | 'ADIANTAMENTO' | 'ACERTO';
 
-type CeciliaTableProps = {
+type CeciliaTableProps = Partial<Record<'name' | 'monthRef', string | null>> & {
   children: React.ReactNode;
-  name?: string;
   headerType: TableTypeProps;
-  monthRef?: string;
 };
 
 export function CeciliaTable({
@@ -19,9 +17,17 @@ export function CeciliaTable({
   headerType,
   monthRef,
 }: CeciliaTableProps) {
-  const formattedMonthRef =
-    monthRef ||
-    new Date().toLocaleDateString('pt-br', { month: 'long' }).toUpperCase();
+  const formatMonth = (unformattedDate: string) => {
+    const formatDate = new Date(unformattedDate).toLocaleDateString();
+    const [month, day, year] = formatDate.split('/');
+    return new Date(Number(year), Number(month) - 2, Number(day))
+      .toLocaleDateString('pt-br', { month: 'long' })
+      .toUpperCase();
+  };
+
+  const formattedMonthRef = monthRef
+    ? formatMonth(monthRef)
+    : new Date().toLocaleDateString('pt-br', { month: 'long' }).toUpperCase();
 
   return (
     <table className="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900">
