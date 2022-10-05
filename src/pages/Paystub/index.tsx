@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CeciliaPageHeader, CeciliaTable } from '../../shared/components';
+import { CeciliaPageHeader, CeciliaTable } from 'shared/components';
 import {
   PaystubCalculator,
   PaystubCalculatorFields,

@@ -1,4 +1,4 @@
-import { CeciliaPageHeader } from '../../shared/components';
+import { CeciliaPageHeader } from 'shared/components';
 import {
   CalculatorDiscount,
   CalculatorDiscountData,

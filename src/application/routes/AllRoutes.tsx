@@ -1,12 +1,12 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import { CeciliaNavbar } from 'shared/components';
 import {
   CalculatorPage,
   LoginPage,
   PaystubPage,
   AdvancePaymentPage,
   AgreementPage,
-} from '../../pages';
-import { CeciliaNavbar } from '../../shared/components';
+} from 'pages';
 import { useRoute } from './hooks/useRoute';
 import {
   CALCULATOR,

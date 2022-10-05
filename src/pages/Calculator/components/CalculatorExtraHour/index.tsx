@@ -1,5 +1,5 @@
 import React from 'react';
-import { CeciliaCheckbox, CeciliaNumber } from '../../../../shared/components';
+import { CeciliaCheckbox, CeciliaNumber } from 'shared/components';
 import { CalculatorDisclosure } from '../CalculatorDisclosure/CalculatorDisclosure';
 
 export type CalculatorExtraHourData = {

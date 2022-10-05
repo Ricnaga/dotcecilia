@@ -1,4 +1,4 @@
-import { CeciliaButton, CeciliaText } from '../../../shared/components';
+import { CeciliaButton, CeciliaText } from 'shared/components';
 import { useLoginForm } from './useLoginForm';
 
 export enum FormFields {

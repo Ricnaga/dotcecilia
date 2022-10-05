@@ -1,7 +1,4 @@
-import {
-  CeciliaTableCell,
-  CeciliaTableRow,
-} from '../../../../shared/components';
+import { CeciliaTableCell, CeciliaTableRow } from 'shared/components';
 
 export function AgreementTableBody() {
   return (

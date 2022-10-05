@@ -1,4 +1,4 @@
-import { CeciliaPageHeader, CeciliaTable } from '../../shared/components';
+import { CeciliaPageHeader, CeciliaTable } from 'shared/components';
 import { AdvancePaymentTableBody } from './components';
 
 export function AdvancePaymentPage() {

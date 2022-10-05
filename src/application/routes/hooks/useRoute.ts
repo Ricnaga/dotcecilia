@@ -1,5 +1,5 @@
-import { ENV_PASSWORD, ENV_USER } from '../../../config';
-import { useLocalStorage } from '../../../shared/hooks/useLocalStorage';
+import { ENV_PASSWORD, ENV_USER } from 'config';
+import { useLocalStorage } from 'shared/hooks/useLocalStorage';
 
 export const useRoute = () => {
   const { getUserData } = useLocalStorage();

@@ -1,7 +1,7 @@
+import { convertToBRL } from 'shared/utils/number';
+import { useCalcPayments } from 'shared/hooks/useCalcPayments';
 import { CalculatorPageProps } from '../../..';
-import { convertToBRL } from '../../../../../shared/utils/number';
 import { TitleItems } from '..';
-import { useCalcPayments } from '../../../../../shared/hooks/useCalcPayments';
 
 export const useCalculatorTotalList = (values: CalculatorPageProps) => {
   const {
