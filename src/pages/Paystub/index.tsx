@@ -25,22 +25,18 @@ export function PaystubPage() {
     key: keyof PaystubCalculatorFields,
     value: number | string,
   ) =>
-    value
-      ? setValues({
-          ...values,
-          [key]: value,
-        })
-      : setValues({
-          ...values,
-          [key]: 0,
-        });
+    setValues((state) =>
+      value ? { ...state, [key]: value } : { ...state, [key]: 0 },
+    );
 
   const onCheckedValue = (
     key: keyof Pick<
       PaystubCalculatorFields,
       'hasUnsanitary' | 'extraHour' | 'fullExtra'
     >,
-  ) => setValues({ ...values, [key]: !values[key] });
+  ) => setValues((state) => ({ ...state, [key]: !state[key] }));
+
+  const generateTemplate = () => console.log('generateTemplate');
 
   return (
     <CeciliaPageHeader title="Holerite">
@@ -59,6 +55,7 @@ export function PaystubPage() {
             values={values}
             onChange={onChangeValue}
             onChecked={onCheckedValue}
+            generateTemplate={generateTemplate}
           />
         </div>
       </div>

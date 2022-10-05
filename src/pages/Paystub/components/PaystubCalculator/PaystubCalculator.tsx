@@ -1,10 +1,10 @@
-import React from 'react';
 import {
+  CeciliaButton,
   CeciliaCheckbox,
   CeciliaDate,
   CeciliaNumber,
   CeciliaText,
-} from '../../../../shared/components';
+} from 'shared/components';
 
 export type PaystubCalculatorFields = {
   name: string;
@@ -32,16 +32,25 @@ type PaystubCalculatorProps = Record<'values', PaystubCalculatorFields> & {
       'hasUnsanitary' | 'extraHour' | 'fullExtra'
     >,
   ) => void;
+  generateTemplate: () => void;
 };
 
 export function PaystubCalculator({
   values,
   onChange,
   onChecked,
+  generateTemplate,
 }: PaystubCalculatorProps) {
   return (
     <>
-      <p className="text-4xl text-center font-bold mb-4">Cálculos</p>
+      <div className="grid grid-cols-12">
+        <p className="text-4xl text-left font-bold mb-4 col-span-6">Cálculos</p>
+        <CeciliaButton
+          className="col-start-8 col-end-13 mb-4"
+          title="Gerar template"
+          onClick={generateTemplate}
+        />
+      </div>
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-12">
           <CeciliaText
@@ -123,7 +132,6 @@ export function PaystubCalculator({
             onChange={({ target }) => onChange('vtr', target.valueAsNumber)}
           />
         </div>
-
         <div className="col-span-6">
           <CeciliaNumber
             placeholder="Desconto de dias"
@@ -157,6 +165,10 @@ export function PaystubCalculator({
             }
           />
         </div>
+        <CeciliaButton
+          className="col-start-9 col-end-13 mb-4"
+          title="Imprimir"
+        />
       </div>
     </>
   );
