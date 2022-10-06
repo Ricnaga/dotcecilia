@@ -32,23 +32,23 @@ type PaystubCalculatorProps = Record<'values', PaystubCalculatorFields> & {
       'hasUnsanitary' | 'extraHour' | 'fullExtra'
     >,
   ) => void;
-  generateTemplate: () => void;
+  onPrint: () => void;
 };
 
 export function PaystubCalculator({
   values,
   onChange,
   onChecked,
-  generateTemplate,
+  onPrint,
 }: PaystubCalculatorProps) {
   return (
     <>
       <div className="grid grid-cols-12">
         <p className="text-4xl text-left font-bold mb-4 col-span-6">Cálculos</p>
         <CeciliaButton
-          className="col-start-8 col-end-13 mb-4"
-          title="Gerar template"
-          onClick={generateTemplate}
+          className="col-start-9 col-end-13 mb-4"
+          title="Imprimir"
+          onClick={onPrint}
         />
       </div>
       <div className="grid grid-cols-12 gap-4">
@@ -165,10 +165,6 @@ export function PaystubCalculator({
             }
           />
         </div>
-        <CeciliaButton
-          className="col-start-9 col-end-13 mb-4"
-          title="Imprimir"
-        />
       </div>
     </>
   );

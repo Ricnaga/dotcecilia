@@ -35,7 +35,7 @@ export function PaystubTableBody({ values }: PaystubTableBodyProps) {
         <CeciliaTableCell className="text-center">
           {formattedValues.salary}
         </CeciliaTableCell>
-        <CeciliaTableCell colSpan={2} />
+        <CeciliaTableCell colSpan={2} className="border-b" />
       </CeciliaTableRow>
       {formattedHours.extraHour && (
         <CeciliaTableRow>
@@ -73,19 +73,20 @@ export function PaystubTableBody({ values }: PaystubTableBodyProps) {
           <CeciliaTableCell colSpan={2} />
         </CeciliaTableRow>
       )}
-      <CeciliaTableRow>
+      <CeciliaTableRow className="border">
         <CeciliaTableCell colSpan={2}>
           Vtr - {formattedVtr.dateRange}
         </CeciliaTableCell>
-        <CeciliaTableCell className="text-center ">
+        <CeciliaTableCell className="text-center">
           {formattedVtr.vtr}
         </CeciliaTableCell>
-        <CeciliaTableCell className="text-center ">
+        <CeciliaTableCell className="text-center">
           {formattedVtr.vtrRef}
         </CeciliaTableCell>
-        <CeciliaTableCell className="text-center ">
+        <CeciliaTableCell className="text-center">
           {formattedVtr.vtrMonthValue}
         </CeciliaTableCell>
+        <CeciliaTableCell colSpan={2} className="border-r" />
       </CeciliaTableRow>
       <CeciliaTableRow>
         <CeciliaTableCell colSpan={3}>Falta dia</CeciliaTableCell>

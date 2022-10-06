@@ -1,47 +1,16 @@
-import { useState } from 'react';
 import { CeciliaPageHeader, CeciliaTable } from 'shared/components';
-import {
-  PaystubCalculator,
-  PaystubCalculatorFields,
-  PaystubTableBody,
-} from './components';
+import { PaystubCalculator, PaystubTableBody } from './components';
+import { usePaystub } from './hooks/usePaystub';
 
 export function PaystubPage() {
-  const [values, setValues] = useState<PaystubCalculatorFields>({
-    name: '',
-    hasUnsanitary: false,
-    unsanitary: 0,
-    extraHour: false,
-    fullExtra: false,
-    hours: 0,
-    salary: 0,
-    initialWorkdayMonth: new Date().toString(),
-    lastWorkdayMonth: new Date().toString(),
-    vtr: 0,
-    missingDays: 0,
-    discountedDays: 0,
-  });
-  const onChangeValue = (
-    key: keyof PaystubCalculatorFields,
-    value: number | string,
-  ) =>
-    setValues((state) =>
-      value ? { ...state, [key]: value } : { ...state, [key]: 0 },
-    );
-
-  const onCheckedValue = (
-    key: keyof Pick<
-      PaystubCalculatorFields,
-      'hasUnsanitary' | 'extraHour' | 'fullExtra'
-    >,
-  ) => setValues((state) => ({ ...state, [key]: !state[key] }));
-
-  const generateTemplate = () => console.log('generateTemplate');
-
+  const {
+    data: { tableRef, values },
+    functions: { handlePrint, onChangeValue, onCheckedValue },
+  } = usePaystub();
   return (
     <CeciliaPageHeader title="Holerite">
       <div className="grid grid-cols-12 gap-10">
-        <div className="grid grid-cols-12 col-span-7">
+        <div className="grid grid-cols-12 col-span-7" ref={tableRef}>
           <CeciliaTable
             headerType="PAGAMENTO"
             name={values.name}
@@ -52,10 +21,10 @@ export function PaystubPage() {
         </div>
         <div className="col-span-5">
           <PaystubCalculator
+            onPrint={handlePrint}
             values={values}
             onChange={onChangeValue}
             onChecked={onCheckedValue}
-            generateTemplate={generateTemplate}
           />
         </div>
       </div>
