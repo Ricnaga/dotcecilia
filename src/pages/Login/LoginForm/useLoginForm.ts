@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { CALCULATOR } from 'application/routes/routes';
-import { ENV_PASSWORD, ENV_USER } from 'config';
-import { useLocalStorage } from 'shared/hooks/useLocalStorage';
+import { CALCULATOR } from '@application/routes/routes';
+import { ENV_PASSWORD, ENV_USER } from '@config';
+import { useLocalStorage } from '@shared/hooks/useLocalStorage';
 import { FormFields } from '.';
 
 type FormikValues = Record<'name' | 'password', string>;
@@ -16,7 +16,7 @@ export const useLoginForm = () => {
   };
 
   const validateCredentials = (values: FormikValues) =>
-    [ENV_USER].includes(values.name) &&
+    [ENV_USER].includes(values.name.toLowerCase()) &&
     [ENV_PASSWORD].includes(values.password);
 
   const onSubmit = (values: FormikValues) => {

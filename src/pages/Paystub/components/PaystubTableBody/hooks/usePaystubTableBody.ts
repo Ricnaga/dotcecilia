@@ -1,6 +1,6 @@
-import { useCalcPayments } from 'shared/hooks/useCalcPayments';
-import { getWorkDaysInMonth } from 'shared/utils/date';
-import { convertToBRL } from 'shared/utils/number';
+import { useCalcPayments } from '@shared/hooks/useCalcPayments';
+import { getWorkDaysInMonth } from '@shared/utils/date';
+import { convertToBRL } from '@shared/utils/number';
 import { PaystubTableBodyItems } from '../PaystubTableBody';
 
 type UsePaystubTableBodyProps = Record<'values', PaystubTableBodyItems>;

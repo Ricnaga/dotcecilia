@@ -1,4 +1,4 @@
-import { ENV_USER_STORAGE_KEY } from '../../config';
+import { ENV_USER_STORAGE_KEY } from '@config';
 
 type UserLogin = Record<'name' | 'password', string>;
 

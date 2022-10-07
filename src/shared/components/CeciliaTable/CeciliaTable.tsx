@@ -2,7 +2,7 @@ import {
   ENV_COMPANY_ADDRESS,
   ENV_COMPANY_CPNJ,
   ENV_COMPANY_NAME,
-} from '../../../config';
+} from '@config';
 
 type TableTypeProps = 'PAGAMENTO' | 'ADIANTAMENTO' | 'ACERTO';
 

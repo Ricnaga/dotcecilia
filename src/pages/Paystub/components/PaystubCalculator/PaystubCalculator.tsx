@@ -4,7 +4,7 @@ import {
   CeciliaDate,
   CeciliaNumber,
   CeciliaText,
-} from 'shared/components';
+} from '@shared/components';
 
 export type PaystubCalculatorFields = {
   name: string;

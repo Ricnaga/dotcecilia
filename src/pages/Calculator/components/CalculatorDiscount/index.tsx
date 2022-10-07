@@ -1,4 +1,4 @@
-import { CeciliaNumber } from 'shared/components';
+import { CeciliaNumber } from '@shared/components';
 import { CalculatorDisclosure } from '../CalculatorDisclosure/CalculatorDisclosure';
 
 export type CalculatorDiscountData = {

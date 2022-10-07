@@ -1,4 +1,4 @@
-import { CeciliaPageHeader, CeciliaTable } from 'shared/components';
+import { CeciliaPageHeader, CeciliaTable } from '@shared/components';
 import { PaystubCalculator, PaystubTableBody } from './components';
 import { usePaystub } from './hooks/usePaystub';
 

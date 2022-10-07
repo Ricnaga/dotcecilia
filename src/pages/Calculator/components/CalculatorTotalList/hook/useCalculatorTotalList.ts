@@ -1,5 +1,5 @@
-import { convertToBRL } from 'shared/utils/number';
-import { useCalcPayments } from 'shared/hooks/useCalcPayments';
+import { convertToBRL } from '@shared/utils/number';
+import { useCalcPayments } from '@shared/hooks/useCalcPayments';
 import { CalculatorPageProps } from '../../..';
 import { TitleItems } from '..';
 

@@ -1,4 +1,4 @@
-import { CeciliaTableCell, CeciliaTableRow } from 'shared/components';
+import { CeciliaTableCell, CeciliaTableRow } from '@shared/components';
 import { PaystubCalculatorFields } from '../PaystubCalculator/PaystubCalculator';
 import { usePaystubTableBody } from './hooks/usePaystubTableBody';
 

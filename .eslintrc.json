@@ -59,7 +59,9 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "alwaysTryTypes": true
+      }
     },
     "react": {
       "version": "detect"
