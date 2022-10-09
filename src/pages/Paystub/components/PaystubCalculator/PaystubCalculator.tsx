@@ -1,7 +1,7 @@
 import {
-  CeciliaButton,
   CeciliaCheckbox,
   CeciliaDate,
+  CeciliaHeaderPrint,
   CeciliaNumber,
   CeciliaText,
 } from '@shared/components';
@@ -43,14 +43,7 @@ export function PaystubCalculator({
 }: PaystubCalculatorProps) {
   return (
     <>
-      <div className="grid grid-cols-12">
-        <p className="text-4xl text-left font-bold mb-4 col-span-6">Cálculos</p>
-        <CeciliaButton
-          className="col-start-9 col-end-13 mb-4"
-          title="Imprimir"
-          onClick={onPrint}
-        />
-      </div>
+      <CeciliaHeaderPrint onPrint={onPrint} />
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-12">
           <CeciliaText
