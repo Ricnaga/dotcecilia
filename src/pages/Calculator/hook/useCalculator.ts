@@ -13,19 +13,14 @@ export const useCalculator = () => {
   });
 
   const onChangeValue = (key: keyof CalculatorPageProps, value: number) =>
-    value
-      ? setValues({
-          ...values,
-          [key]: value,
-        })
-      : setValues({
-          ...values,
-          [key]: 0,
-        });
+    setValues((state) =>
+      value ? { ...state, [key]: value } : { ...state, [key]: 0 },
+    );
 
   const onCheckedValue = (
     key: keyof Pick<CalculatorPageProps, 'unsanitary' | 'agreement'>,
-  ) => setValues({ ...values, [key]: !values[key] });
+  ) => setValues((state) => ({ ...state, [key]: !state[key] }));
+
   return {
     data: { values },
     functions: { onChangeValue, onCheckedValue },

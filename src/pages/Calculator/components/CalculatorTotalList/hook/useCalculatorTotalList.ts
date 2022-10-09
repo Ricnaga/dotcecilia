@@ -51,7 +51,9 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
     },
     {
       title: 'Insalubridade',
-      formattedValue: convertToBRL(getUnsanitaryValue(values.minimumWage)),
+      formattedValue: convertToBRL(
+        formatBRL(getUnsanitaryValue(values.minimumWage)),
+      ),
       show: values.unsanitary,
     },
     {

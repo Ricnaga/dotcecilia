@@ -7,11 +7,11 @@ export const useAdvancePaymentTableBody = ({
   salary,
 }: UseAdvancePaymentTableBodyProps) => {
   const {
-    functions: { formatBRL },
+    functions: { formatBRL, getPreviousAdvanceValue },
   } = useCalcPayments();
 
   const baseSalary = convertToBRL(formatBRL(salary), false);
-  const valueToPay = convertToBRL(formatBRL(salary * 0.4), false);
+  const valueToPay = convertToBRL(getPreviousAdvanceValue(salary), false);
 
   return {
     data: { baseSalary, valueToPay },

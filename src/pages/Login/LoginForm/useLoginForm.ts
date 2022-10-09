@@ -5,12 +5,13 @@ import { ENV_PASSWORD, ENV_USER } from '@config';
 import { useLocalStorage } from '@shared/hooks/useLocalStorage';
 import { FormFields } from '.';
 
-type FormikValues = Record<'name' | 'password', string>;
+type FormikValues = Record<keyof typeof FormFields, string>;
 
 export const useLoginForm = () => {
   const { saveUserData } = useLocalStorage();
   const navigate = useNavigate();
-  const initialValues = {
+
+  const initialValues: FormikValues = {
     [FormFields.name]: '',
     [FormFields.password]: '',
   };
