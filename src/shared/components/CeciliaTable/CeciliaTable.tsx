@@ -3,13 +3,13 @@ import {
   ENV_COMPANY_CPNJ,
   ENV_COMPANY_NAME,
 } from '@config';
+import { useCeciliaTable } from './hooks/useCeciliaTable';
 
-type TableTypeProps = 'PAGAMENTO' | 'ADIANTAMENTO' | 'ACERTO';
-
-type CeciliaTableProps = Partial<Record<'name' | 'monthRef', string | null>> & {
-  children: React.ReactNode;
-  headerType: TableTypeProps;
-};
+type CeciliaTableProps = Partial<Record<'name' | 'monthRef', string | null>> &
+  Partial<Record<'startDate' | 'endDate', string>> & {
+    children: React.ReactNode;
+    headerType: 'PAGAMENTO' | 'ADIANTAMENTO' | 'ACERTO';
+  };
 
 export function CeciliaTable({
   children,
@@ -17,17 +17,9 @@ export function CeciliaTable({
   headerType,
   monthRef,
 }: CeciliaTableProps) {
-  const formatMonth = (unformattedDate: string) => {
-    const formatDate = new Date(unformattedDate).toLocaleDateString();
-    const [month, day, year] = formatDate.split('/');
-    return new Date(Number(year), Number(month) - 2, Number(day))
-      .toLocaleDateString('pt-br', { month: 'long' })
-      .toUpperCase();
-  };
-
-  const formattedMonthRef = monthRef
-    ? formatMonth(monthRef)
-    : new Date().toLocaleDateString('pt-br', { month: 'long' }).toUpperCase();
+  const {
+    data: { formattedMonthRef },
+  } = useCeciliaTable({ monthRef });
 
   return (
     <table className="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900">
@@ -42,7 +34,9 @@ export function CeciliaTable({
           <th colSpan={6} className="text-right">
             {ENV_COMPANY_ADDRESS}
           </th>
-          <th colSpan={2}>{`Ref. ${formattedMonthRef}`}</th>
+          {headerType !== 'ACERTO' && (
+            <th colSpan={2}>{`Ref. ${formattedMonthRef}`}</th>
+          )}
         </tr>
         <tr>
           <th colSpan={8}>CNPJ: {ENV_COMPANY_CPNJ}</th>

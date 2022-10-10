@@ -5,7 +5,6 @@ export const getWorkDaysInMonth = ({ day, month, year }: WorkDaysInMonthType) =>
     .fill(Math.round(Math.random()))
     .reduce((accumulator, __, index) => {
       const weekDay = new Date(year, month - 1, index + 1).getDay();
-      if (weekDay !== 0 && weekDay !== 6) return accumulator + 1;
 
-      return accumulator;
+      return weekDay !== 0 && weekDay !== 6 ? accumulator + 1 : accumulator;
     }, 0);
