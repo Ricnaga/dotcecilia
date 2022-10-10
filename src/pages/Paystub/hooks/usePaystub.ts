@@ -1,13 +1,17 @@
-import { useRef, useState } from 'react';
-import { useReactToPrint } from 'react-to-print';
+import { useInputFields } from '@shared/hooks/useInputFields';
+import { useReactPrint } from '@shared/hooks/useReactPrint';
 import { PaystubCalculatorFields } from '../components/PaystubCalculator/PaystubCalculator';
 
 export const usePaystub = () => {
-  const tableRef = useRef<HTMLTableElement>(null);
-  const handlePrint = useReactToPrint({
-    content: () => tableRef.current,
-  });
-  const [values, setValues] = useState<PaystubCalculatorFields>({
+  const {
+    data: { printRef },
+    functions: { setPrint },
+  } = useReactPrint();
+
+  const {
+    data: { values },
+    functions: { onChangeValue, onCheckedValue },
+  } = useInputFields<PaystubCalculatorFields>({
     name: '',
     hasUnsanitary: false,
     unsanitary: 0,
@@ -21,23 +25,9 @@ export const usePaystub = () => {
     missingDays: 0,
     discountedDays: 0,
   });
-  const onChangeValue = (
-    key: keyof PaystubCalculatorFields,
-    value: number | string,
-  ) =>
-    setValues((state) =>
-      value ? { ...state, [key]: value } : { ...state, [key]: 0 },
-    );
-
-  const onCheckedValue = (
-    key: keyof Pick<
-      PaystubCalculatorFields,
-      'hasUnsanitary' | 'extraHour' | 'fullExtra'
-    >,
-  ) => setValues((state) => ({ ...state, [key]: !state[key] }));
 
   return {
-    data: { tableRef, values },
-    functions: { handlePrint, onChangeValue, onCheckedValue },
+    data: { printRef, values },
+    functions: { setPrint, onChangeValue, onCheckedValue },
   };
 };

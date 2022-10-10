@@ -1,6 +1,6 @@
 import { CeciliaPageHeader, CeciliaTable } from '@shared/components';
+import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
-import { useState } from 'react';
 import {
   AdvancePaymentTableBody,
   AdvancePaymentCalculator,
@@ -13,19 +13,14 @@ export function AdvancePaymentPage() {
     functions: { setPrint },
   } = useReactPrint();
 
-  const [values, setValues] = useState<AdvancePaymentCalculatorFields>({
+  const {
+    data: { values },
+    functions: { onChangeValue },
+  } = useInputFields<AdvancePaymentCalculatorFields>({
     name: '',
     salary: 0,
     refDate: new Date().toString(),
   });
-
-  const onChangeValue = (
-    key: keyof AdvancePaymentCalculatorFields,
-    value: number | string,
-  ) =>
-    setValues((state) =>
-      value ? { ...state, [key]: value } : { ...state, [key]: 0 },
-    );
 
   return (
     <CeciliaPageHeader title="Vale adiantamento">

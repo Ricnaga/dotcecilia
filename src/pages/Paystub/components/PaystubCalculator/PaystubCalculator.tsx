@@ -5,6 +5,7 @@ import {
   CeciliaNumber,
   CeciliaText,
 } from '@shared/components';
+import { CalculatorType } from '@shared/utils/types';
 
 export type PaystubCalculatorFields = {
   name: string;
@@ -21,19 +22,7 @@ export type PaystubCalculatorFields = {
   discountedDays: number;
 };
 
-type PaystubCalculatorProps = Record<'values', PaystubCalculatorFields> & {
-  onChange: (
-    key: keyof PaystubCalculatorFields,
-    value: number | string,
-  ) => void;
-  onChecked: (
-    key: keyof Pick<
-      PaystubCalculatorFields,
-      'hasUnsanitary' | 'extraHour' | 'fullExtra'
-    >,
-  ) => void;
-  onPrint: () => void;
-};
+type PaystubCalculatorProps = CalculatorType<PaystubCalculatorFields>;
 
 export function PaystubCalculator({
   values,
@@ -56,7 +45,7 @@ export function PaystubCalculator({
           <CeciliaCheckbox
             label="Insalubridade ?"
             checked={values.hasUnsanitary}
-            onChecked={() => onChecked('hasUnsanitary')}
+            onChecked={() => onChecked && onChecked('hasUnsanitary')}
           />
           {values.hasUnsanitary && (
             <div className="mt-3">
@@ -76,7 +65,7 @@ export function PaystubCalculator({
             <CeciliaCheckbox
               label="HE?"
               checked={values.extraHour}
-              onChecked={() => onChecked('extraHour')}
+              onChecked={() => onChecked && onChecked('extraHour')}
             />
           </div>
           {values.extraHour && (
@@ -85,7 +74,7 @@ export function PaystubCalculator({
                 <CeciliaCheckbox
                   label="100% ?"
                   checked={values.fullExtra}
-                  onChecked={() => onChecked('fullExtra')}
+                  onChecked={() => onChecked && onChecked('fullExtra')}
                 />
               </div>
               <div className="mt-3 col-span-12">

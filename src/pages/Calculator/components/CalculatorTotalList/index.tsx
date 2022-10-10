@@ -7,18 +7,18 @@ type CalculatorTotalListProps = {
 };
 
 const listTitle = {
-  'Valor/hora': 'Valor/hora',
-  '60%': '60%',
-  '100%': '100%',
-  Insalubridade: 'Insalubridade',
-  Transporte: 'Transporte',
-  'Dias faltados': 'Dias faltados',
-  'Desconto 6% VTR': 'Desconto 6% VTR',
-  'Adiantamento anterior': 'Adiantamento anterior',
-  'Desconto do dia faltado': 'Desconto do dia faltado',
-  Férias: 'Férias',
-  '13º': '13º',
-  'Férias - 1/3': 'Férias - 1/3',
+  valorHora: 'Valor/hora',
+  extra60: '60%',
+  extra100: '100%',
+  insalubridade: 'Insalubridade',
+  transporte: 'Transporte',
+  diasFaltados: 'Dias faltados',
+  descontoVTR6: 'Desconto 6% VTR',
+  adiantamentoAnterior: 'Adiantamento anterior',
+  descontoDiaFaltado: 'Desconto do dia faltado',
+  ferias: 'Férias',
+  decimoTerceiro: '13º',
+  ferias1_3: 'Férias - 1/3',
 };
 
 type TitleKeys = keyof typeof listTitle;
@@ -44,7 +44,9 @@ export function CalculatorTotalList({ values }: CalculatorTotalListProps) {
               key={title}
               className="border-b border-slate-900 grid grid-cols-2 items-center"
             >
-              <p className="text-xl leading-10 text-left">{title}:</p>
+              <p className="text-xl leading-10 text-left">
+                {listTitle[title]}:
+              </p>
               <p className="text-xl leading-10 text-right">{formattedValue}</p>
             </div>
           ),

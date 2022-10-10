@@ -23,12 +23,12 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
 
   const totalListItems: Array<TitleItems> = [
     {
-      title: 'Valor/hora',
+      title: 'valorHora',
       formattedValue: convertToBRL(getValueHour(values.salary)),
       show: true,
     },
     {
-      title: '60%',
+      title: 'extra60',
       formattedValue: convertToBRL(
         getExtraHour({
           hours: values.hours,
@@ -39,7 +39,7 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
       show: true,
     },
     {
-      title: '100%',
+      title: 'extra100',
       formattedValue: convertToBRL(
         getExtraHour({
           hours: values.hours,
@@ -50,44 +50,44 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
       show: true,
     },
     {
-      title: 'Insalubridade',
+      title: 'insalubridade',
       formattedValue: convertToBRL(
         formatBRL(getUnsanitaryValue(values.minimumWage)),
       ),
       show: values.unsanitary,
     },
     {
-      title: 'Dias faltados',
+      title: 'diasFaltados',
       formattedValue: values.missingDays,
       show: true,
     },
     {
-      title: 'Desconto 6% VTR',
+      title: 'descontoVTR6',
       formattedValue: convertToBRL(getVTRDiscountValue(values.salary)),
       show: true,
     },
     {
-      title: 'Adiantamento anterior',
+      title: 'adiantamentoAnterior',
       formattedValue: convertToBRL(getPreviousAdvanceValue(values.salary)),
       show: true,
     },
     {
-      title: 'Desconto do dia faltado',
+      title: 'descontoDiaFaltado',
       formattedValue: convertToBRL(getMissingDaysDiscount(values.salary)),
       show: true,
     },
     {
-      title: 'Férias',
+      title: 'ferias',
       formattedValue: convertToBRL(getVacationValue()),
       show: values.agreement,
     },
     {
-      title: '13º',
+      title: 'decimoTerceiro',
       formattedValue: convertToBRL(getVacationValue()),
       show: values.agreement,
     },
     {
-      title: 'Férias - 1/3',
+      title: 'ferias1_3',
       formattedValue: convertToBRL(getOneThirdVacationValue()),
       show: values.agreement,
     },

@@ -4,6 +4,7 @@ import {
   CeciliaNumber,
   CeciliaText,
 } from '@shared/components';
+import { CalculatorType } from '@shared/utils/types';
 
 export type AdvancePaymentCalculatorFields = {
   name: string;
@@ -11,16 +12,8 @@ export type AdvancePaymentCalculatorFields = {
   refDate: string;
 };
 
-type AdvancePaymentCalculatorProps = Record<
-  'values',
-  AdvancePaymentCalculatorFields
-> & {
-  onChange: (
-    key: keyof AdvancePaymentCalculatorFields,
-    value: number | string,
-  ) => void;
-  onPrint: () => void;
-};
+type AdvancePaymentCalculatorProps =
+  CalculatorType<AdvancePaymentCalculatorFields>;
 
 export function AdvancePaymentCalculator({
   values,
