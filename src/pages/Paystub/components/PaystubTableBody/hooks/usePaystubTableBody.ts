@@ -46,20 +46,12 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
   const validateUnsanitary = () =>
     values.hasUnsanitary ? getUnsanitaryValue(values.unsanitary) : 0;
 
-  const validateExtra = () =>
+  const validateExtra = (percentage: number, extraHour: boolean) =>
     extraHour
       ? getExtraHour({
           hours: values.hours,
           money: values.salary,
-          percentage: 1.6,
-        })
-      : 0;
-  const validateFullExtra = () =>
-    fullExtra
-      ? getExtraHour({
-          hours: values.hours,
-          money: values.salary,
-          percentage: 2,
+          percentage,
         })
       : 0;
 
@@ -67,8 +59,8 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
     formatBRL(values.salary) +
     formatBRL(getVtrMonthValue()) +
     formatBRL(validateUnsanitary()) +
-    validateExtra() +
-    validateFullExtra();
+    validateExtra(1.6, extraHour) +
+    validateExtra(2, fullExtra);
 
   const getTotalDiscount = () =>
     formatBRL(getTotalMissingDays()) +
