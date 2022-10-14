@@ -16,10 +16,16 @@ export function CeciliaTable({
   name,
   headerType,
   monthRef,
+  startDate,
+  endDate,
 }: CeciliaTableProps) {
   const {
-    data: { formattedMonthRef },
-  } = useCeciliaTable({ monthRef });
+    data: { formattedMonthRef, dateDifference },
+  } = useCeciliaTable({
+    monthRef,
+    endDate: endDate ? new Date(endDate) : new Date(),
+    startDate: startDate ? new Date(startDate) : new Date(),
+  });
 
   return (
     <table className="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900">
@@ -45,7 +51,7 @@ export function CeciliaTable({
           <tr>
             <th colSpan={8}>
               <p className="mt-4 border-y border-slate-800 bg-yellow-100">
-                ACERTO:
+                ACERTO: {dateDifference}
               </p>
             </th>
           </tr>
