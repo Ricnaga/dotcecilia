@@ -13,13 +13,10 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
       getVTRDiscountValue,
       getValueHour,
       getMissingDaysDiscount,
+      getOneThirdVacationValue,
+      getVacationValue,
     },
   } = useCalcPayments();
-
-  const getVacationValue = () =>
-    (formatBRL(values.salary) / 12) * values.workedMonths;
-
-  const getOneThirdVacationValue = () => getVacationValue() / 3;
 
   const totalListItems: Array<TitleItems> = [
     {
@@ -78,17 +75,23 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
     },
     {
       title: 'ferias',
-      formattedValue: convertToBRL(getVacationValue()),
+      formattedValue: convertToBRL(
+        getVacationValue(values.salary, values.workedMonths),
+      ),
       show: values.agreement,
     },
     {
       title: 'decimoTerceiro',
-      formattedValue: convertToBRL(getVacationValue()),
+      formattedValue: convertToBRL(
+        getVacationValue(values.salary, values.workedMonths),
+      ),
       show: values.agreement,
     },
     {
       title: 'ferias1_3',
-      formattedValue: convertToBRL(getOneThirdVacationValue()),
+      formattedValue: convertToBRL(
+        getOneThirdVacationValue(values.salary, values.workedMonths),
+      ),
       show: values.agreement,
     },
   ];

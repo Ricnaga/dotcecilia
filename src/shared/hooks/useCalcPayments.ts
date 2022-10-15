@@ -33,6 +33,12 @@ export const useCalcPayments = () => {
   const getMissingDaysDiscount = (salary: number) =>
     formatBRL(salary) / DISCOUNT_VALUE;
 
+  const getVacationValue = (salary: number, workedMonths: number) =>
+    (formatBRL(salary) / 12) * workedMonths;
+
+  const getOneThirdVacationValue = (salary: number, workedMonths: number) =>
+    getVacationValue(salary, workedMonths) / 3;
+
   return {
     functions: {
       formatBRL,
@@ -42,6 +48,8 @@ export const useCalcPayments = () => {
       getPreviousAdvanceValue,
       getVTRDiscountValue,
       getMissingDaysDiscount,
+      getVacationValue,
+      getOneThirdVacationValue,
     },
   };
 };
