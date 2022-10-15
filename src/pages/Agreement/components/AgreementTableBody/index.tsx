@@ -10,14 +10,6 @@ export const agreementValues = {
   oneThirdVcation: '1/3 - Férias',
 };
 
-type TitleKeys = keyof typeof agreementValues;
-
-export type TitleItems = {
-  title: TitleKeys;
-  value: string;
-  discount?: string;
-};
-
 export function AgreementTableBody({ values }: AgreementTableBodyProps) {
   const {
     data: { formattedValues, salary, totalToPay, total },

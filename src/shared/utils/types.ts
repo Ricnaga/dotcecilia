@@ -7,3 +7,10 @@ export type CalculatorType<T extends object> = Record<'values', T> & {
   onChecked?: (key: OnlyBooleanKeys<T>) => void;
   onPrint: () => void;
 };
+
+export type TitleItems<T, ExtraValue extends object = object> = Array<
+  {
+    title: keyof T;
+    value: string | number;
+  } & Partial<ExtraValue>
+>;

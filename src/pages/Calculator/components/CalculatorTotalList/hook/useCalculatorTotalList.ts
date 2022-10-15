@@ -1,7 +1,8 @@
 import { convertToBRL } from '@shared/utils/number';
 import { useCalcPayments } from '@shared/hooks/useCalcPayments';
+import { TitleItems } from '@shared/utils/types';
 import { CalculatorPageProps } from '../../..';
-import { TitleItems } from '..';
+import { listTitle } from '..';
 
 export const useCalculatorTotalList = (values: CalculatorPageProps) => {
   const {
@@ -18,15 +19,15 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
     },
   } = useCalcPayments();
 
-  const totalListItems: Array<TitleItems> = [
+  const totalListItems: TitleItems<typeof listTitle, { show: boolean }> = [
     {
       title: 'valorHora',
-      formattedValue: convertToBRL(getValueHour(values.salary)),
+      value: convertToBRL(getValueHour(values.salary)),
       show: true,
     },
     {
       title: 'extra60',
-      formattedValue: convertToBRL(
+      value: convertToBRL(
         getExtraHour({
           hours: values.hours,
           percentage: 1.6,
@@ -37,7 +38,7 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
     },
     {
       title: 'extra100',
-      formattedValue: convertToBRL(
+      value: convertToBRL(
         getExtraHour({
           hours: values.hours,
           percentage: 2,
@@ -48,48 +49,42 @@ export const useCalculatorTotalList = (values: CalculatorPageProps) => {
     },
     {
       title: 'insalubridade',
-      formattedValue: convertToBRL(
-        formatBRL(getUnsanitaryValue(values.minimumWage)),
-      ),
+      value: convertToBRL(formatBRL(getUnsanitaryValue(values.minimumWage))),
       show: values.unsanitary,
     },
     {
       title: 'diasFaltados',
-      formattedValue: values.missingDays,
+      value: values.missingDays,
       show: true,
     },
     {
       title: 'descontoVTR6',
-      formattedValue: convertToBRL(getVTRDiscountValue(values.salary)),
+      value: convertToBRL(getVTRDiscountValue(values.salary)),
       show: true,
     },
     {
       title: 'adiantamentoAnterior',
-      formattedValue: convertToBRL(getPreviousAdvanceValue(values.salary)),
+      value: convertToBRL(getPreviousAdvanceValue(values.salary)),
       show: true,
     },
     {
       title: 'descontoDiaFaltado',
-      formattedValue: convertToBRL(getMissingDaysDiscount(values.salary)),
+      value: convertToBRL(getMissingDaysDiscount(values.salary)),
       show: true,
     },
     {
       title: 'ferias',
-      formattedValue: convertToBRL(
-        getVacationValue(values.salary, values.workedMonths),
-      ),
+      value: convertToBRL(getVacationValue(values.salary, values.workedMonths)),
       show: values.agreement,
     },
     {
       title: 'decimoTerceiro',
-      formattedValue: convertToBRL(
-        getVacationValue(values.salary, values.workedMonths),
-      ),
+      value: convertToBRL(getVacationValue(values.salary, values.workedMonths)),
       show: values.agreement,
     },
     {
       title: 'ferias1_3',
-      formattedValue: convertToBRL(
+      value: convertToBRL(
         getOneThirdVacationValue(values.salary, values.workedMonths),
       ),
       show: values.agreement,

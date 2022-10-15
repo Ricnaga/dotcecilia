@@ -1,7 +1,8 @@
 import { useCalcPayments } from '@shared/hooks/useCalcPayments';
 import { getMonthsDifference } from '@shared/utils/date';
 import { convertToBRL } from '@shared/utils/number';
-import { TitleItems } from '..';
+import { TitleItems } from '@shared/utils/types';
+import { agreementValues } from '..';
 import { AgreementCalculatorFields } from '../../AgreementCalculator';
 
 type UseAgreementTableBodyProps = Record<'values', AgreementCalculatorFields>;
@@ -12,6 +13,7 @@ export const useAgreementTableBody = ({
   const {
     functions: { getVacationValue, getOneThirdVacationValue, formatBRL },
   } = useCalcPayments();
+
   const vacationOrThirteenth = getVacationValue(
     values.salary,
     parseInt(
@@ -20,7 +22,10 @@ export const useAgreementTableBody = ({
     ),
   );
 
-  const formattedValues: Array<TitleItems> = [
+  const formattedValues: TitleItems<
+    typeof agreementValues,
+    { discount: string }
+  > = [
     {
       title: 'thirteenth',
       value: convertToBRL(vacationOrThirteenth, false),

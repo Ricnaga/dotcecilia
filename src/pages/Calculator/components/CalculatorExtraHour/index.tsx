@@ -1,4 +1,5 @@
 import { CeciliaCheckbox, CeciliaNumber } from '@shared/components';
+import { OnlyBooleanKeys } from '@shared/utils/types';
 import { CalculatorDisclosure } from '../CalculatorDisclosure/CalculatorDisclosure';
 
 export type CalculatorExtraHourData = {
@@ -15,9 +16,7 @@ type CalculatorExtraHourProps = {
     key: keyof CalculatorExtraHourData,
     value: number,
   ) => void;
-  onCheckedExtraHour: (
-    key: keyof Pick<CalculatorExtraHourData, 'unsanitary' | 'agreement'>,
-  ) => void;
+  onCheckedExtraHour: (key: OnlyBooleanKeys<CalculatorExtraHourData>) => void;
   extraHour: CalculatorExtraHourData;
 };
 

@@ -6,7 +6,7 @@ type CalculatorTotalListProps = {
   values: CalculatorPageProps;
 };
 
-const listTitle = {
+export const listTitle = {
   valorHora: 'Valor/hora',
   extra60: '60%',
   extra100: '100%',
@@ -21,14 +21,6 @@ const listTitle = {
   ferias1_3: 'Férias - 1/3',
 };
 
-type TitleKeys = keyof typeof listTitle;
-
-export type TitleItems = {
-  title: TitleKeys;
-  formattedValue: string | number;
-  show: boolean;
-};
-
 export function CalculatorTotalList({ values }: CalculatorTotalListProps) {
   const {
     data: { totalListItems },
@@ -38,7 +30,7 @@ export function CalculatorTotalList({ values }: CalculatorTotalListProps) {
     <>
       <p className="text-4xl text-center font-bold mb-4">Total</p>
       {totalListItems.map(
-        ({ title, formattedValue, show }) =>
+        ({ title, value, show }) =>
           show && (
             <div
               key={title}
@@ -47,7 +39,7 @@ export function CalculatorTotalList({ values }: CalculatorTotalListProps) {
               <p className="text-xl leading-10 text-left">
                 {listTitle[title]}:
               </p>
-              <p className="text-xl leading-10 text-right">{formattedValue}</p>
+              <p className="text-xl leading-10 text-right">{value}</p>
             </div>
           ),
       )}
