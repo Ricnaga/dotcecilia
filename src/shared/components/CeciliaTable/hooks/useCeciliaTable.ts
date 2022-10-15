@@ -1,3 +1,5 @@
+import { getMonthsDifference } from '@shared/utils/date';
+
 type GetMonthDifferenceType = Record<'startDate' | 'endDate', Date>;
 
 type UseCeciliaTableProps = GetMonthDifferenceType & {
@@ -21,32 +23,17 @@ export const useCeciliaTable = ({
     ? formatMonth(monthRef)
     : new Date().toLocaleDateString('pt-br', { month: 'long' }).toUpperCase();
 
-  const getMonthDifference = () => {
+  const getDateDifference = () => {
     const formatStartDate = startDate.toLocaleDateString('pt-br');
     const formatEndtDate = endDate.toLocaleDateString('pt-br');
 
-    const countDays =
-      (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24);
-    const countMonths = countDays / 30;
-
-    if (countMonths > 30) {
-      const countRestDays = countMonths % 30;
-
-      if (countRestDays > 15) {
-        const addedMonths = countRestDays + 1;
-
-        return `Ref. ${formatStartDate} á ${formatEndtDate} (${addedMonths.toFixed(
-          0,
-        )}) MESES`;
-      }
-    }
-
-    return `Ref. ${formatStartDate} á ${formatEndtDate} (${countMonths.toFixed(
-      0,
+    return `Ref. ${formatStartDate} á ${formatEndtDate} (${getMonthsDifference(
+      startDate,
+      endDate,
     )}) MESES`;
   };
 
-  const dateDifference = getMonthDifference();
+  const dateDifference = getDateDifference();
 
   return {
     data: { formattedMonthRef, dateDifference },
