@@ -23,8 +23,8 @@ export function CeciliaTable({
     data: { formattedMonthRef, dateDifference },
   } = useCeciliaTable({
     monthRef,
-    endDate: endDate ? new Date(endDate) : new Date(),
-    startDate: startDate ? new Date(startDate) : new Date(),
+    endDate,
+    startDate,
   });
 
   return (

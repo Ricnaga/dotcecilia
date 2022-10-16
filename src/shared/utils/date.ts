@@ -1,5 +1,8 @@
 type WorkDaysInMonthType = Record<'year' | 'month' | 'day', number>;
 
+const ONE_DAY = 24;
+const ONE_HOUR = 3600;
+
 export const getWorkDaysInMonth = ({ day, month, year }: WorkDaysInMonthType) =>
   new Array<number>(day)
     .fill(Math.round(Math.random()))
@@ -11,7 +14,7 @@ export const getWorkDaysInMonth = ({ day, month, year }: WorkDaysInMonthType) =>
 
 export const getMonthsDifference = (startDate: Date, endDate: Date) => {
   const countDays =
-    (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24);
+    (endDate.getTime() - startDate.getTime()) / (1000 * ONE_HOUR * ONE_DAY);
   const countMonths = countDays / 30;
 
   if (countMonths > 30) {
