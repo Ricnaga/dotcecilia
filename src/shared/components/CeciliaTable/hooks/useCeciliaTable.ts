@@ -1,4 +1,5 @@
 import { getMonthsDifference } from '@shared/utils/date';
+import { useCallback } from 'react';
 
 type GetMonthDifferenceType = Record<
   'startDate' | 'endDate' | 'monthRef',
@@ -14,13 +15,13 @@ export const useCeciliaTable = ({
   endDate,
   startDate,
 }: UseCeciliaTableProps) => {
-  const formatMonth = (unformattedDate: Date) => {
+  const formatMonth = useCallback((unformattedDate: Date) => {
     const formatDate = new Date(unformattedDate).toLocaleDateString();
     const [month, day, year] = formatDate.split('/');
     return new Date(Number(year), Number(month) - 2, Number(day))
       .toLocaleDateString('pt-br', { month: 'long' })
       .toUpperCase();
-  };
+  }, []);
 
   const formattedMonthRef = formatMonth(monthRef);
 
@@ -32,7 +33,7 @@ export const useCeciliaTable = ({
       'pt-br',
     );
 
-  const getDateDifference = () => {
+  const getDateDifference = useCallback(() => {
     const validatestartDate = startDate ?? new Date().toString();
     const validateEndDate = endDate ?? new Date().toString();
 
@@ -59,7 +60,7 @@ export const useCeciliaTable = ({
     return `Ref. ${validateDate(newStartDate)} á ${validateDate(
       newEndDate,
     )} (${getMonthsDifference(validatestartDate, validateEndDate)}) MESES`;
-  };
+  }, [startDate, endDate]);
 
   const dateDifference = getDateDifference();
 

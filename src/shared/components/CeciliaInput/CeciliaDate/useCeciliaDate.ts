@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { CeciliaDateProps } from './CeciliaDate';
 
 type UseCeciliaDateProps = Pick<CeciliaDateProps, 'dateValue' | 'onDateChange'>;
@@ -6,12 +7,12 @@ export const useCeciliaDate = ({
   dateValue,
   onDateChange,
 }: UseCeciliaDateProps) => {
-  const formatDateValue = () => {
+  const formatDateValue = useCallback(() => {
     const [day, month, year] = new Date(dateValue)
       .toLocaleDateString('pt-br')
       .split('/');
     return `${year}-${month}-${day}`;
-  };
+  }, [dateValue]);
 
   const formattedValue = formatDateValue();
 

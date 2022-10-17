@@ -1,6 +1,6 @@
 import { useCalcPayments } from '@shared/hooks/useCalcPayments';
-import { getWorkDaysInMonth } from '@shared/utils/date';
 import { convertToBRL } from '@shared/utils/number';
+import { useCallback } from 'react';
 import { PaystubTableBodyItems } from '../PaystubTableBody';
 
 type UsePaystubTableBodyProps = Record<'values', PaystubTableBodyItems>;
@@ -16,7 +16,7 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
     },
   } = useCalcPayments();
 
-  const formatDateRange = () => {
+  const formatDateRange = useCallback(() => {
     const firstWorkDay = new Date(values.initialWorkdayMonth)
       .toLocaleDateString('pt-br')
       .split('/')[0];
@@ -26,7 +26,7 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
     );
 
     return `(${firstWorkDay} à ${lastWorkDay})`;
-  };
+  }, [values.initialWorkdayMonth, values.lastWorkdayMonth]);
 
   const extraHour = values.extraHour && !values.fullExtra;
   const fullExtra = values.extraHour && values.fullExtra;
@@ -37,40 +37,63 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
       .split('/');
 
     return (
-      getWorkDaysInMonth({
-        day: Number(day),
-        month: Number(month),
-        year: Number(year),
-      }) - values.discountedDays
+      new Array<number>(Number(day))
+        .fill(Math.round(Math.random()))
+        .reduce((accumulator, __, index) => {
+          const weekDay = new Date(
+            Number(year),
+            Number(month) - 1,
+            index + 1,
+          ).getDay();
+
+          return weekDay !== 0 && weekDay !== 6 ? accumulator + 1 : accumulator;
+        }, 0) - values.discountedDays
     );
   };
 
-  const getVtrMonthValue = () => getVtrWorkDays() * values.vtr;
-  const getTotalMissingDays = () => (values.salary / 30) * values.missingDays;
+  const getVtrMonthValue = useCallback(
+    () => getVtrWorkDays() * values.vtr,
+    [values.vtr],
+  );
+  const getTotalMissingDays = useCallback(
+    () => (values.salary / 30) * values.missingDays,
+    [values.salary, values.missingDays],
+  );
 
-  const validateUnsanitary = () =>
-    values.hasUnsanitary ? getUnsanitaryValue(values.unsanitary) : 0;
+  const validateUnsanitary = useCallback(
+    () => (values.hasUnsanitary ? getUnsanitaryValue(values.unsanitary) : 0),
+    [values.hasUnsanitary, values.unsanitary],
+  );
 
-  const validateExtra = (percentage: number, extraHour: boolean) =>
-    extraHour
-      ? getExtraHour({
-          hours: values.hours,
-          money: values.salary,
-          percentage,
-        })
-      : 0;
+  const validateExtra = useCallback(
+    (percentage: number, extraHour: boolean) =>
+      extraHour
+        ? getExtraHour({
+            hours: values.hours,
+            money: values.salary,
+            percentage,
+          })
+        : 0,
+    [values.hours, values.salary],
+  );
 
-  const getTotal = () =>
-    formatBRL(values.salary) +
-    formatBRL(getVtrMonthValue()) +
-    formatBRL(validateUnsanitary()) +
-    validateExtra(1.6, extraHour) +
-    validateExtra(2, fullExtra);
+  const getTotal = useCallback(
+    () =>
+      formatBRL(values.salary) +
+      formatBRL(getVtrMonthValue()) +
+      formatBRL(validateUnsanitary()) +
+      validateExtra(1.6, extraHour) +
+      validateExtra(2, fullExtra),
+    [values.salary, extraHour, fullExtra],
+  );
 
-  const getTotalDiscount = () =>
-    formatBRL(getTotalMissingDays()) +
-    getPreviousAdvanceValue(values.salary) +
-    getVTRDiscountValue(values.salary);
+  const getTotalDiscount = useCallback(
+    () =>
+      formatBRL(getTotalMissingDays()) +
+      getPreviousAdvanceValue(values.salary) +
+      getVTRDiscountValue(values.salary),
+    [values.salary],
+  );
 
   const formattedValues = {
     salary: convertToBRL(formatBRL(values.salary), false),

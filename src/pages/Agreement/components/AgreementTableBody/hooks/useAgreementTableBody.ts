@@ -2,6 +2,7 @@ import { useCalcPayments } from '@shared/hooks/useCalcPayments';
 import { getMonthsDifference } from '@shared/utils/date';
 import { convertToBRL } from '@shared/utils/number';
 import { TitleItems } from '@shared/utils/types';
+import { useCallback } from 'react';
 import { agreementValues } from '..';
 import { AgreementCalculatorFields } from '../../AgreementCalculator';
 
@@ -53,18 +54,21 @@ export const useAgreementTableBody = ({
     },
   ];
 
-  const getAgreementTotalToPay = () =>
-    vacationOrThirteenth * 2 +
-    getOneThirdVacationValue(
-      values.salary,
-      parseInt(
-        getMonthsDifference(
-          new Date(values.startDate),
-          new Date(values.endDate),
+  const getAgreementTotalToPay = useCallback(
+    () =>
+      vacationOrThirteenth * 2 +
+      getOneThirdVacationValue(
+        values.salary,
+        parseInt(
+          getMonthsDifference(
+            new Date(values.startDate),
+            new Date(values.endDate),
+          ),
+          10,
         ),
-        10,
       ),
-    );
+    [values.salary, values.startDate, values.endDate],
+  );
 
   const totalToPay = convertToBRL(getAgreementTotalToPay(), false);
 

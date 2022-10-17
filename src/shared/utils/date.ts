@@ -1,16 +1,5 @@
-type WorkDaysInMonthType = Record<'year' | 'month' | 'day', number>;
-
 const ONE_DAY = 24;
 const ONE_HOUR = 3600;
-
-export const getWorkDaysInMonth = ({ day, month, year }: WorkDaysInMonthType) =>
-  new Array<number>(day)
-    .fill(Math.round(Math.random()))
-    .reduce((accumulator, __, index) => {
-      const weekDay = new Date(year, month - 1, index + 1).getDay();
-
-      return weekDay !== 0 && weekDay !== 6 ? accumulator + 1 : accumulator;
-    }, 0);
 
 export const getMonthsDifference = (startDate: Date, endDate: Date) => {
   const countDays =

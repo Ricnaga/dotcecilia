@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { CeciliaMonthProps } from './CeciliaMonth';
 
 type UseCeciliaMonthProps = Pick<
@@ -9,12 +10,12 @@ export const useCeciliaMonth = ({
   dateValue,
   onMonthChange,
 }: UseCeciliaMonthProps) => {
-  const formatMonthValue = () => {
+  const formatMonthValue = useCallback(() => {
     const [__, month, year] = new Date(dateValue)
       .toLocaleDateString('pt-br')
       .split('/');
     return `${year}-${month}`;
-  };
+  }, [dateValue]);
 
   const formattedValue = formatMonthValue();
 
