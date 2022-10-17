@@ -15,8 +15,8 @@ export type PaystubCalculatorFields = {
   fullExtra: boolean;
   hours: number;
   salary: number;
-  initialWorkdayMonth: string;
-  lastWorkdayMonth: string;
+  initialWorkdayMonth: Date;
+  lastWorkdayMonth: Date;
   vtr: number;
   missingDays: number;
   discountedDays: number;
@@ -126,24 +126,18 @@ export function PaystubCalculator({
         <div className="col-span-6">
           <CeciliaDate
             label="Primeiro dia útil"
-            value={values.initialWorkdayMonth}
-            onChange={({ target }) => {
-              onChange(
-                'initialWorkdayMonth',
-                target.value ? target.value.toString() : new Date().toString(),
-              );
+            dateValue={values.initialWorkdayMonth}
+            onDateChange={(date) => {
+              onChange('initialWorkdayMonth', date.toString());
             }}
           />
         </div>
         <div className="col-span-6">
           <CeciliaDate
             label="Último dia útil"
-            value={values.lastWorkdayMonth}
-            onChange={({ target }) =>
-              onChange(
-                'lastWorkdayMonth',
-                target.value ? target.value.toString() : new Date().toString(),
-              )
+            dateValue={values.lastWorkdayMonth}
+            onDateChange={(date) =>
+              onChange('lastWorkdayMonth', date.toString())
             }
           />
         </div>

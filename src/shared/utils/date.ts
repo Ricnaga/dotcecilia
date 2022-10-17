@@ -14,7 +14,8 @@ export const getWorkDaysInMonth = ({ day, month, year }: WorkDaysInMonthType) =>
 
 export const getMonthsDifference = (startDate: Date, endDate: Date) => {
   const countDays =
-    (endDate.getTime() - startDate.getTime()) / (1000 * ONE_HOUR * ONE_DAY);
+    (new Date(endDate).getTime() - new Date(startDate).getTime()) /
+    (1000 * ONE_HOUR * ONE_DAY);
   const countMonths = countDays / 30;
 
   if (countMonths > 30) {

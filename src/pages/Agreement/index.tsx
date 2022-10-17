@@ -18,9 +18,9 @@ export function AgreementPage() {
   } = useInputFields<AgreementCalculatorFields>({
     name: '',
     salary: 0,
-    startDate: new Date().toString(),
+    startDate: new Date(),
     discount: 0,
-    endDate: new Date().toString(),
+    endDate: new Date(),
   });
   return (
     <CeciliaPageHeader title="Acerto">

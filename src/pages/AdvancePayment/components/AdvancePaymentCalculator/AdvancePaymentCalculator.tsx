@@ -9,7 +9,7 @@ import { CalculatorType } from '@shared/utils/types';
 export type AdvancePaymentCalculatorFields = {
   name: string;
   salary: number;
-  refDate: string;
+  refDate: Date;
 };
 
 type AdvancePaymentCalculatorProps =
@@ -41,13 +41,8 @@ export function AdvancePaymentCalculator({
         </div>
         <div className="col-span-6">
           <CeciliaDate
-            value={values.refDate}
-            onChange={({ target }) => {
-              onChange(
-                'refDate',
-                target.value ? target.value.toString() : new Date().toString(),
-              );
-            }}
+            dateValue={values.refDate}
+            onDateChange={(date) => onChange('refDate', date.toString())}
           />
         </div>
       </div>

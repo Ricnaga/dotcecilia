@@ -19,7 +19,7 @@ export function AdvancePaymentPage() {
   } = useInputFields<AdvancePaymentCalculatorFields>({
     name: '',
     salary: 0,
-    refDate: new Date().toString(),
+    refDate: new Date(),
   });
 
   return (

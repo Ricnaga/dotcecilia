@@ -17,20 +17,25 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
   } = useCalcPayments();
 
   const formatDateRange = () => {
-    const [__, ___, initialWorkDay] = values.initialWorkdayMonth.split('-');
-    const initialDay = initialWorkDay ?? 'dd';
+    const firstWorkDay = new Date(values.initialWorkdayMonth)
+      .toLocaleDateString('pt-br')
+      .split('/')[0];
 
-    const [year, month, day] = values.lastWorkdayMonth.split('-');
-    const lastWorkDate = day ? `${day}/${month}/${year}` : 'dd/mm/aaaa';
+    const lastWorkDay = new Date(values.lastWorkdayMonth).toLocaleDateString(
+      'pt-br',
+    );
 
-    return `(${initialDay} à ${lastWorkDate})`;
+    return `(${firstWorkDay} à ${lastWorkDay})`;
   };
 
   const extraHour = values.extraHour && !values.fullExtra;
   const fullExtra = values.extraHour && values.fullExtra;
 
   const getVtrWorkDays = () => {
-    const [year, month, day = 0] = values.lastWorkdayMonth.split('-');
+    const [day = 0, month, year] = new Date(values.lastWorkdayMonth)
+      .toLocaleDateString('pt-br')
+      .split('/');
+
     return (
       getWorkDaysInMonth({
         day: Number(day),

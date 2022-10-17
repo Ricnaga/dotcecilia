@@ -5,11 +5,14 @@ import {
 } from '@config';
 import { useCeciliaTable } from './hooks/useCeciliaTable';
 
-type CeciliaTableProps = Partial<Record<'name' | 'monthRef', string | null>> &
-  Partial<Record<'startDate' | 'endDate', string>> & {
-    children: React.ReactNode;
-    headerType: 'PAGAMENTO' | 'ADIANTAMENTO' | 'ACERTO';
-  };
+type CeciliaTableProps = Partial<
+  Record<'startDate' | 'endDate' | 'monthRef', Date>
+> & {
+  children: React.ReactNode;
+  headerType: 'PAGAMENTO' | 'ADIANTAMENTO' | 'ACERTO';
+} & Partial<{
+    name: string | null;
+  }>;
 
 export function CeciliaTable({
   children,
@@ -22,9 +25,9 @@ export function CeciliaTable({
   const {
     data: { formattedMonthRef, dateDifference },
   } = useCeciliaTable({
-    monthRef,
-    endDate,
-    startDate,
+    monthRef: monthRef ?? new Date(),
+    endDate: endDate ?? new Date(),
+    startDate: startDate ?? new Date(),
   });
 
   return (

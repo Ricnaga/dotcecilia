@@ -10,8 +10,8 @@ export type AgreementCalculatorFields = {
   name: string;
   salary: number;
   discount: number;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
 };
 
 type AgreementCalculatorProps = CalculatorType<AgreementCalculatorFields>;
@@ -53,25 +53,15 @@ export function AgreementCalculator({
         <div className="col-span-6">
           <CeciliaDate
             label="Data inicial"
-            value={values.startDate}
-            onChange={({ target }) => {
-              onChange(
-                'startDate',
-                target.value ? target.value.toString() : new Date().toString(),
-              );
-            }}
+            dateValue={values.startDate}
+            onDateChange={(date) => onChange('startDate', date.toString())}
           />
         </div>
         <div className="col-span-6">
           <CeciliaDate
             label="Data Final"
-            value={values.endDate}
-            onChange={({ target }) => {
-              onChange(
-                'endDate',
-                target.value ? target.value.toString() : new Date().toString(),
-              );
-            }}
+            dateValue={values.endDate}
+            onDateChange={(date) => onChange('endDate', date.toString())}
           />
         </div>
       </div>

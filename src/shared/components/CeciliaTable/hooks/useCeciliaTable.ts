@@ -1,10 +1,11 @@
 import { getMonthsDifference } from '@shared/utils/date';
 
-type GetMonthDifferenceType = Partial<Record<'startDate' | 'endDate', string>>;
+type GetMonthDifferenceType = Record<
+  'startDate' | 'endDate' | 'monthRef',
+  Date
+>;
 
-type UseCeciliaTableProps = GetMonthDifferenceType & {
-  monthRef: string | null | undefined;
-};
+type UseCeciliaTableProps = GetMonthDifferenceType;
 
 type FormatToBRDateType = Record<'year' | 'month' | 'day', string>;
 
@@ -13,7 +14,7 @@ export const useCeciliaTable = ({
   endDate,
   startDate,
 }: UseCeciliaTableProps) => {
-  const formatMonth = (unformattedDate: string) => {
+  const formatMonth = (unformattedDate: Date) => {
     const formatDate = new Date(unformattedDate).toLocaleDateString();
     const [month, day, year] = formatDate.split('/');
     return new Date(Number(year), Number(month) - 2, Number(day))
@@ -21,9 +22,7 @@ export const useCeciliaTable = ({
       .toUpperCase();
   };
 
-  const formattedMonthRef = monthRef
-    ? formatMonth(monthRef)
-    : new Date().toLocaleDateString('pt-br', { month: 'long' }).toUpperCase();
+  const formattedMonthRef = formatMonth(monthRef);
 
   const validateDate = (date: string) =>
     date === 'Invalid Date' ? 'dd/mm/aaaa' : date;
@@ -37,10 +36,13 @@ export const useCeciliaTable = ({
     const validatestartDate = startDate ?? new Date().toString();
     const validateEndDate = endDate ?? new Date().toString();
 
-    const [initialYear, initialMonth, initialDay] =
-      validatestartDate.split('-');
+    const [initialDay, initialMonth, initialYear] = new Date(validatestartDate)
+      .toLocaleDateString('pt-br')
+      .split('/');
 
-    const [endYear, endMonth, endDay] = validateEndDate.split('-');
+    const [endDay, endMonth, endYear] = new Date(validateEndDate)
+      .toLocaleDateString('pt-br')
+      .split('/');
 
     const newStartDate = formatToBRDate({
       year: initialYear,
@@ -56,10 +58,7 @@ export const useCeciliaTable = ({
 
     return `Ref. ${validateDate(newStartDate)} á ${validateDate(
       newEndDate,
-    )} (${getMonthsDifference(
-      new Date(validatestartDate),
-      new Date(validateEndDate),
-    )}) MESES`;
+    )} (${getMonthsDifference(validatestartDate, validateEndDate)}) MESES`;
   };
 
   const dateDifference = getDateDifference();
