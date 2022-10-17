@@ -1,6 +1,6 @@
 import {
-  CeciliaDate,
   CeciliaHeaderPrint,
+  CeciliaMonth,
   CeciliaNumber,
   CeciliaText,
 } from '@shared/components';
@@ -40,9 +40,9 @@ export function AdvancePaymentCalculator({
           />
         </div>
         <div className="col-span-6">
-          <CeciliaDate
+          <CeciliaMonth
             dateValue={values.refDate}
-            onDateChange={(date) => onChange('refDate', date.toString())}
+            onMonthChange={(date) => onChange('refDate', date.toString())}
           />
         </div>
       </div>
