@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page: Login should render correctly 1`] = `
+<div>
+  <div
+    class="grid items-center justify-center h-full mt-20"
+  >
+    <p
+      class="text-7xl font-medium mb-8 text-center"
+    >
+      Fazer Login
+    </p>
+    <div>
+      Mock LoginForm
+    </div>
+  </div>
+</div>
+`;

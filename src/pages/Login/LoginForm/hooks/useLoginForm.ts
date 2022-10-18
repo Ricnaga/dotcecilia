@@ -4,7 +4,7 @@ import { CALCULATOR } from '@application/routes/routes';
 import { ENV_PASSWORD, ENV_USER } from '@config';
 import { useLocalStorage } from '@shared/hooks/useLocalStorage';
 import { useMemo } from 'react';
-import { FormFields } from '.';
+import { FormFields } from '../LoginForm';
 
 type FormikValues = Record<keyof typeof FormFields, string>;
 

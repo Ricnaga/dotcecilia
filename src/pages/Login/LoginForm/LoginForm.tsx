@@ -1,5 +1,5 @@
 import { CeciliaButton, CeciliaText } from '@shared/components';
-import { useLoginForm } from './useLoginForm';
+import { useLoginForm } from './hooks/useLoginForm';
 
 export enum FormFields {
   name = 'name',

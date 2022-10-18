@@ -14,3 +14,8 @@ export type TitleItems<T, ExtraValue extends object = object> = Array<
     value: string | number;
   } & Partial<ExtraValue>
 >;
+
+export type ResultHook<T extends (...args: Array<unknown>) => unknown> = Record<
+  'current',
+  ReturnType<T>
+>;
