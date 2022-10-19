@@ -56,7 +56,7 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
     [values.vtr],
   );
   const getTotalMissingDays = useCallback(
-    () => (values.salary / 30) * values.missingDays,
+    () => parseFloat((values.salary / 30).toFixed(2)) * values.missingDays,
     [values.salary, values.missingDays],
   );
 
