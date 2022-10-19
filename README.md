@@ -2,7 +2,6 @@
 <img src="./cover.jpg" />
 </div>
 
-</div> -->
 <div align="center">
 
 # dot-cecilia

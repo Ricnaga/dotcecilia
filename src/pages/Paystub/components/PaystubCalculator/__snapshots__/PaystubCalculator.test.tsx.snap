@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: PaystubCalculator should render correctly 1`] = `
+<div>
+  <div
+    class="grid grid-cols-12"
+  >
+    <p
+      class="text-4xl text-left font-bold mb-4 col-span-6"
+    >
+      Cálculos
+    </p>
+    <button
+      class="btn btn-yellow col-start-9 col-end-13 mb-4"
+      type="button"
+    >
+      Imprimir
+    </button>
+  </div>
+  <div
+    class="grid grid-cols-12 gap-4"
+  >
+    <div
+      class="col-span-12"
+    >
+      <label
+        class="text-xl"
+        for="text"
+      >
+        <input
+          placeholder="Digite o nome"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <div
+        class="flex items-center"
+      >
+        <label
+          class="mr-4"
+          id="headlessui-label-:r0:"
+        >
+          Insalubridade ?
+        </label>
+        <button
+          aria-checked="false"
+          aria-labelledby="headlessui-label-:r0:"
+          class="btn-switch false "
+          data-headlessui-state=""
+          id="headlessui-switch-:r1:"
+          role="switch"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="col-span-6 grid grid-cols-12 justify-around"
+    >
+      <div
+        class="col-span-6"
+      >
+        <div
+          class="flex items-center"
+        >
+          <label
+            class="mr-4"
+            id="headlessui-label-:r2:"
+          >
+            HE?
+          </label>
+          <button
+            aria-checked="false"
+            aria-labelledby="headlessui-label-:r2:"
+            class="btn-switch false "
+            data-headlessui-state=""
+            id="headlessui-switch-:r3:"
+            role="switch"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <label
+        class="text-2xl"
+        for="text"
+      >
+        <input
+          min="0.00"
+          placeholder="salário"
+          step="0.01"
+          type="number"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <label
+        class="text-2xl"
+        for="text"
+      >
+        <input
+          min="0"
+          placeholder="Dias faltados"
+          step="1"
+          type="number"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <label
+        class="text-2xl"
+        for="text"
+      >
+        <input
+          min="0.00"
+          placeholder="Valor diário VTR"
+          step="0.01"
+          type="number"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <label
+        class="text-2xl"
+        for="text"
+      >
+        <input
+          min="0"
+          placeholder="Desconto de dias"
+          step="1"
+          type="number"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <label
+        class="text-xl"
+        for="date"
+      >
+        Primeiro dia útil
+        <input
+          type="date"
+          value="2022-10-19"
+        />
+      </label>
+    </div>
+    <div
+      class="col-span-6"
+    >
+      <label
+        class="text-xl"
+        for="date"
+      >
+        Último dia útil
+        <input
+          type="date"
+          value="2022-10-19"
+        />
+      </label>
+    </div>
+  </div>
+</div>
+`;
