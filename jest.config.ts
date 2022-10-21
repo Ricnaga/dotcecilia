@@ -7,6 +7,7 @@ const config: JestConfigWithTsJest = {
     '<rootDir>/src/pages/**/*.[jt]s?(x)',
     '!<rootDir>/src/pages/**/*.{spec,test}.[jt]s?(x)',
     '!<rootDir>/src/pages/index.[jt]s',
+    '!<rootDir>/src/pages/**/components/index.[jt]s',
     '<rootDir>/src/shared/components/**/*.[jt]s?(x)',
     '!<rootDir>/src/shared/components/**/*.{spec,test}.[jt]s?(x)',
     '<rootDir>/src/shared/hooks/*.[jt]s',
