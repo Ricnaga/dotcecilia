@@ -2,11 +2,13 @@ type CeciliaNumberProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   currency?: boolean;
   value: number;
+  onChangeValue?: (value: number) => void;
 };
 export function CeciliaNumber({
   currency = false,
   value,
   label,
+  onChangeValue,
   ...props
 }: CeciliaNumberProps) {
   return (
@@ -18,6 +20,9 @@ export function CeciliaNumber({
         type="number"
         min={currency ? '0.00' : '0'}
         step={currency ? '0.01' : '1'}
+        onChange={({ target }) =>
+          onChangeValue && onChangeValue(target.valueAsNumber)
+        }
       />
     </label>
   );

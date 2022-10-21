@@ -36,7 +36,7 @@ export function AdvancePaymentCalculator({
             currency
             placeholder="salário"
             value={values.salary}
-            onChange={({ target }) => onChange('salary', target.valueAsNumber)}
+            onChangeValue={(value) => onChange('salary', value)}
           />
         </div>
         <div className="col-span-6">
