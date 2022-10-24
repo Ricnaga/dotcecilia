@@ -1,5 +1,5 @@
 import { CeciliaTableCell, CeciliaTableRow } from '@shared/components';
-import { AgreementCalculatorFields } from '../AgreementCalculator';
+import { AgreementCalculatorFields } from '../AgreementCalculator/AgreementCalculator';
 import { useAgreementTableBody } from './hooks/useAgreementTableBody';
 
 type AgreementTableBodyProps = Record<'values', AgreementCalculatorFields>;

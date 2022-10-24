@@ -12,7 +12,7 @@ export function CeciliaNumber({
   ...props
 }: CeciliaNumberProps) {
   return (
-    <label htmlFor="text" className="text-2xl">
+    <label htmlFor="number" className="text-2xl">
       {label}
       <input
         {...props}

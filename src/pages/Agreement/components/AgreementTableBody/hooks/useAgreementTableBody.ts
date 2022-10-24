@@ -3,8 +3,8 @@ import { getMonthsDifference } from '@shared/utils/date';
 import { convertToBRL } from '@shared/utils/number';
 import { TitleItems } from '@shared/utils/types';
 import { useCallback } from 'react';
-import { agreementValues } from '..';
-import { AgreementCalculatorFields } from '../../AgreementCalculator';
+import { agreementValues } from '../AgreementTableBody';
+import { AgreementCalculatorFields } from '../../AgreementCalculator/AgreementCalculator';
 
 type UseAgreementTableBodyProps = Record<'values', AgreementCalculatorFields>;
 
