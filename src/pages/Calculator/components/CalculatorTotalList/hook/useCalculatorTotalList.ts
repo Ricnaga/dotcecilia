@@ -1,8 +1,8 @@
 import { convertToBRL } from '@shared/utils/number';
 import { useCalcPayments } from '@shared/hooks/useCalcPayments';
 import { TitleItems } from '@shared/utils/types';
-import { CalculatorPageProps } from '../../..';
-import { listTitle } from '..';
+import { CalculatorPageProps } from '../../../Calculator';
+import { listTitle } from '../CalculatorTotalList';
 
 export const useCalculatorTotalList = (values: CalculatorPageProps) => {
   const {

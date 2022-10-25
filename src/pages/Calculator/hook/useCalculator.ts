@@ -1,5 +1,5 @@
 import { useInputFields } from '@shared/hooks/useInputFields';
-import { CalculatorPageProps } from '..';
+import { CalculatorPageProps } from '../Calculator';
 
 export const useCalculator = () => {
   const {

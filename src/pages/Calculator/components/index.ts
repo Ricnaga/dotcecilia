@@ -1,3 +1,3 @@
-export * from './CalculatorDiscount';
-export * from './CalculatorExtraHour';
-export * from './CalculatorTotalList';
+export * from './CalculatorDiscount/CalculatorDiscount';
+export * from './CalculatorExtraHour/CalculatorExtraHour';
+export * from './CalculatorTotalList/CalculatorTotalList';

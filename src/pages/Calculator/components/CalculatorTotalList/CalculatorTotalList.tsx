@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalculatorPageProps } from '../..';
+import { CalculatorPageProps } from '../../Calculator';
 import { useCalculatorTotalList } from './hook/useCalculatorTotalList';
 
 type CalculatorTotalListProps = {

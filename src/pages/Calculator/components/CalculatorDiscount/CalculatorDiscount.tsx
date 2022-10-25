@@ -22,9 +22,7 @@ export function CalculatorDiscount({
           <CeciliaNumber
             placeholder="Dias"
             value={discount.missingDays}
-            onChange={(e) =>
-              onChangeDiscount('missingDays', e.target.valueAsNumber)
-            }
+            onChangeValue={(value) => onChangeDiscount('missingDays', value)}
           />
         </div>
       </div>
