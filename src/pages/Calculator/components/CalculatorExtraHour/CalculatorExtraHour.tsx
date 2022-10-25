@@ -36,9 +36,7 @@ export function CalculatorExtraHour({
           />
           <CeciliaNumber
             value={extraHour.salary}
-            onChange={(e) =>
-              onChangeExtraHour('salary', e.target.valueAsNumber)
-            }
+            onChangeValue={(value) => onChangeExtraHour('salary', value)}
             currency
             label="Salário"
             placeholder="R$"
@@ -52,7 +50,7 @@ export function CalculatorExtraHour({
           />
           <CeciliaNumber
             value={extraHour.hours}
-            onChange={(e) => onChangeExtraHour('hours', e.target.valueAsNumber)}
+            onChangeValue={(value) => onChangeExtraHour('hours', value)}
             currency
             label="Horas"
             placeholder="Horas"
@@ -62,11 +60,9 @@ export function CalculatorExtraHour({
           <div className="col-span-3 grid items-end h-full">
             <CeciliaNumber
               value={extraHour.minimumWage}
-              onChange={(e) =>
-                onChangeExtraHour('minimumWage', e.target.valueAsNumber)
-              }
+              onChangeValue={(value) => onChangeExtraHour('minimumWage', value)}
               currency
-              label="Salário mínimo"
+              label="Valor mínimo"
               placeholder="R$ 1200,00"
             />
           </div>
@@ -75,8 +71,8 @@ export function CalculatorExtraHour({
           <div className="col-span-3 grid items-end h-full">
             <CeciliaNumber
               value={extraHour.workedMonths}
-              onChange={(e) =>
-                onChangeExtraHour('workedMonths', e.target.valueAsNumber)
+              onChangeValue={(value) =>
+                onChangeExtraHour('workedMonths', value)
               }
               currency
               label="Meses trabalhados"
