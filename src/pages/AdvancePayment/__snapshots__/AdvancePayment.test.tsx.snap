@@ -47,7 +47,7 @@ exports[`Page: AdvancePayment should render correctly 1`] = `
               <th
                 colspan="2"
               >
-                Ref. SETEMBRO
+                Ref. OUTUBRO
               </th>
             </tr>
             <tr>
@@ -236,7 +236,7 @@ exports[`Page: AdvancePayment should render correctly 1`] = `
             >
               <input
                 type="month"
-                value="2022-10"
+                value="2022-11"
               />
             </label>
           </div>

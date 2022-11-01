@@ -1,4 +1,5 @@
 import { CeciliaButton, CeciliaText } from '@shared/components';
+import { useFormik } from 'formik';
 import { useLoginForm } from './hooks/useLoginForm';
 
 export enum FormFields {
@@ -8,17 +9,22 @@ export enum FormFields {
 
 export function LoginForm() {
   const {
-    data: { values },
-    functions: { onChange, onSubmit },
+    data: { initialValues },
+    functions: { onSubmit },
   } = useLoginForm();
 
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+  });
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <div>
         <CeciliaText
           placeholder="Digite o usuário"
-          value={values[FormFields.name]}
-          onChange={onChange(FormFields.name)}
+          value={formik.values[FormFields.name]}
+          onChange={formik.handleChange(FormFields.name)}
         />
       </div>
 
@@ -26,8 +32,8 @@ export function LoginForm() {
         <CeciliaText
           placeholder="Digite a senha"
           type="password"
-          value={values[FormFields.password]}
-          onChange={onChange(FormFields.password)}
+          value={formik.values[FormFields.password]}
+          onChange={formik.handleChange(FormFields.password)}
         />
       </div>
 
