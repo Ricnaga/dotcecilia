@@ -51,11 +51,9 @@ export function PaystubCalculator({
             <div className="mt-3">
               <CeciliaNumber
                 currency
-                placeholder="Insalubridade"
+                placeholder="Valor insalubridade"
                 value={values.unsanitary}
-                onChange={({ target }) =>
-                  onChange('unsanitary', target.valueAsNumber)
-                }
+                onChangeValue={(value) => onChange('unsanitary', value)}
               />
             </div>
           )}
@@ -81,9 +79,7 @@ export function PaystubCalculator({
                 <CeciliaNumber
                   placeholder="horas"
                   value={values.hours}
-                  onChange={({ target }) =>
-                    onChange('hours', target.valueAsNumber)
-                  }
+                  onChangeValue={(value) => onChange('hours', value)}
                 />
               </div>
             </>
@@ -94,16 +90,14 @@ export function PaystubCalculator({
             currency
             placeholder="salário"
             value={values.salary}
-            onChange={({ target }) => onChange('salary', target.valueAsNumber)}
+            onChangeValue={(value) => onChange('salary', value)}
           />
         </div>
         <div className="col-span-6">
           <CeciliaNumber
             placeholder="Dias faltados"
             value={values.missingDays}
-            onChange={({ target }) =>
-              onChange('missingDays', target.valueAsNumber)
-            }
+            onChangeValue={(value) => onChange('missingDays', value)}
           />
         </div>
         <div className="col-span-6">
@@ -111,16 +105,14 @@ export function PaystubCalculator({
             currency
             placeholder="Valor diário VTR"
             value={values.vtr}
-            onChange={({ target }) => onChange('vtr', target.valueAsNumber)}
+            onChangeValue={(value) => onChange('vtr', value)}
           />
         </div>
         <div className="col-span-6">
           <CeciliaNumber
             placeholder="Desconto de dias"
             value={values.discountedDays}
-            onChange={({ target }) =>
-              onChange('discountedDays', target.valueAsNumber)
-            }
+            onChangeValue={(value) => onChange('discountedDays', value)}
           />
         </div>
         <div className="col-span-6">

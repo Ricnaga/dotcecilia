@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Page: Agreement should render correctly 1`] = `
+exports[`Page: Paystub should render correctly 1`] = `
 <div>
   <div
     class="w-full"
@@ -8,7 +8,7 @@ exports[`Page: Agreement should render correctly 1`] = `
     <p
       class="text-5xl font-bold my-6"
     >
-      Acerto
+      Holerite
     </p>
     <div
       class="grid grid-cols-12 gap-10"
@@ -20,7 +20,7 @@ exports[`Page: Agreement should render correctly 1`] = `
           class="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900"
         >
           <thead
-            class=""
+            class="bg-yellow-100"
           >
             <tr>
               <th
@@ -32,7 +32,7 @@ exports[`Page: Agreement should render correctly 1`] = `
                 colspan="2"
               >
                 RECIBO DE 
-                ACERTO
+                PAGAMENTO
               </th>
             </tr>
           </thead>
@@ -44,6 +44,11 @@ exports[`Page: Agreement should render correctly 1`] = `
               >
                 undefined
               </th>
+              <th
+                colspan="2"
+              >
+                Ref. OUTUBRO
+              </th>
             </tr>
             <tr>
               <th
@@ -51,18 +56,6 @@ exports[`Page: Agreement should render correctly 1`] = `
               >
                 CNPJ: 
                 undefined
-              </th>
-            </tr>
-            <tr>
-              <th
-                colspan="8"
-              >
-                <p
-                  class="mt-4 border-y border-slate-800 bg-yellow-100"
-                >
-                  ACERTO: 
-                  Ref. 02/11/2022 á 02/11/2022 (0) MESES
-                </p>
               </th>
             </tr>
             <tr>
@@ -84,25 +77,23 @@ exports[`Page: Agreement should render correctly 1`] = `
               <td
                 class="border-r border-slate-800 undefined"
                 colspan="3"
+              />
+              <td
+                class="border-r border-slate-800 text-center"
+                colspan="1"
               >
-                SALÁRIO:
+                Ref.
+              </td>
+              <td
+                class="border-r border-slate-800 text-center"
+              >
+                Vencimento
               </td>
               <td
                 class="border-r border-slate-800 text-center"
                 colspan="2"
               >
-                 0,00
-              </td>
-              <td
-                class="border-r border-slate-800 text-center"
-                colspan="2"
-              >
-                Pagar
-              </td>
-              <td
-                class="border-r border-slate-800 text-center"
-              >
-                Desconto
+                Descontos
               </td>
             </tr>
             <tr
@@ -112,20 +103,74 @@ exports[`Page: Agreement should render correctly 1`] = `
                 class="border-r border-slate-800 undefined"
                 colspan="3"
               >
-                13º
+                Salário do mês
               </td>
               <td
                 class="border-r border-slate-800 text-center"
-                colspan="2"
-              />
+                colspan="1"
+              >
+                30
+              </td>
               <td
                 class="border-r border-slate-800 text-center"
+              >
+                 0,00
+              </td>
+              <td
+                class="border-r border-slate-800 border-b"
                 colspan="2"
+              />
+            </tr>
+            <tr
+              class="border-t border-slate-800 border"
+            >
+              <td
+                class="border-r border-slate-800 undefined"
+                colspan="2"
+              >
+                Vtr - 
+                (02 à 02/11/2022)
+              </td>
+              <td
+                class="border-r border-slate-800 text-center"
               >
                  0,00
               </td>
               <td
                 class="border-r border-slate-800 text-center"
+              >
+                2
+              </td>
+              <td
+                class="border-r border-slate-800 text-center"
+              >
+                 0,00
+              </td>
+              <td
+                class="border-r border-slate-800 border-r"
+                colspan="2"
+              />
+            </tr>
+            <tr
+              class="border-t border-slate-800 undefined"
+            >
+              <td
+                class="border-r border-slate-800 undefined"
+                colspan="3"
+              >
+                Falta dia
+              </td>
+              <td
+                class="border-r border-slate-800 text-center"
+              >
+                0
+              </td>
+              <td
+                class="border-r border-slate-800 text-center"
+              />
+              <td
+                class="border-r border-slate-800 text-center"
+                colspan="2"
               >
                  0,00
               </td>
@@ -137,11 +182,13 @@ exports[`Page: Agreement should render correctly 1`] = `
                 class="border-r border-slate-800 undefined"
                 colspan="3"
               >
-                FÉRIAS
+                Adiantamento anterior
               </td>
               <td
                 class="border-r border-slate-800 text-center"
-                colspan="2"
+              />
+              <td
+                class="border-r border-slate-800 text-center"
               />
               <td
                 class="border-r border-slate-800 text-center"
@@ -149,9 +196,6 @@ exports[`Page: Agreement should render correctly 1`] = `
               >
                  0,00
               </td>
-              <td
-                class="border-r border-slate-800 text-center"
-              />
             </tr>
             <tr
               class="border-t border-slate-800 undefined"
@@ -160,11 +204,13 @@ exports[`Page: Agreement should render correctly 1`] = `
                 class="border-r border-slate-800 undefined"
                 colspan="3"
               >
-                1/3 - Férias
+                Desconto 6% Vtr
               </td>
               <td
                 class="border-r border-slate-800 text-center"
-                colspan="2"
+              />
+              <td
+                class="border-r border-slate-800 text-center"
               />
               <td
                 class="border-r border-slate-800 text-center"
@@ -172,60 +218,55 @@ exports[`Page: Agreement should render correctly 1`] = `
               >
                  0,00
               </td>
-              <td
-                class="border-r border-slate-800 text-center"
-              />
             </tr>
             <tr
-              class="border-t border-slate-800 undefined"
+              class="border-t border-slate-800"
             >
               <td
-                colspan="6"
+                colspan="4"
               >
                 <p
-                  class="mt-4 border-t border-slate-800"
+                  class="mt-4 border-r border-t border-slate-800"
                 >
-                  Sub.total:
+                  Total:
                 </p>
               </td>
               <td
-                class="text-center"
+                colspan="1"
               >
                 <p
-                  class="mt-4 border-t border-slate-800"
+                  class="mt-4 text-center border-r border-t border-slate-800"
                 >
                    0,00
                 </p>
               </td>
               <td
-                class="border-r border-slate-800 text-center"
+                colspan="3"
               >
                 <p
-                  class="mt-4 border-t border-slate-800"
+                  class="mt-4 text-center border-t border-slate-800"
                 >
                    0,00
                 </p>
               </td>
             </tr>
             <tr
-              class="border-t border-slate-800 undefined"
+              class="mb-4 border-y border-slate-800"
             >
               <td
-                class="border-b border-slate-800"
-                colspan="5"
+                colspan="4"
               >
                 <p
-                  class="mb-4 border-b border-slate-800"
+                  class="mb-4 border-b border-r border-slate-800"
                 >
-                  Total á pagar:
+                  Total líquido:
                 </p>
               </td>
               <td
-                class="border-r border-slate-800 text-center"
-                colspan="3"
+                colspan="4"
               >
                 <p
-                  class="mb-4 border-b border-slate-800"
+                  class="mb-4 border-b border-slate-800 text-center"
                 >
                    0,00
                 </p>
@@ -296,6 +337,66 @@ exports[`Page: Agreement should render correctly 1`] = `
           <div
             class="col-span-6"
           >
+            <div
+              class="flex items-center"
+            >
+              <label
+                class="mr-4"
+                id="headlessui-label-:r0:"
+              >
+                Insalubridade ?
+              </label>
+              <button
+                aria-checked="false"
+                aria-labelledby="headlessui-label-:r0:"
+                class="btn-switch false "
+                data-headlessui-state=""
+                id="headlessui-switch-:r1:"
+                role="switch"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="col-span-6 grid grid-cols-12 justify-around"
+          >
+            <div
+              class="col-span-6"
+            >
+              <div
+                class="flex items-center"
+              >
+                <label
+                  class="mr-4"
+                  id="headlessui-label-:r2:"
+                >
+                  HE?
+                </label>
+                <button
+                  aria-checked="false"
+                  aria-labelledby="headlessui-label-:r2:"
+                  class="btn-switch false "
+                  data-headlessui-state=""
+                  id="headlessui-switch-:r3:"
+                  role="switch"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-span-6"
+          >
             <label
               class="text-2xl"
               for="number"
@@ -317,9 +418,41 @@ exports[`Page: Agreement should render correctly 1`] = `
               for="number"
             >
               <input
+                min="0"
+                placeholder="Dias faltados"
+                step="1"
+                type="number"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            class="col-span-6"
+          >
+            <label
+              class="text-2xl"
+              for="number"
+            >
+              <input
                 min="0.00"
-                placeholder="Descontos (R$)"
+                placeholder="Valor diário VTR"
                 step="0.01"
+                type="number"
+                value=""
+              />
+            </label>
+          </div>
+          <div
+            class="col-span-6"
+          >
+            <label
+              class="text-2xl"
+              for="number"
+            >
+              <input
+                min="0"
+                placeholder="Desconto de dias"
+                step="1"
                 type="number"
                 value=""
               />
@@ -332,7 +465,7 @@ exports[`Page: Agreement should render correctly 1`] = `
               class="text-xl"
               for="date"
             >
-              Data inicial
+              Primeiro dia útil
               <input
                 type="date"
                 value="2022-11-02"
@@ -346,7 +479,7 @@ exports[`Page: Agreement should render correctly 1`] = `
               class="text-xl"
               for="date"
             >
-              Data Final
+              Último dia útil
               <input
                 type="date"
                 value="2022-11-02"
