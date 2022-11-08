@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components: PaystubTableBody should render correctly 1`] = `
+<div>
+  <table>
+    <tbody
+      class="border-t border-slate-800"
+    >
+      <tr>
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        />
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="1"
+        >
+          Ref.
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          Vencimento
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="2"
+        >
+          Descontos
+        </td>
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Salário do mês
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="1"
+        >
+          30
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          mock salary
+        </td>
+        <td
+          class="border-r border-slate-800 border-b"
+          colspan="2"
+        />
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Hora extra 60%
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="1"
+        >
+          10
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          mock extraHourValue
+        </td>
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="2"
+        />
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Hora extra 100%
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="1"
+        >
+          10
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          mock fullExtraValue
+        </td>
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="2"
+        />
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Insalubridade
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="1"
+        >
+          0
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          mock unsanitary
+        </td>
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="2"
+        />
+      </tr>
+      <tr
+        class="border-t border-slate-800 border"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="2"
+        >
+          Vtr - 
+          mock dateRange
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          mock vtr
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          1000
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          mock vtrMonthValue
+        </td>
+        <td
+          class="border-r border-slate-800 border-r"
+          colspan="2"
+        />
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Falta dia
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        >
+          10
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        />
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="2"
+        >
+          mock totalMissingDays
+        </td>
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Adiantamento anterior
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        />
+        <td
+          class="border-r border-slate-800 text-center"
+        />
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="2"
+        >
+          mock previousAdvance
+        </td>
+      </tr>
+      <tr
+        class="border-t border-slate-800 undefined"
+      >
+        <td
+          class="border-r border-slate-800 undefined"
+          colspan="3"
+        >
+          Desconto 6% Vtr
+        </td>
+        <td
+          class="border-r border-slate-800 text-center"
+        />
+        <td
+          class="border-r border-slate-800 text-center"
+        />
+        <td
+          class="border-r border-slate-800 text-center"
+          colspan="2"
+        >
+          mock discountedVtr
+        </td>
+      </tr>
+      <tr
+        class="border-t border-slate-800"
+      >
+        <td
+          colspan="4"
+        >
+          <p
+            class="mt-4 border-r border-t border-slate-800"
+          >
+            Total:
+          </p>
+        </td>
+        <td
+          colspan="1"
+        >
+          <p
+            class="mt-4 text-center border-r border-t border-slate-800"
+          >
+            mock total
+          </p>
+        </td>
+        <td
+          colspan="3"
+        >
+          <p
+            class="mt-4 text-center border-t border-slate-800"
+          >
+            mock totalDiscount
+          </p>
+        </td>
+      </tr>
+      <tr
+        class="mb-4 border-y border-slate-800"
+      >
+        <td
+          colspan="4"
+        >
+          <p
+            class="mb-4 border-b border-r border-slate-800"
+          >
+            Total líquido:
+          </p>
+        </td>
+        <td
+          colspan="4"
+        >
+          <p
+            class="mb-4 border-b border-slate-800 text-center"
+          >
+            mock netTotal
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

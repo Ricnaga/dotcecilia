@@ -32,7 +32,7 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
   const fullExtra = values.extraHour && values.fullExtra;
 
   const getVtrWorkDays = () => {
-    const [day = 0, month, year] = new Date(values.lastWorkdayMonth)
+    const [day, month, year] = new Date(values.lastWorkdayMonth)
       .toLocaleDateString('pt-br')
       .split('/');
 

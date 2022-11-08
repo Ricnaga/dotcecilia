@@ -129,7 +129,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                 colspan="2"
               >
                 Vtr - 
-                (02 à 02/11/2022)
+                (08 à 08/11/2022)
               </td>
               <td
                 class="border-r border-slate-800 text-center"
@@ -139,7 +139,7 @@ exports[`Page: Paystub should render correctly 1`] = `
               <td
                 class="border-r border-slate-800 text-center"
               >
-                2
+                6
               </td>
               <td
                 class="border-r border-slate-800 text-center"
@@ -468,7 +468,7 @@ exports[`Page: Paystub should render correctly 1`] = `
               Primeiro dia útil
               <input
                 type="date"
-                value="2022-11-02"
+                value="2022-11-08"
               />
             </label>
           </div>
@@ -482,7 +482,7 @@ exports[`Page: Paystub should render correctly 1`] = `
               Último dia útil
               <input
                 type="date"
-                value="2022-11-02"
+                value="2022-11-08"
               />
             </label>
           </div>
