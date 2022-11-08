@@ -1,5 +1,5 @@
 import { CeciliaButton } from '../CeciliaButton/CeciliaButton';
-import { useCeciliaNavbar } from './useCeciliaNavbar';
+import { useCeciliaNavbar } from './hooks/useCeciliaNavbar';
 
 export function CeciliaNavbar() {
   const {

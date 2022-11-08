@@ -6,7 +6,7 @@ import {
   PAYSTUB,
   ADVANCEPAYMENT,
 } from '@application/routes/routes';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLocalStorage } from '../../../hooks/useLocalStorage';
 
 export const useCeciliaNavbar = () => {
   const navigate = useNavigate();
