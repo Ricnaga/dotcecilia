@@ -25,7 +25,7 @@ export function CeciliaMonth({
         type="month"
         value={formattedValue}
         onChange={({ target }) =>
-          handleMonthChange(target.valueAsDate ?? new Date())
+          target.valueAsDate && handleMonthChange(target.valueAsDate)
         }
       />
     </label>

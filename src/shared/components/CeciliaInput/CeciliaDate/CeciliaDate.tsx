@@ -24,7 +24,7 @@ export function CeciliaDate({
         type="date"
         value={formattedValue}
         onChange={({ target }) =>
-          handleDateChange(target.valueAsDate ?? new Date())
+          target.valueAsDate && handleDateChange(target.valueAsDate)
         }
       />
     </label>
