@@ -1,6 +1,7 @@
 import { CeciliaPageHeader, CeciliaTable } from '@shared/components';
 import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
+import { useMemo } from 'react';
 import {
   AdvancePaymentTableBody,
   AdvancePaymentCalculator,
@@ -22,6 +23,11 @@ export function AdvancePaymentPage() {
     refDate: new Date(),
   });
 
+  const bodyMemoized = useMemo(
+    () => <AdvancePaymentTableBody salary={values.salary} />,
+    [values.salary],
+  );
+
   return (
     <CeciliaPageHeader title="Vale adiantamento">
       <div className="grid grid-cols-12 gap-10">
@@ -31,7 +37,7 @@ export function AdvancePaymentPage() {
             name={values.name}
             monthRef={values.refDate}
           >
-            <AdvancePaymentTableBody values={values} />
+            {bodyMemoized}
           </CeciliaTable>
         </div>
         <div className="col-span-5">
