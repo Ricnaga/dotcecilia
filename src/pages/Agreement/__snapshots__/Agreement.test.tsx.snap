@@ -61,7 +61,8 @@ exports[`Page: Agreement should render correctly 1`] = `
                   class="mt-4 border-y border-slate-800 bg-yellow-100"
                 >
                   ACERTO: 
-                  Ref. 08/11/2022 á 08/11/2022 (0) MESES
+                  Ref. 08/11/2022 á 08/11/2022 -     
+ (0) MESES
                 </p>
               </th>
             </tr>

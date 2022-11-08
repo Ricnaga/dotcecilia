@@ -61,9 +61,7 @@ export function CeciliaTable({
         )}
         <tr>
           <th colSpan={8}>
-            <p className="my-4 border-y border-slate-800">
-              {!name ? 'Nome' : name}
-            </p>
+            <p className="my-4 border-y border-slate-800">{name || 'Nome'}</p>
           </th>
         </tr>
       </thead>

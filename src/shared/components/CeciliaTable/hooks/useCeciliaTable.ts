@@ -25,23 +25,17 @@ export const useCeciliaTable = ({
 
   const formattedMonthRef = formatMonth(monthRef);
 
-  const validateDate = (date: string) =>
-    date === 'Invalid Date' ? 'dd/mm/aaaa' : date;
-
   const formatToBRDate = ({ year, month, day }: FormatToBRDateType) =>
     new Date(Number(year), Number(month) - 1, Number(day)).toLocaleDateString(
       'pt-br',
     );
 
   const getDateDifference = useCallback(() => {
-    const validatestartDate = startDate ?? new Date().toString();
-    const validateEndDate = endDate ?? new Date().toString();
-
-    const [initialDay, initialMonth, initialYear] = new Date(validatestartDate)
+    const [initialDay, initialMonth, initialYear] = new Date(startDate)
       .toLocaleDateString('pt-br')
       .split('/');
 
-    const [endDay, endMonth, endYear] = new Date(validateEndDate)
+    const [endDay, endMonth, endYear] = new Date(endDate)
       .toLocaleDateString('pt-br')
       .split('/');
 
@@ -57,9 +51,8 @@ export const useCeciliaTable = ({
       day: endDay,
     });
 
-    return `Ref. ${validateDate(newStartDate)} á ${validateDate(
-      newEndDate,
-    )} (${getMonthsDifference(validatestartDate, validateEndDate)}) MESES`;
+    return `Ref. ${newStartDate} á ${newEndDate} -     
+ (${getMonthsDifference(startDate, endDate)}) MESES`;
   }, [startDate, endDate]);
 
   const dateDifference = getDateDifference();
