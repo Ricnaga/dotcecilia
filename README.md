@@ -17,6 +17,7 @@
 - [ViteJs](https://vitejs.dev/) - Bundler para gerenciar a aplicação
 - [Formik](https://formik.org/docs/overview/) - Manipulação de formulário
 - [TailwindCSS](https://tailwindcss.com/) - framework Css declarativo
+- [Testing Library](https://testing-library.com/) - Teste de interface
 
 ## <div align="center">Requisitos</div>
 
@@ -36,6 +37,9 @@ $ yarn (ou npm -i)
 $ yarn dev (ou npm run dev)
 
 # A aplicação abrirá automaticamente um navegador com o endereço <http://localhost:3000>
+
+# Para verificar os testes execute:
+$ yarn test (ou npm run test)
 ```
 
 #
