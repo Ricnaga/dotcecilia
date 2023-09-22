@@ -1,4 +1,4 @@
-import { CeciliaButton, CeciliaText } from '@shared/components';
+import { Button, Input } from '@shared/components';
 import { useFormik } from 'formik';
 import { useLoginForm } from './hooks/useLoginForm';
 
@@ -20,16 +20,16 @@ export function LoginForm() {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div>
-        <CeciliaText
+      <div className="mb-4">
+        <Input
           placeholder="Digite o usuário"
           value={formik.values[FormFields.name]}
           onChange={formik.handleChange(FormFields.name)}
         />
       </div>
 
-      <div>
-        <CeciliaText
+      <div className="mb-4">
+        <Input
           placeholder="Digite a senha"
           type="password"
           value={formik.values[FormFields.password]}
@@ -37,7 +37,9 @@ export function LoginForm() {
         />
       </div>
 
-      <CeciliaButton title="Entrar" type="submit" />
+      <Button type="submit" className="w-full mt-2">
+        Entrar
+      </Button>
     </form>
   );
 }

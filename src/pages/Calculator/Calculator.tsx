@@ -1,67 +1,34 @@
-import { CeciliaPageHeader } from '@shared/components';
-import { useInputFields } from '@shared/hooks/useInputFields';
-import { useMemo } from 'react';
-import {
-  CalculatorDiscount,
-  CalculatorDiscountData,
-  CalculatorExtraHour,
-  CalculatorExtraHourData,
-  CalculatorTotalList,
-} from './components';
+import { PageContainer } from '@shared/components';
+import { Accordion } from '@shared/components/Accordion/Accordion';
+import { Agreement, Discount, ExtraHour, Unsanitary } from './components';
 
-export type CalculatorPageProps = CalculatorExtraHourData &
-  CalculatorDiscountData;
-
-export function CalculatorPage() {
-  const {
-    data: { values },
-    functions: { onChangeValue, onCheckedValue },
-  } = useInputFields<CalculatorPageProps>({
-    salary: 0,
-    hours: 0,
-    unsanitary: false,
-    minimumWage: 0,
-    agreement: false,
-    workedMonths: 0,
-    missingDays: 0,
-  });
-
-  const calculatorExtraHourMemoized = useMemo(
-    () => (
-      <CalculatorExtraHour
-        onChangeExtraHour={onChangeValue}
-        extraHour={values}
-        onCheckedExtraHour={onCheckedValue}
-      />
-    ),
-    [
-      values.agreement,
-      values.hours,
-      values.minimumWage,
-      values.salary,
-      values.unsanitary,
-      values.workedMonths,
-    ],
-  );
-
-  const calculatorDiscountMemoized = useMemo(
-    () => (
-      <CalculatorDiscount discount={values} onChangeDiscount={onChangeValue} />
-    ),
-    [values.missingDays],
-  );
-
+export function Calculator() {
   return (
-    <CeciliaPageHeader title="Calculadora">
-      <div className="grid grid-cols-12 gap-10">
-        <div className="grid grid-cols-12 col-span-8">
-          <div className="col-span-12">{calculatorExtraHourMemoized}</div>
-          <div className="col-span-12">{calculatorDiscountMemoized}</div>
+    <PageContainer title="Calculadora">
+      <div className="grid grid-cols-3 gap-4">
+        <div className="col-span-2 grid grid-cols-2 gap-4">
+          <div className="col-span-2">
+            <Accordion title="Hora extra">
+              <ExtraHour />
+            </Accordion>
+          </div>
+          <div>
+            <Accordion title="Acerto">
+              <Agreement />
+            </Accordion>
+          </div>
+          <div>
+            <Accordion title="Desconto">
+              <Discount />
+            </Accordion>
+          </div>
         </div>
-        <div className="col-span-4">
-          <CalculatorTotalList values={values} />
+        <div>
+          <Accordion title="Insalubridade">
+            <Unsanitary />
+          </Accordion>
         </div>
       </div>
-    </CeciliaPageHeader>
+    </PageContainer>
   );
 }

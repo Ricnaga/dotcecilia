@@ -1,4 +1,4 @@
-import { CeciliaTableCell, CeciliaTableRow } from '@shared/components';
+import { PaymentTableCell, PaymentTableRow } from '@shared/components';
 import { AgreementCalculatorFields } from '../AgreementCalculator/AgreementCalculator';
 import { useAgreementTableBody } from './hooks/useAgreementTableBody';
 
@@ -18,51 +18,51 @@ export function AgreementTableBody({ values }: AgreementTableBodyProps) {
   return (
     <tbody className="border-t border-slate-800">
       <tr>
-        <CeciliaTableCell colSpan={3}>SALÁRIO:</CeciliaTableCell>
-        <CeciliaTableCell className="text-center" colSpan={2}>
+        <PaymentTableCell colSpan={3}>SALÁRIO:</PaymentTableCell>
+        <PaymentTableCell className="text-center" colSpan={2}>
           {salary}
-        </CeciliaTableCell>
-        <CeciliaTableCell colSpan={2} className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell colSpan={2} className="text-center">
           Pagar
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">Desconto</CeciliaTableCell>
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">Desconto</PaymentTableCell>
       </tr>
       {formattedValues.map(({ title, value, discount }) => (
-        <CeciliaTableRow key={title}>
-          <CeciliaTableCell colSpan={3}>
+        <PaymentTableRow key={title}>
+          <PaymentTableCell colSpan={3}>
             {agreementValues[title]}
-          </CeciliaTableCell>
-          <CeciliaTableCell className="text-center" colSpan={2} />
-          <CeciliaTableCell colSpan={2} className="text-center">
+          </PaymentTableCell>
+          <PaymentTableCell className="text-center" colSpan={2} />
+          <PaymentTableCell colSpan={2} className="text-center">
             {value}
-          </CeciliaTableCell>
-          <CeciliaTableCell className="text-center">
+          </PaymentTableCell>
+          <PaymentTableCell className="text-center">
             {discount || ''}
-          </CeciliaTableCell>
-        </CeciliaTableRow>
+          </PaymentTableCell>
+        </PaymentTableRow>
       ))}
 
-      <CeciliaTableRow>
+      <PaymentTableRow>
         <td colSpan={6}>
           <p className="mt-4 border-t border-slate-800">Sub.total:</p>
         </td>
         <td className="text-center">
           <p className="mt-4 border-t border-slate-800">{totalToPay}</p>
         </td>
-        <CeciliaTableCell className="text-center">
+        <PaymentTableCell className="text-center">
           <p className="mt-4 border-t border-slate-800">
             {formattedValues[0].discount}
           </p>
-        </CeciliaTableCell>
-      </CeciliaTableRow>
-      <CeciliaTableRow>
+        </PaymentTableCell>
+      </PaymentTableRow>
+      <PaymentTableRow>
         <td colSpan={5} className="border-b border-slate-800">
           <p className="mb-4 border-b border-slate-800">Total á pagar:</p>
         </td>
-        <CeciliaTableCell colSpan={3} className="text-center">
+        <PaymentTableCell colSpan={3} className="text-center">
           <p className="mb-4 border-b border-slate-800">{total}</p>
-        </CeciliaTableCell>
-      </CeciliaTableRow>
+        </PaymentTableCell>
+      </PaymentTableRow>
     </tbody>
   );
 }

@@ -1,4 +1,4 @@
-import { CeciliaPageHeader, CeciliaTable } from '@shared/components';
+import { PageContainer, PaymentTable } from '@shared/components';
 import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
 import {
@@ -7,7 +7,7 @@ import {
   AgreementTableBody,
 } from './components';
 
-export function AgreementPage() {
+export function Agreement() {
   const {
     data: { printRef },
     functions: { setPrint },
@@ -23,19 +23,19 @@ export function AgreementPage() {
     endDate: new Date(),
   });
   return (
-    <CeciliaPageHeader title="Acerto">
-      <div className="grid grid-cols-12 gap-10">
-        <div className="grid grid-cols-12 col-span-7" ref={printRef}>
-          <CeciliaTable
+    <PageContainer title="Acerto">
+      <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-12 col-span-2" ref={printRef}>
+          <PaymentTable
             headerType="ACERTO"
             name={values.name}
             startDate={values.startDate}
             endDate={values.endDate}
           >
             <AgreementTableBody values={values} />
-          </CeciliaTable>
+          </PaymentTable>
         </div>
-        <div className="col-span-5">
+        <div>
           <AgreementCalculator
             values={values}
             onChange={onChangeValue}
@@ -43,6 +43,6 @@ export function AgreementPage() {
           />
         </div>
       </div>
-    </CeciliaPageHeader>
+    </PageContainer>
   );
 }

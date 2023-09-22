@@ -1,9 +1,5 @@
-import {
-  CeciliaDate,
-  CeciliaHeaderPrint,
-  CeciliaNumber,
-  CeciliaText,
-} from '@shared/components';
+import { HeaderPrint, Input, InputDate } from '@shared/components';
+import { InputCurrency } from '@shared/components/Input/InputCurrency/InputCurrency';
 import { CalculatorType } from '@shared/utils/types';
 
 export type AgreementCalculatorFields = {
@@ -23,40 +19,38 @@ export function AgreementCalculator({
 }: AgreementCalculatorProps) {
   return (
     <>
-      <CeciliaHeaderPrint onPrint={onPrint} />
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-12">
-          <CeciliaText
+      <HeaderPrint onPrint={onPrint} />
+      <div className="grid grid-cols-2 gap-4 mt-8">
+        <div className="col-span-2">
+          <Input
             placeholder="Digite o nome"
             value={values.name}
             onChange={({ target }) => onChange('name', target.value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaNumber
-            currency
+        <div>
+          <InputCurrency
             placeholder="salário"
             value={values.salary}
-            onChangeValue={(value) => onChange('salary', value)}
+            onChange={(value) => onChange('salary', value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaNumber
-            currency
+        <div>
+          <InputCurrency
             placeholder="Descontos (R$)"
             value={values.discount}
-            onChangeValue={(value) => onChange('discount', value)}
+            onChange={(value) => onChange('discount', value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaDate
+        <div>
+          <InputDate
             label="Data inicial"
             dateValue={values.startDate}
             onDateChange={(date) => onChange('startDate', date.toString())}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaDate
+        <div>
+          <InputDate
             label="Data Final"
             dateValue={values.endDate}
             onDateChange={(date) => onChange('endDate', date.toString())}

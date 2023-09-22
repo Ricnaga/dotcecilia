@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import { AdvancePaymentPage } from './AdvancePayment';
+import { AdvancePayment } from './AdvancePayment';
 
 describe('Page: AdvancePayment', () => {
   it('should render correctly', () => {
-    const { container } = render(<AdvancePaymentPage />);
+    const { container } = render(<AdvancePayment />);
     expect(container).toMatchSnapshot();
   });
 });

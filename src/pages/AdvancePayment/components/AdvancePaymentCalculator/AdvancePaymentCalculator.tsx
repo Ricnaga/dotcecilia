@@ -1,9 +1,5 @@
-import {
-  CeciliaHeaderPrint,
-  CeciliaMonth,
-  CeciliaNumber,
-  CeciliaText,
-} from '@shared/components';
+import { HeaderPrint, Input, InputMonth } from '@shared/components';
+import { InputCurrency } from '@shared/components/Input/InputCurrency/InputCurrency';
 import { CalculatorType } from '@shared/utils/types';
 import { useMemo } from 'react';
 
@@ -21,13 +17,10 @@ export function AdvancePaymentCalculator({
   onChange,
   onPrint,
 }: AdvancePaymentCalculatorProps) {
-  const headerPrint = useMemo(
-    () => <CeciliaHeaderPrint onPrint={onPrint} />,
-    [],
-  );
+  const headerPrint = useMemo(() => <HeaderPrint onPrint={onPrint} />, []);
   const inputName = useMemo(
     () => (
-      <CeciliaText
+      <Input
         placeholder="Digite o nome"
         value={values.name}
         onChange={({ target }) => onChange('name', target.value)}
@@ -37,11 +30,10 @@ export function AdvancePaymentCalculator({
   );
   const inputSalary = useMemo(
     () => (
-      <CeciliaNumber
-        currency
+      <InputCurrency
         placeholder="salário"
         value={values.salary}
-        onChangeValue={(value) => onChange('salary', value)}
+        onChange={(value) => onChange('salary', value)}
       />
     ),
     [values.salary],
@@ -49,7 +41,7 @@ export function AdvancePaymentCalculator({
 
   const inputMonth = useMemo(
     () => (
-      <CeciliaMonth
+      <InputMonth
         dateValue={values.refDate}
         onMonthChange={(date) => onChange('refDate', date.toString())}
       />
@@ -59,10 +51,10 @@ export function AdvancePaymentCalculator({
   return (
     <>
       {headerPrint}
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-12">{inputName}</div>
-        <div className="col-span-6">{inputSalary}</div>
-        <div className="col-span-6">{inputMonth}</div>
+      <div className="grid grid-cols-2 gap-4 mt-8">
+        <div className="col-span-2">{inputName}</div>
+        <div>{inputSalary}</div>
+        <div>{inputMonth}</div>
       </div>
     </>
   );

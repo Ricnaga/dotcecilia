@@ -3,43 +3,62 @@
 exports[`Page: Login should render correctly 1`] = `
 <div>
   <div
-    class="grid items-center justify-center h-full mt-20"
+    class="grid grid-cols-1 max-w-xs mx-auto mt-32 p-4"
   >
-    <p
-      class="text-7xl font-medium mb-8 text-center"
+    <div
+      class="text-center text-5xl my-8 whitespace-nowrap"
     >
-      Fazer Login
-    </p>
+      <h1
+        class="font-bold"
+      >
+        Fazer Login
+      </h1>
+    </div>
     <form>
-      <div>
-        <label
-          class="text-xl"
-          for="text"
-        >
-          <input
-            placeholder="Digite o usuário"
-            type="text"
-            value=""
-          />
-        </label>
+      <div
+        class="mb-4"
+      >
+        <div>
+          <div
+            data-error="false"
+            data-variants="input-wrapper"
+          >
+            <input
+              data-variants="input"
+              placeholder="Digite o usuário"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
       </div>
-      <div>
-        <label
-          class="text-xl"
-          for="text"
-        >
-          <input
-            placeholder="Digite a senha"
-            type="password"
-            value=""
-          />
-        </label>
+      <div
+        class="mb-4"
+      >
+        <div>
+          <div
+            data-error="false"
+            data-variants="input-wrapper"
+          >
+            <input
+              data-variants="input"
+              placeholder="Digite a senha"
+              type="password"
+              value=""
+            />
+          </div>
+        </div>
       </div>
       <button
-        class="btn btn-yellow undefined"
+        class="w-full mt-2"
+        data-variants="curtain"
         type="submit"
       >
-        Entrar
+        <span
+          data-text="default"
+        >
+          Entrar
+        </span>
       </button>
     </form>
   </div>

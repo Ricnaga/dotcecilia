@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { CALCULATOR } from '@application/routes/routes';
 import { ENV_PASSWORD, ENV_USER } from '@config';
 import { useLocalStorage } from '@shared/hooks/useLocalStorage';
+import { CALCULATOR } from '@application/routes/paths';
 import { FormFields } from '../LoginForm';
 
 type FormikValues = Record<keyof typeof FormFields, string>;

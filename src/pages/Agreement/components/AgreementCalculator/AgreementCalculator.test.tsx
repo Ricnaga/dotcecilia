@@ -21,7 +21,7 @@ const handleOnChange = (
   mockValues = { ...mockValues, [key]: value };
 };
 
-describe('Components: AdvancePaymentCalculator', () => {
+describe('Components: AgreementCalculator', () => {
   beforeEach(() =>
     render(
       <AgreementCalculator
@@ -34,7 +34,7 @@ describe('Components: AdvancePaymentCalculator', () => {
 
   it('should be able to type a name', () => {
     const value = 'John Doe';
-    fireEvent.change(screen.getByRole('textbox'), {
+    fireEvent.change(screen.getByPlaceholderText(/Digite o nome/i), {
       target: { value },
     });
     expect(mockValues.name).toEqual(value);
@@ -57,8 +57,8 @@ describe('Components: AdvancePaymentCalculator', () => {
         target: { value: input.value },
       }),
     );
-    expect(mockValues.salary).toEqual(numberInputs[0].value);
-    expect(mockValues.discount).toEqual(numberInputs[1].value);
+    expect(mockValues.salary).toEqual(numberInputs[0].value / 100);
+    expect(mockValues.discount).toEqual(numberInputs[1].value / 100);
   });
 
   it('should test input Date', () => {

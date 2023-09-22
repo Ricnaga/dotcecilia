@@ -1,25 +1,25 @@
-import { CeciliaPageHeader, CeciliaTable } from '@shared/components';
+import { PageContainer, PaymentTable } from '@shared/components';
 import { PaystubCalculator, PaystubTableBody } from './components';
 import { usePaystub } from './hooks/usePaystub';
 
-export function PaystubPage() {
+export function Paystub() {
   const {
     data: { printRef, values },
     functions: { setPrint, onChangeValue, onCheckedValue },
   } = usePaystub();
   return (
-    <CeciliaPageHeader title="Holerite">
-      <div className="grid grid-cols-12 gap-10">
-        <div className="grid grid-cols-12 col-span-7" ref={printRef}>
-          <CeciliaTable
+    <PageContainer title="Holerite">
+      <div className="grid grid-cols-3 gap-10">
+        <div className="col-span-2 grid grid-cols-12 " ref={printRef}>
+          <PaymentTable
             headerType="PAGAMENTO"
             name={values.name}
             monthRef={values.initialWorkdayMonth}
           >
             <PaystubTableBody values={values} />
-          </CeciliaTable>
+          </PaymentTable>
         </div>
-        <div className="col-span-5">
+        <div>
           <PaystubCalculator
             onPrint={setPrint}
             values={values}
@@ -28,6 +28,6 @@ export function PaystubPage() {
           />
         </div>
       </div>
-    </CeciliaPageHeader>
+    </PageContainer>
   );
 }

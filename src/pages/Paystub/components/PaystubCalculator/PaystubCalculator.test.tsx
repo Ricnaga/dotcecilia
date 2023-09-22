@@ -1,6 +1,5 @@
 import { OnlyBooleanKeys } from '@shared/utils/types';
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import {
   PaystubCalculator,
   PaystubCalculatorFields,
@@ -64,21 +63,9 @@ describe('Component: PaystubCalculator', () => {
   });
 
   it('should test switch buttons', async () => {
-    await userEvent.click(
-      screen.getByRole('switch', {
-        name: /insalubridade \?/i,
-      }),
-    );
-    await userEvent.click(
-      screen.getByRole('switch', {
-        name: /he\?/i,
-      }),
-    );
-    await userEvent.click(
-      screen.getByRole('switch', {
-        name: /100% \?/i,
-      }),
-    );
+    const allcheckboxes = screen.getAllByRole('checkbox');
+
+    allcheckboxes.map((checkbox) => fireEvent.click(checkbox));
 
     expect(values.hasUnsanitary).toBeFalsy();
     expect(values.extraHour).toBeFalsy();
@@ -96,35 +83,35 @@ describe('Component: PaystubCalculator', () => {
     };
 
     fireEvent.change(screen.getByPlaceholderText(/valor insalubridade/i), {
-      target: { valueAsNumber: inputValue.unsanitary },
+      target: { value: inputValue.unsanitary },
     });
     fireEvent.change(screen.getByPlaceholderText(/horas/i), {
-      target: { valueAsNumber: inputValue.hours },
+      target: { value: inputValue.hours },
     });
     fireEvent.change(screen.getByPlaceholderText(/salário/i), {
-      target: { valueAsNumber: inputValue.salary },
+      target: { value: inputValue.salary },
     });
     fireEvent.change(screen.getByPlaceholderText(/dias faltados/i), {
-      target: { valueAsNumber: inputValue.missingDays },
+      target: { value: inputValue.missingDays },
     });
     fireEvent.change(screen.getByPlaceholderText(/valor diário vtr/i), {
-      target: { valueAsNumber: inputValue.vtr },
+      target: { value: inputValue.vtr },
     });
     fireEvent.change(screen.getByPlaceholderText(/desconto de dias/i), {
-      target: { valueAsNumber: inputValue.discountedDays },
+      target: { value: inputValue.discountedDays },
     });
 
-    expect(values.unsanitary).toBe(inputValue.unsanitary);
+    expect(values.unsanitary).toBe(inputValue.unsanitary / 100);
+    expect(values.salary).toBe(inputValue.salary / 100);
+    expect(values.vtr).toBe(inputValue.vtr / 100);
     expect(values.hours).toBe(inputValue.hours);
-    expect(values.salary).toBe(inputValue.salary);
     expect(values.missingDays).toBe(inputValue.missingDays);
-    expect(values.vtr).toBe(inputValue.vtr);
     expect(values.discountedDays).toBe(inputValue.discountedDays);
   });
 
   it('should be able to type a name', () => {
     const value = 'John Doe';
-    fireEvent.change(screen.getByRole('textbox'), {
+    fireEvent.change(screen.getByPlaceholderText(/Digite o nome/i), {
       target: { value },
     });
     expect(values.name).toEqual(value);

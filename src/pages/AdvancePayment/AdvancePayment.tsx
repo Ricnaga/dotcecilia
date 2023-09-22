@@ -1,4 +1,4 @@
-import { CeciliaPageHeader, CeciliaTable } from '@shared/components';
+import { PageContainer, PaymentTable } from '@shared/components';
 import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
 import { useMemo } from 'react';
@@ -8,7 +8,7 @@ import {
   AdvancePaymentCalculatorFields,
 } from './components';
 
-export function AdvancePaymentPage() {
+export function AdvancePayment() {
   const {
     data: { printRef },
     functions: { setPrint },
@@ -29,18 +29,18 @@ export function AdvancePaymentPage() {
   );
 
   return (
-    <CeciliaPageHeader title="Vale adiantamento">
-      <div className="grid grid-cols-12 gap-10">
-        <div className="grid grid-cols-12 col-span-7" ref={printRef}>
-          <CeciliaTable
+    <PageContainer title="Vale adiantamento">
+      <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-12 col-span-2" ref={printRef}>
+          <PaymentTable
             headerType="ADIANTAMENTO"
             name={values.name}
             monthRef={values.refDate}
           >
             {bodyMemoized}
-          </CeciliaTable>
+          </PaymentTable>
         </div>
-        <div className="col-span-5">
+        <div>
           <AdvancePaymentCalculator
             onChange={onChangeValue}
             onPrint={setPrint}
@@ -48,6 +48,6 @@ export function AdvancePaymentPage() {
           />
         </div>
       </div>
-    </CeciliaPageHeader>
+    </PageContainer>
   );
 }

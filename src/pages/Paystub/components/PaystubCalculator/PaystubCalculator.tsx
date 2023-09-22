@@ -1,10 +1,11 @@
 import {
-  CeciliaCheckbox,
-  CeciliaDate,
-  CeciliaHeaderPrint,
-  CeciliaNumber,
-  CeciliaText,
+  Switch,
+  InputDate,
+  HeaderPrint,
+  InputNumber,
+  Input,
 } from '@shared/components';
+import { InputCurrency } from '@shared/components/Input/InputCurrency/InputCurrency';
 import { CalculatorType } from '@shared/utils/types';
 
 export type PaystubCalculatorFields = {
@@ -32,91 +33,90 @@ export function PaystubCalculator({
 }: PaystubCalculatorProps) {
   return (
     <>
-      <CeciliaHeaderPrint onPrint={onPrint} />
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-12">
-          <CeciliaText
+      <HeaderPrint onPrint={onPrint} />
+      <div className="grid grid-cols-2 gap-4 mt-8">
+        <div className="col-span-2">
+          <Input
             placeholder="Digite o nome"
             value={values.name}
             onChange={({ target }) => onChange('name', target.value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaCheckbox
-            label="Insalubridade ?"
-            checked={values.hasUnsanitary}
-            onChecked={() => onChecked && onChecked('hasUnsanitary')}
-          />
+        <div className="col-1 mt-2">
+          <div className="ml-8">
+            <Switch
+              label="Insalubridade ?"
+              checked={values.hasUnsanitary}
+              onChange={() => onChecked && onChecked('hasUnsanitary')}
+            />
+          </div>
           {values.hasUnsanitary && (
-            <div className="mt-3">
-              <CeciliaNumber
-                currency
+            <div className="mt-1">
+              <InputCurrency
                 placeholder="Valor insalubridade"
                 value={values.unsanitary}
-                onChangeValue={(value) => onChange('unsanitary', value)}
+                onChange={(value) => onChange('unsanitary', value)}
               />
             </div>
           )}
         </div>
-        <div className="col-span-6 grid grid-cols-12 justify-around">
-          <div className="col-span-6">
-            <CeciliaCheckbox
+        <div className="grid grid-cols-2 mt-2">
+          <div className="ml-8">
+            <Switch
               label="HE?"
               checked={values.extraHour}
-              onChecked={() => onChecked && onChecked('extraHour')}
+              onChange={() => onChecked && onChecked('extraHour')}
             />
           </div>
           {values.extraHour && (
             <>
-              <div className="col-span-6">
-                <CeciliaCheckbox
+              <div>
+                <Switch
                   label="100% ?"
                   checked={values.fullExtra}
-                  onChecked={() => onChecked && onChecked('fullExtra')}
+                  onChange={() => onChecked && onChecked('fullExtra')}
                 />
               </div>
-              <div className="mt-3 col-span-12">
-                <CeciliaNumber
+              <div className="col-span-2 mt-1">
+                <InputNumber
                   placeholder="horas"
                   value={values.hours}
-                  onChangeValue={(value) => onChange('hours', value)}
+                  onChange={(value) => onChange('hours', value)}
                 />
               </div>
             </>
           )}
         </div>
-        <div className="col-span-6">
-          <CeciliaNumber
-            currency
+        <div>
+          <InputCurrency
             placeholder="salário"
             value={values.salary}
-            onChangeValue={(value) => onChange('salary', value)}
+            onChange={(value) => onChange('salary', value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaNumber
+        <div>
+          <InputNumber
             placeholder="Dias faltados"
             value={values.missingDays}
-            onChangeValue={(value) => onChange('missingDays', value)}
+            onChange={(value) => onChange('missingDays', value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaNumber
-            currency
+        <div>
+          <InputCurrency
             placeholder="Valor diário VTR"
             value={values.vtr}
-            onChangeValue={(value) => onChange('vtr', value)}
+            onChange={(value) => onChange('vtr', value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaNumber
+        <div>
+          <InputNumber
             placeholder="Desconto de dias"
             value={values.discountedDays}
-            onChangeValue={(value) => onChange('discountedDays', value)}
+            onChange={(value) => onChange('discountedDays', value)}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaDate
+        <div>
+          <InputDate
             label="Primeiro dia útil"
             dateValue={values.initialWorkdayMonth}
             onDateChange={(date) => {
@@ -124,8 +124,8 @@ export function PaystubCalculator({
             }}
           />
         </div>
-        <div className="col-span-6">
-          <CeciliaDate
+        <div>
+          <InputDate
             label="Último dia útil"
             dateValue={values.lastWorkdayMonth}
             onDateChange={(date) =>

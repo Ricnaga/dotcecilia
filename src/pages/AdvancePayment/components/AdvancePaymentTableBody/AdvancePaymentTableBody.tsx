@@ -1,4 +1,4 @@
-import { CeciliaTableCell, CeciliaTableRow } from '@shared/components';
+import { PaymentTableCell, PaymentTableRow } from '@shared/components';
 import { useMemo } from 'react';
 import { useAdvancePaymentTableBody } from './hooks/useAdvancePaymentTableBody';
 
@@ -12,40 +12,40 @@ export function AdvancePaymentTableBody({
 
   const valueToPayRow = useMemo(
     () => (
-      <CeciliaTableRow>
+      <PaymentTableRow>
         <td colSpan={5}>
           <p className="my-4">Total líquido:</p>
         </td>
-        <CeciliaTableCell colSpan={3} className="text-center">
+        <PaymentTableCell colSpan={3} className="text-center">
           {valueToPay}
-        </CeciliaTableCell>
-      </CeciliaTableRow>
+        </PaymentTableCell>
+      </PaymentTableRow>
     ),
     [valueToPay],
   );
   return (
     <tbody className="border-t border-slate-800">
       <tr>
-        <CeciliaTableCell>SALÁRIO BASE</CeciliaTableCell>
-        <CeciliaTableCell colSpan={3} className="text-center">
+        <PaymentTableCell>SALÁRIO BASE</PaymentTableCell>
+        <PaymentTableCell colSpan={3} className="text-center">
           {baseSalary}
-        </CeciliaTableCell>
-        <CeciliaTableCell colSpan={2} className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell colSpan={2} className="text-center">
           Ref.
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">vencimento</CeciliaTableCell>
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">vencimento</PaymentTableCell>
       </tr>
-      <CeciliaTableRow>
-        <CeciliaTableCell colSpan={5}>
+      <PaymentTableRow>
+        <PaymentTableCell colSpan={5}>
           <p className="mb-20">Adiantamento:</p>
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">
           <p className="mb-20">40</p>
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">
           <p className="mb-20 text-center"> {valueToPay}</p>
-        </CeciliaTableCell>
-      </CeciliaTableRow>
+        </PaymentTableCell>
+      </PaymentTableRow>
       {valueToPayRow}
     </tbody>
   );

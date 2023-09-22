@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { LoginPage } from './Login';
+import { Login } from './Login';
 
 jest.mock('react-router-dom', () => ({
   __esModule: true,
@@ -8,7 +8,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('Page: Login', () => {
   it('should render correctly', () => {
-    const { container } = render(<LoginPage />);
+    const { container } = render(<Login />);
     expect(container).toMatchSnapshot();
   });
 });

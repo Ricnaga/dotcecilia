@@ -2,19 +2,17 @@
 
 exports[`Page: Agreement should render correctly 1`] = `
 <div>
-  <div
-    class="w-full"
-  >
+  <div>
     <p
-      class="text-5xl font-bold my-6"
+      class="text-5xl font-bold mt-8 mb-6"
     >
       Acerto
     </p>
     <div
-      class="grid grid-cols-12 gap-10"
+      class="grid grid-cols-3 gap-10"
     >
       <div
-        class="grid grid-cols-12 col-span-7"
+        class="grid grid-cols-12 col-span-2"
       >
         <table
           class="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900"
@@ -61,7 +59,7 @@ exports[`Page: Agreement should render correctly 1`] = `
                   class="mt-4 border-y border-slate-800 bg-yellow-100"
                 >
                   ACERTO: 
-                  Ref. 08/11/2022 á 08/11/2022 -     
+                  Ref. 22/09/2023 á 22/09/2023 -     
  (0) MESES
                 </p>
               </th>
@@ -259,99 +257,114 @@ exports[`Page: Agreement should render correctly 1`] = `
           </tfoot>
         </table>
       </div>
-      <div
-        class="col-span-5"
-      >
+      <div>
         <div
-          class="grid grid-cols-12"
+          class="grid grid-cols-2 items-center"
         >
           <p
-            class="text-4xl text-left font-bold mb-4 col-span-6"
+            class="text-4xl font-bold leading-9"
           >
             Cálculos
           </p>
           <button
-            class="btn btn-yellow col-start-9 col-end-13 mb-4"
-            type="button"
+            class="justify-self-end"
+            data-variants="smoosh"
           >
-            Imprimir
+            <span
+              data-text="default"
+            >
+              Imprimir
+            </span>
           </button>
         </div>
         <div
-          class="grid grid-cols-12 gap-4"
+          class="grid grid-cols-2 gap-4 mt-8"
         >
           <div
-            class="col-span-12"
+            class="col-span-2"
           >
-            <label
-              class="text-xl"
-              for="text"
-            >
-              <input
-                placeholder="Digite o nome"
-                type="text"
-                value=""
-              />
-            </label>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Digite o nome"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
           </div>
-          <div
-            class="col-span-6"
-          >
-            <label
-              class="text-2xl"
-              for="number"
-            >
-              <input
-                min="0.00"
-                placeholder="salário"
-                step="0.01"
-                type="number"
-                value=""
-              />
-            </label>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="salário"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
           </div>
-          <div
-            class="col-span-6"
-          >
-            <label
-              class="text-2xl"
-              for="number"
-            >
-              <input
-                min="0.00"
-                placeholder="Descontos (R$)"
-                step="0.01"
-                type="number"
-                value=""
-              />
-            </label>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Descontos (R$)"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
           </div>
-          <div
-            class="col-span-6"
-          >
+          <div>
             <label
-              class="text-xl"
+              class="text-lg ml-8 leading-6 font-medium"
               for="date"
             >
               Data inicial
-              <input
-                type="date"
-                value="2022-11-08"
-              />
+              <div>
+                <div
+                  data-error="false"
+                  data-variants="input-wrapper"
+                >
+                  <input
+                    data-variants="input"
+                    type="date"
+                    value="2023-09-22"
+                  />
+                </div>
+              </div>
             </label>
           </div>
-          <div
-            class="col-span-6"
-          >
+          <div>
             <label
-              class="text-xl"
+              class="text-lg ml-8 leading-6 font-medium"
               for="date"
             >
               Data Final
-              <input
-                type="date"
-                value="2022-11-08"
-              />
+              <div>
+                <div
+                  data-error="false"
+                  data-variants="input-wrapper"
+                >
+                  <input
+                    data-variants="input"
+                    type="date"
+                    value="2023-09-22"
+                  />
+                </div>
+              </div>
             </label>
           </div>
         </div>

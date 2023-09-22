@@ -46,7 +46,7 @@ describe('Components: AdvancePaymentCalculator', () => {
 
   it('should be able to type a name', () => {
     const value = 'John Doe';
-    fireEvent.change(screen.getByRole('textbox'), {
+    fireEvent.change(screen.getByPlaceholderText(/digite o nome/i), {
       target: { value },
     });
     expect(mockValues.name).toEqual(value);
@@ -54,10 +54,10 @@ describe('Components: AdvancePaymentCalculator', () => {
 
   it('should be able to type a salary', () => {
     const value = 2000;
-    fireEvent.change(screen.getByRole('spinbutton'), {
+    fireEvent.change(screen.getByPlaceholderText(/salário/i), {
       target: { value },
     });
-    expect(mockValues.salary).toEqual(value);
+    expect(mockValues.salary).toEqual(value / 100);
   });
 
   it('should be able to change refDate', () => {

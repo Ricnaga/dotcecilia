@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import { CalculatorPage } from './Calculator';
+import { Calculator } from './Calculator';
 
 describe('Page: Calculator', () => {
   it('should render correctly', () => {
-    const { container } = render(<CalculatorPage />);
+    const { container } = render(<Calculator />);
     expect(container).toMatchSnapshot();
   });
 });

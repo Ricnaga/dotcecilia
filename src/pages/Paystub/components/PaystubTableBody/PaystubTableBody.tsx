@@ -1,4 +1,4 @@
-import { CeciliaTableCell, CeciliaTableRow } from '@shared/components';
+import { PaymentTableCell, PaymentTableRow } from '@shared/components';
 import { PaystubCalculatorFields } from '../PaystubCalculator/PaystubCalculator';
 import { usePaystubTableBody } from './hooks/usePaystubTableBody';
 
@@ -18,102 +18,102 @@ export function PaystubTableBody({ values }: PaystubTableBodyProps) {
   return (
     <tbody className="border-t border-slate-800">
       <tr>
-        <CeciliaTableCell colSpan={3} />
-        <CeciliaTableCell colSpan={1} className="text-center">
+        <PaymentTableCell colSpan={3} />
+        <PaymentTableCell colSpan={1} className="text-center">
           Ref.
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">Vencimento</CeciliaTableCell>
-        <CeciliaTableCell colSpan={2} className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">Vencimento</PaymentTableCell>
+        <PaymentTableCell colSpan={2} className="text-center">
           Descontos
-        </CeciliaTableCell>
+        </PaymentTableCell>
       </tr>
-      <CeciliaTableRow>
-        <CeciliaTableCell colSpan={3}>Salário do mês</CeciliaTableCell>
-        <CeciliaTableCell colSpan={1} className="text-center">
+      <PaymentTableRow>
+        <PaymentTableCell colSpan={3}>Salário do mês</PaymentTableCell>
+        <PaymentTableCell colSpan={1} className="text-center">
           30
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">
           {formattedValues.salary}
-        </CeciliaTableCell>
-        <CeciliaTableCell colSpan={2} className="border-b" />
-      </CeciliaTableRow>
+        </PaymentTableCell>
+        <PaymentTableCell colSpan={2} className="border-b" />
+      </PaymentTableRow>
       {formattedHours.extraHour && (
-        <CeciliaTableRow>
-          <CeciliaTableCell colSpan={3}>Hora extra 60%</CeciliaTableCell>
-          <CeciliaTableCell colSpan={1} className="text-center">
+        <PaymentTableRow>
+          <PaymentTableCell colSpan={3}>Hora extra 60%</PaymentTableCell>
+          <PaymentTableCell colSpan={1} className="text-center">
             {formattedHours.hours}
-          </CeciliaTableCell>
-          <CeciliaTableCell className="text-center">
+          </PaymentTableCell>
+          <PaymentTableCell className="text-center">
             {formattedHours.extraHourValue}
-          </CeciliaTableCell>
-          <CeciliaTableCell colSpan={2} />
-        </CeciliaTableRow>
+          </PaymentTableCell>
+          <PaymentTableCell colSpan={2} />
+        </PaymentTableRow>
       )}
       {formattedHours.fullExtra && (
-        <CeciliaTableRow>
-          <CeciliaTableCell colSpan={3}>Hora extra 100%</CeciliaTableCell>
-          <CeciliaTableCell colSpan={1} className="text-center">
+        <PaymentTableRow>
+          <PaymentTableCell colSpan={3}>Hora extra 100%</PaymentTableCell>
+          <PaymentTableCell colSpan={1} className="text-center">
             {formattedHours.hours}
-          </CeciliaTableCell>
-          <CeciliaTableCell className="text-center">
+          </PaymentTableCell>
+          <PaymentTableCell className="text-center">
             {formattedHours.fullExtraValue}
-          </CeciliaTableCell>
-          <CeciliaTableCell colSpan={2} />
-        </CeciliaTableRow>
+          </PaymentTableCell>
+          <PaymentTableCell colSpan={2} />
+        </PaymentTableRow>
       )}
       {formattedValues.hasUnsanitary && (
-        <CeciliaTableRow>
-          <CeciliaTableCell colSpan={3}>Insalubridade</CeciliaTableCell>
-          <CeciliaTableCell colSpan={1} className="text-center">
+        <PaymentTableRow>
+          <PaymentTableCell colSpan={3}>Insalubridade</PaymentTableCell>
+          <PaymentTableCell colSpan={1} className="text-center">
             0
-          </CeciliaTableCell>
-          <CeciliaTableCell className="text-center">
+          </PaymentTableCell>
+          <PaymentTableCell className="text-center">
             {formattedValues.unsanitary}
-          </CeciliaTableCell>
-          <CeciliaTableCell colSpan={2} />
-        </CeciliaTableRow>
+          </PaymentTableCell>
+          <PaymentTableCell colSpan={2} />
+        </PaymentTableRow>
       )}
-      <CeciliaTableRow className="border">
-        <CeciliaTableCell colSpan={2}>
+      <PaymentTableRow className="border">
+        <PaymentTableCell colSpan={2}>
           Vtr - {formattedVtr.dateRange}
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">
           {formattedVtr.vtr}
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">
           {formattedVtr.vtrRef}
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center">
           {formattedVtr.vtrMonthValue}
-        </CeciliaTableCell>
-        <CeciliaTableCell colSpan={2} className="border-r" />
-      </CeciliaTableRow>
-      <CeciliaTableRow>
-        <CeciliaTableCell colSpan={3}>Falta dia</CeciliaTableCell>
-        <CeciliaTableCell className="text-center">
+        </PaymentTableCell>
+        <PaymentTableCell colSpan={2} className="border-r" />
+      </PaymentTableRow>
+      <PaymentTableRow>
+        <PaymentTableCell colSpan={3}>Falta dia</PaymentTableCell>
+        <PaymentTableCell className="text-center">
           {formattedMissingDays.missingDays}
-        </CeciliaTableCell>
-        <CeciliaTableCell className="text-center" />
-        <CeciliaTableCell className="text-center" colSpan={2}>
+        </PaymentTableCell>
+        <PaymentTableCell className="text-center" />
+        <PaymentTableCell className="text-center" colSpan={2}>
           {formattedMissingDays.totalMissingDays}
-        </CeciliaTableCell>
-      </CeciliaTableRow>
-      <CeciliaTableRow>
-        <CeciliaTableCell colSpan={3}>Adiantamento anterior</CeciliaTableCell>
-        <CeciliaTableCell className="text-center" />
-        <CeciliaTableCell className="text-center" />
-        <CeciliaTableCell className="text-center" colSpan={2}>
+        </PaymentTableCell>
+      </PaymentTableRow>
+      <PaymentTableRow>
+        <PaymentTableCell colSpan={3}>Adiantamento anterior</PaymentTableCell>
+        <PaymentTableCell className="text-center" />
+        <PaymentTableCell className="text-center" />
+        <PaymentTableCell className="text-center" colSpan={2}>
           {formattedValues.previousAdvance}
-        </CeciliaTableCell>
-      </CeciliaTableRow>
-      <CeciliaTableRow>
-        <CeciliaTableCell colSpan={3}>Desconto 6% Vtr</CeciliaTableCell>
-        <CeciliaTableCell className="text-center" />
-        <CeciliaTableCell className="text-center" />
-        <CeciliaTableCell className="text-center" colSpan={2}>
+        </PaymentTableCell>
+      </PaymentTableRow>
+      <PaymentTableRow>
+        <PaymentTableCell colSpan={3}>Desconto 6% Vtr</PaymentTableCell>
+        <PaymentTableCell className="text-center" />
+        <PaymentTableCell className="text-center" />
+        <PaymentTableCell className="text-center" colSpan={2}>
           {formattedVtr.discountedVtr}
-        </CeciliaTableCell>
-      </CeciliaTableRow>
+        </PaymentTableCell>
+      </PaymentTableRow>
       <tr className="border-t border-slate-800">
         <td colSpan={4}>
           <p className="mt-4 border-r border-t border-slate-800">Total:</p>
