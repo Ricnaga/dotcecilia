@@ -1,0 +1,8 @@
+[data-variants='input-wrapper'] {
+  @apply mx-auto flex items-center rounded-full border hover:shadow-md px-4 bg-white;
+  @apply data-[error=true]:border-red-500;
+}
+
+[data-variants='input'] {
+  @apply w-full bg-transparent rounded-full p-4 outline-none;
+}
