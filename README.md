@@ -13,7 +13,6 @@
 ### <div align="center"> Aplicação em Reactjs/Typescript, abordando conceitos sobre: </div>
 
 - [TypeScript](https://www.typescriptlang.org/) - Tipagens avançadas
-- [HeadlessUI](https://headlessui.com/) - UI para tailwind
 - [ViteJs](https://vitejs.dev/) - Bundler para gerenciar a aplicação
 - [Formik](https://formik.org/docs/overview/) - Manipulação de formulário
 - [TailwindCSS](https://tailwindcss.com/) - framework Css declarativo
