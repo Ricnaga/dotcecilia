@@ -11,7 +11,7 @@ type GetExtraHourItems = Record<'percentage' | 'money' | 'hours', number>;
 
 export const useCalcPayments = () => {
   const formatBRL = (money: number) => convertToCurrencyFloat(money);
-  const getValueHour = (money: number) => money / MONTH_HOUR;
+  const getValueHour = (salary: number) => salary / MONTH_HOUR;
 
   const getExtraHour = ({ hours, percentage, money }: GetExtraHourItems) => {
     const extraHourValue = (getValueHour(money) * hours * percentage) / 100;
