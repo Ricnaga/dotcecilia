@@ -1,11 +1,14 @@
 import { InputCurrency } from '@shared/components/Input/InputCurrency/InputCurrency';
 import { useState } from 'react';
 import { InputNumber } from '@shared/components';
+import { useCalc } from '@shared/hooks/useCalc';
 import { CalculatorTable, TBodyKey } from '../CalculatorTable/CalculatorTable';
 import { CalculatorTd } from '../CalculatorTable/CalculatorTd';
 import { CalculatorTr } from '../CalculatorTable/CalculatorTr';
 
 export function Agreement() {
+  const { toBRL, getVacation, getOneThirdVacation } = useCalc();
+
   const [value, setValue] = useState<
     Record<'salary' | 'workingMonths', number>
   >({
@@ -13,24 +16,18 @@ export function Agreement() {
     workingMonths: 0,
   });
 
-  const toBRL = (value: number) =>
-    new Intl.NumberFormat('pt-br', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(value);
-
   const dataSalary: TBodyKey = [
     {
       label: 'Férias',
-      value: toBRL((value.salary / 12) * value.workingMonths),
+      value: toBRL(getVacation(value.salary, value.workingMonths)),
     },
     {
       label: '13º',
-      value: toBRL((value.salary / 12) * value.workingMonths),
+      value: toBRL(getVacation(value.salary, value.workingMonths)),
     },
     {
       label: 'Férias - 1/3',
-      value: toBRL(((value.salary / 12) * value.workingMonths) / 3),
+      value: toBRL(getOneThirdVacation(value.salary, value.workingMonths)),
     },
   ];
 

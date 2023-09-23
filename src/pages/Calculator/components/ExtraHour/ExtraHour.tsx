@@ -1,6 +1,7 @@
 import { InputNumber } from '@shared/components';
 import { InputCurrency } from '@shared/components/Input/InputCurrency/InputCurrency';
 import { useState } from 'react';
+import { useCalc } from '@shared/hooks/useCalc';
 import { CalculatorTable, TBodyKey } from '../CalculatorTable/CalculatorTable';
 import { CalculatorTd } from '../CalculatorTable/CalculatorTd';
 import { CalculatorTr } from '../CalculatorTable/CalculatorTr';
@@ -11,49 +12,73 @@ const PREVIOUS_ADVANCE_VALUE = 0.4;
 const DISCOUNT_VALUE = 30;
 
 export function ExtraHour() {
+  const {
+    toBRL,
+    getHourValue,
+    getVTR,
+    getPreviousAdvance,
+    getMissingDays,
+    getExtraHour,
+  } = useCalc();
+
   const [value, setValue] = useState<Record<'salary' | 'valueHour', number>>({
     salary: 0,
     valueHour: 0,
   });
 
-  const toBRL = (value: number) =>
-    new Intl.NumberFormat('pt-br', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(value);
-
   const dataSalary: TBodyKey = [
     {
       label: 'Valor/hora',
-      value: toBRL(value.salary / MONTH_HOUR),
+      value: toBRL(getHourValue(value.salary)),
     },
     {
       label: '6% VTR',
-      value: toBRL(value.salary * VTR_DISCOUNT_VALUE),
+      value: toBRL(getVTR(value.salary)),
     },
     {
       label: 'Adiantamento',
-      value: toBRL(value.salary * PREVIOUS_ADVANCE_VALUE),
+      value: toBRL(getPreviousAdvance(value.salary)),
     },
     {
       label: 'Desconto dias faltados',
-      value: toBRL(value.salary / DISCOUNT_VALUE),
+      value: toBRL(getMissingDays(value.salary)),
     },
   ];
+
   const dataExtraHour: TBodyKey = [
     {
       label: '60 %',
-      value: toBRL((value.salary / MONTH_HOUR) * value.valueHour * 0.6),
+      value: toBRL(
+        getExtraHour({
+          extra: 1.6,
+          salary: value.salary,
+          valueHour: value.valueHour,
+        }),
+      ),
     },
     {
       label: '100 %',
-      value: toBRL((value.salary / MONTH_HOUR) * value.valueHour),
+      value: toBRL(
+        getExtraHour({
+          extra: 2,
+          salary: value.salary,
+          valueHour: value.valueHour,
+        }),
+      ),
     },
   ];
 
   const total = toBRL(
-    (value.salary / MONTH_HOUR) * value.valueHour * 0.6 +
-      (value.salary / MONTH_HOUR) * value.valueHour,
+    getExtraHour({
+      extra: 1.6,
+      salary: value.salary,
+      valueHour: value.valueHour,
+    }) +
+      getExtraHour({
+        extra: 2,
+        salary: value.salary,
+        valueHour: value.valueHour,
+      }),
   );
 
   return (
