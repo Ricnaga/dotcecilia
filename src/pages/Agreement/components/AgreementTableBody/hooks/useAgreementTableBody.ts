@@ -1,21 +1,18 @@
-import { useCalcPayments } from '@shared/hooks/useCalcPayments';
+import { useCalc } from '@shared/hooks/useCalc';
 import { getMonthsDifference } from '@shared/utils/date';
-import { convertToBRL } from '@shared/utils/number';
 import { TitleItems } from '@shared/utils/types';
 import { useCallback } from 'react';
-import { agreementValues } from '../AgreementTableBody';
 import { AgreementCalculatorFields } from '../../AgreementCalculator/AgreementCalculator';
+import { agreementValues } from '../AgreementTableBody';
 
 type UseAgreementTableBodyProps = Record<'values', AgreementCalculatorFields>;
 
 export const useAgreementTableBody = ({
   values,
 }: UseAgreementTableBodyProps) => {
-  const {
-    functions: { getVacationValue, getOneThirdVacationValue, formatBRL },
-  } = useCalcPayments();
+  const { getVacation, getOneThirdVacation, toBRL } = useCalc();
 
-  const vacationOrThirteenth = getVacationValue(
+  const vacationOrThirteenth = getVacation(
     values.salary,
     parseInt(
       getMonthsDifference(new Date(values.startDate), new Date(values.endDate)),
@@ -29,17 +26,17 @@ export const useAgreementTableBody = ({
   > = [
     {
       title: 'thirteenth',
-      value: convertToBRL(vacationOrThirteenth, false),
-      discount: convertToBRL(formatBRL(values.discount), false),
+      value: toBRL(vacationOrThirteenth, false),
+      discount: toBRL(values.discount, false),
     },
     {
       title: 'vacation',
-      value: convertToBRL(vacationOrThirteenth, false),
+      value: toBRL(vacationOrThirteenth, false),
     },
     {
       title: 'oneThirdVcation',
-      value: convertToBRL(
-        getOneThirdVacationValue(
+      value: toBRL(
+        getOneThirdVacation(
           values.salary,
           parseInt(
             getMonthsDifference(
@@ -57,7 +54,7 @@ export const useAgreementTableBody = ({
   const getAgreementTotalToPay = useCallback(
     () =>
       vacationOrThirteenth * 2 +
-      getOneThirdVacationValue(
+      getOneThirdVacation(
         values.salary,
         parseInt(
           getMonthsDifference(
@@ -70,19 +67,16 @@ export const useAgreementTableBody = ({
     [values.salary, values.startDate, values.endDate],
   );
 
-  const totalToPay = convertToBRL(getAgreementTotalToPay(), false);
+  const totalToPay = toBRL(getAgreementTotalToPay(), false);
 
-  const total = convertToBRL(
-    getAgreementTotalToPay() - formatBRL(values.discount),
-    false,
-  );
+  const total = toBRL(getAgreementTotalToPay() - values.discount, false);
 
   return {
     data: {
       formattedValues,
       totalToPay,
       total,
-      salary: convertToBRL(formatBRL(values.salary), false),
+      salary: toBRL(values.salary, false),
     },
   };
 };
