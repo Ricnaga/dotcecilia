@@ -1,17 +1,14 @@
-import { useCalcPayments } from '@shared/hooks/useCalcPayments';
-import { convertToBRL } from '@shared/utils/number';
+import { useCalc } from '@shared/hooks/useCalc';
 
 type UseAdvancePaymentTableBodyProps = { salary: number };
 
 export const useAdvancePaymentTableBody = ({
   salary,
 }: UseAdvancePaymentTableBodyProps) => {
-  const {
-    functions: { formatBRL, getPreviousAdvanceValue },
-  } = useCalcPayments();
+  const { toBRL, getPreviousAdvance } = useCalc();
 
-  const baseSalary = convertToBRL(formatBRL(salary), false);
-  const valueToPay = convertToBRL(getPreviousAdvanceValue(salary), false);
+  const baseSalary = toBRL(salary, false);
+  const valueToPay = toBRL(getPreviousAdvance(salary), false);
 
   return {
     data: { baseSalary, valueToPay },
