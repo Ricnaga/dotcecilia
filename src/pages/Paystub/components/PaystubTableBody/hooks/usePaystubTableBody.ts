@@ -1,20 +1,20 @@
-import { useCalcPayments } from '@shared/hooks/useCalcPayments';
-import { convertToBRL } from '@shared/utils/number';
+import { useCalc } from '@shared/hooks/useCalc';
 import { useCallback } from 'react';
 import { PaystubTableBodyItems } from '../PaystubTableBody';
 
 type UsePaystubTableBodyProps = Record<'values', PaystubTableBodyItems>;
 
+const DATERANGE = '(:firstWorkDay à :lastWorkDay)';
+
 export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
   const {
-    functions: {
-      formatBRL,
-      getExtraHour,
-      getUnsanitaryValue,
-      getPreviousAdvanceValue,
-      getVTRDiscountValue,
-    },
-  } = useCalcPayments();
+    toBRL,
+    getUnsanitary,
+    getExtraHour,
+    getMissingDays,
+    getVTR,
+    getPreviousAdvance,
+  } = useCalc();
 
   const formatDateRange = useCallback(() => {
     const firstWorkDay = new Date(values.initialWorkdayMonth)
@@ -25,7 +25,10 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
       'pt-br',
     );
 
-    return `(${firstWorkDay} à ${lastWorkDay})`;
+    return DATERANGE.replace(':firstWorkDay', firstWorkDay).replace(
+      ':lastWorkDay',
+      lastWorkDay,
+    );
   }, [values.initialWorkdayMonth, values.lastWorkdayMonth]);
 
   const extraHour = values.extraHour && !values.fullExtra;
@@ -56,12 +59,13 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
     [values.vtr],
   );
   const getTotalMissingDays = useCallback(
-    () => parseFloat((values.salary / 30).toFixed(2)) * values.missingDays,
+    () =>
+      parseFloat(getMissingDays(values.salary).toFixed(2)) * values.missingDays,
     [values.salary, values.missingDays],
   );
 
   const validateUnsanitary = useCallback(
-    () => (values.hasUnsanitary ? getUnsanitaryValue(values.unsanitary) : 0),
+    () => (values.hasUnsanitary ? getUnsanitary(values.unsanitary) : 0),
     [values.hasUnsanitary, values.unsanitary],
   );
 
@@ -69,9 +73,9 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
     (percentage: number, extraHour: boolean) =>
       extraHour
         ? getExtraHour({
-            hours: values.hours,
-            money: values.salary,
-            percentage,
+            valueHour: values.hours,
+            salary: values.salary,
+            extra: percentage,
           })
         : 0,
     [values.hours, values.salary],
@@ -79,70 +83,64 @@ export const usePaystubTableBody = ({ values }: UsePaystubTableBodyProps) => {
 
   const getTotal = useCallback(
     () =>
-      formatBRL(values.salary) +
-      formatBRL(getVtrMonthValue()) +
-      formatBRL(validateUnsanitary()) +
+      values.salary +
+      getVtrMonthValue() +
+      validateUnsanitary() +
       validateExtra(1.6, extraHour) +
       validateExtra(2, fullExtra),
-    [values.salary, extraHour, fullExtra],
+    [values.salary, extraHour, fullExtra, values.hasUnsanitary],
   );
 
   const getTotalDiscount = useCallback(
     () =>
-      formatBRL(getTotalMissingDays()) +
-      getPreviousAdvanceValue(values.salary) +
-      getVTRDiscountValue(values.salary),
+      getTotalMissingDays() +
+      getPreviousAdvance(values.salary) +
+      getVTR(values.salary),
     [values.salary],
   );
 
   const formattedValues = {
-    salary: convertToBRL(formatBRL(values.salary), false),
+    salary: toBRL(values.salary, false),
     hasUnsanitary: values.hasUnsanitary,
-    unsanitary: convertToBRL(
-      formatBRL(getUnsanitaryValue(values.unsanitary)),
-      false,
-    ),
-    previousAdvance: convertToBRL(
-      getPreviousAdvanceValue(values.salary),
-      false,
-    ),
-    total: convertToBRL(getTotal(), false),
-    totalDiscount: convertToBRL(getTotalDiscount(), false),
-    netTotal: convertToBRL(getTotal() - getTotalDiscount(), false),
+    unsanitary: toBRL(getUnsanitary(values.unsanitary), false),
+    previousAdvance: toBRL(getPreviousAdvance(values.salary), false),
+    total: toBRL(getTotal(), false),
+    totalDiscount: toBRL(getTotalDiscount(), false),
+    netTotal: toBRL(getTotal() - getTotalDiscount(), false),
   };
 
   const formattedMissingDays = {
     missingDays: values.missingDays,
-    totalMissingDays: convertToBRL(formatBRL(getTotalMissingDays()), false),
+    totalMissingDays: toBRL(getTotalMissingDays(), false),
   };
 
   const formattedHours = {
     hours: values.hours,
     extraHour,
-    extraHourValue: convertToBRL(
+    extraHourValue: toBRL(
       getExtraHour({
-        hours: values.hours,
-        percentage: 1.6,
-        money: values.salary,
+        valueHour: values.hours,
+        extra: 1.6,
+        salary: values.salary,
       }),
       false,
     ),
     fullExtra,
-    fullExtraValue: convertToBRL(
+    fullExtraValue: toBRL(
       getExtraHour({
-        hours: values.hours,
-        percentage: 2,
-        money: values.salary,
+        valueHour: values.hours,
+        extra: 2,
+        salary: values.salary,
       }),
       false,
     ),
   };
 
   const formattedVtr = {
-    vtr: convertToBRL(formatBRL(values.vtr), false),
-    vtrMonthValue: convertToBRL(formatBRL(getVtrMonthValue()), false),
+    vtr: toBRL(values.vtr, false),
+    vtrMonthValue: toBRL(getVtrMonthValue(), false),
     vtrRef: getVtrWorkDays(),
-    discountedVtr: convertToBRL(getVTRDiscountValue(values.salary), false),
+    discountedVtr: toBRL(getVTR(values.salary), false),
     dateRange: formatDateRange(),
   };
 

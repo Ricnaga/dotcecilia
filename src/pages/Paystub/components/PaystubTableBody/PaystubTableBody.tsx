@@ -15,6 +15,7 @@ export function PaystubTableBody({ values }: PaystubTableBodyProps) {
       formattedMissingDays,
     },
   } = usePaystubTableBody({ values });
+
   return (
     <tbody className="border-t border-slate-800">
       <tr>

@@ -13,7 +13,7 @@ export const convertToBRL = (num: number, currency = true) => {
     currency: 'BRL',
   }).format(num);
 
-  if (!currency) return formattedBRL.split('R$')[1];
+  if (!currency) return formattedBRL.split('R$').at(1);
 
   return formattedBRL;
 };
