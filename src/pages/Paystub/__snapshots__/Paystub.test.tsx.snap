@@ -4,15 +4,219 @@ exports[`Page: Paystub should render correctly 1`] = `
 <div>
   <div>
     <p
-      class="text-5xl font-bold mt-8 mb-6"
+      class="text-5xl font-bold mt-8 mb-6 text-center lg:text-left"
     >
       Holerite
     </p>
     <div
-      class="grid grid-cols-3 gap-10"
+      class="grid grid-cols-1 2xl:grid-cols-3 gap-10"
     >
       <div
-        class="col-span-2 grid grid-cols-12 "
+        class="col-span-2 2xl:col-span-1 md:px-14 md:py-2 xl:p-0"
+      >
+        <div
+          class="grid grid-cols-2 items-center"
+        >
+          <p
+            class="text-4xl font-bold leading-9"
+          >
+            Cálculos
+          </p>
+          <button
+            class="justify-self-end"
+            data-variants="smoosh"
+          >
+            <span
+              data-text="default"
+            >
+              Imprimir
+            </span>
+          </button>
+        </div>
+        <div
+          class="grid grid-cols-2 gap-4 mt-8"
+        >
+          <div
+            class="col-span-2"
+          >
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Digite o nome"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-1 mt-2"
+          >
+            <div
+              class="ml-8"
+            >
+              <div
+                class="flex items-center gap-2"
+              >
+                <span
+                  class="text-lg leading-6 font-medium"
+                >
+                  Insalubridade ?
+                </span>
+                <label
+                  class="checkbox-container"
+                  for="Insalubridade ?"
+                >
+                  <input
+                    class="peer sr-only"
+                    id="Insalubridade ?"
+                    type="checkbox"
+                  />
+                  <div
+                    class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-2 mt-2"
+          >
+            <div
+              class="ml-8"
+            >
+              <div
+                class="flex items-center gap-2"
+              >
+                <span
+                  class="text-lg leading-6 font-medium"
+                >
+                  HE?
+                </span>
+                <label
+                  class="checkbox-container"
+                  for="HE?"
+                >
+                  <input
+                    class="peer sr-only"
+                    id="HE?"
+                    type="checkbox"
+                  />
+                  <div
+                    class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="salário"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Dias faltados"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Valor diário VTR"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Desconto de dias"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              class="text-lg ml-8 leading-6 font-medium"
+              for="date"
+            >
+              Primeiro dia útil
+              <div>
+                <div
+                  data-error="false"
+                  data-variants="input-wrapper"
+                >
+                  <input
+                    data-variants="input"
+                    type="date"
+                    value="2023-09-24"
+                  />
+                </div>
+              </div>
+            </label>
+          </div>
+          <div>
+            <label
+              class="text-lg ml-8 leading-6 font-medium"
+              for="date"
+            >
+              Último dia útil
+              <div>
+                <div
+                  data-error="false"
+                  data-variants="input-wrapper"
+                >
+                  <input
+                    data-variants="input"
+                    type="date"
+                    value="2023-09-24"
+                  />
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-span-2 grid grid-cols-1 overflow-auto"
       >
         <table
           class="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900"
@@ -296,208 +500,6 @@ exports[`Page: Paystub should render correctly 1`] = `
             </tr>
           </tfoot>
         </table>
-      </div>
-      <div>
-        <div
-          class="grid grid-cols-2 items-center"
-        >
-          <p
-            class="text-4xl font-bold leading-9"
-          >
-            Cálculos
-          </p>
-          <button
-            class="justify-self-end"
-            data-variants="smoosh"
-          >
-            <span
-              data-text="default"
-            >
-              Imprimir
-            </span>
-          </button>
-        </div>
-        <div
-          class="grid grid-cols-2 gap-4 mt-8"
-        >
-          <div
-            class="col-span-2"
-          >
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="Digite o nome"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="col-1 mt-2"
-          >
-            <div
-              class="ml-8"
-            >
-              <div
-                class="flex items-center gap-2"
-              >
-                <span
-                  class="text-lg leading-6 font-medium"
-                >
-                  Insalubridade ?
-                </span>
-                <label
-                  class="checkbox-container"
-                  for="Insalubridade ?"
-                >
-                  <input
-                    class="peer sr-only"
-                    id="Insalubridade ?"
-                    type="checkbox"
-                  />
-                  <div
-                    class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
-                  />
-                </label>
-              </div>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-2 mt-2"
-          >
-            <div
-              class="ml-8"
-            >
-              <div
-                class="flex items-center gap-2"
-              >
-                <span
-                  class="text-lg leading-6 font-medium"
-                >
-                  HE?
-                </span>
-                <label
-                  class="checkbox-container"
-                  for="HE?"
-                >
-                  <input
-                    class="peer sr-only"
-                    id="HE?"
-                    type="checkbox"
-                  />
-                  <div
-                    class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
-                  />
-                </label>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="salário"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="Dias faltados"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="Valor diário VTR"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="Desconto de dias"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <label
-              class="text-lg ml-8 leading-6 font-medium"
-              for="date"
-            >
-              Primeiro dia útil
-              <div>
-                <div
-                  data-error="false"
-                  data-variants="input-wrapper"
-                >
-                  <input
-                    data-variants="input"
-                    type="date"
-                    value="2023-09-24"
-                  />
-                </div>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label
-              class="text-lg ml-8 leading-6 font-medium"
-              for="date"
-            >
-              Último dia útil
-              <div>
-                <div
-                  data-error="false"
-                  data-variants="input-wrapper"
-                >
-                  <input
-                    data-variants="input"
-                    type="date"
-                    value="2023-09-24"
-                  />
-                </div>
-              </div>
-            </label>
-          </div>
-        </div>
       </div>
     </div>
   </div>

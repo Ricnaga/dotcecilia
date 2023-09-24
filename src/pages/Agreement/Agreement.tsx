@@ -1,4 +1,8 @@
-import { PageContainer, PaymentTable } from '@shared/components';
+import {
+  PageContainer,
+  PaymentContainer,
+  PaymentTable,
+} from '@shared/components';
 import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
 import {
@@ -24,25 +28,25 @@ export function Agreement() {
   });
   return (
     <PageContainer title="Acerto">
-      <div className="grid grid-cols-3 gap-10">
-        <div className="grid grid-cols-12 col-span-2" ref={printRef}>
-          <PaymentTable
-            headerType="ACERTO"
-            name={values.name}
-            startDate={values.startDate}
-            endDate={values.endDate}
-          >
-            <AgreementTableBody values={values} />
-          </PaymentTable>
-        </div>
-        <div>
+      <PaymentContainer
+        calculator={
           <AgreementCalculator
             values={values}
             onChange={onChangeValue}
             onPrint={setPrint}
           />
-        </div>
-      </div>
+        }
+        printRef={printRef}
+      >
+        <PaymentTable
+          headerType="ACERTO"
+          name={values.name}
+          startDate={values.startDate}
+          endDate={values.endDate}
+        >
+          <AgreementTableBody values={values} />
+        </PaymentTable>
+      </PaymentContainer>
     </PageContainer>
   );
 }

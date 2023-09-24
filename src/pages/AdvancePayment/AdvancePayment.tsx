@@ -1,4 +1,8 @@
-import { PageContainer, PaymentTable } from '@shared/components';
+import {
+  PageContainer,
+  PaymentContainer,
+  PaymentTable,
+} from '@shared/components';
 import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
 import { useMemo } from 'react';
@@ -30,24 +34,24 @@ export function AdvancePayment() {
 
   return (
     <PageContainer title="Vale adiantamento">
-      <div className="grid grid-cols-3 gap-10">
-        <div className="grid grid-cols-12 col-span-2" ref={printRef}>
-          <PaymentTable
-            headerType="ADIANTAMENTO"
-            name={values.name}
-            monthRef={values.refDate}
-          >
-            {bodyMemoized}
-          </PaymentTable>
-        </div>
-        <div>
+      <PaymentContainer
+        calculator={
           <AdvancePaymentCalculator
             onChange={onChangeValue}
             onPrint={setPrint}
             values={values}
           />
-        </div>
-      </div>
+        }
+        printRef={printRef}
+      >
+        <PaymentTable
+          headerType="ADIANTAMENTO"
+          name={values.name}
+          monthRef={values.refDate}
+        >
+          {bodyMemoized}
+        </PaymentTable>
+      </PaymentContainer>
     </PageContainer>
   );
 }

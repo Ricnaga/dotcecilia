@@ -4,83 +4,83 @@ exports[`Page: Calculator should render correctly 1`] = `
 <div>
   <div>
     <p
-      class="text-5xl font-bold mt-8 mb-6"
+      class="text-5xl font-bold mt-8 mb-6 text-center lg:text-left"
     >
       Calculadora
     </p>
     <div
-      class="grid grid-cols-3 gap-4"
+      class="grid grid-cols-1 md:grid-cols-2 gap-4"
     >
       <div
-        class="col-span-2 grid grid-cols-2 gap-4"
+        class="col-span-2 md:col-span-1"
       >
-        <div
-          class="col-span-2"
+        <details
+          class="accordion-container group"
         >
-          <details
-            class="accordion-container group"
+          <summary
+            class="accordion-summary"
           >
-            <summary
-              class="accordion-summary"
+            <p
+              class="flex flex-grow"
             >
-              <p
-                class="flex flex-grow"
-              >
-                Hora extra
-              </p>
-              <svg
-                aria-hidden="true"
-                class="group-open:animate-rotate-180 group-open:rotate-180 animate-rotate-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </summary>
+              Hora extra
+            </p>
+            <svg
+              aria-hidden="true"
+              class="group-open:animate-rotate-180 group-open:rotate-180 animate-rotate-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </summary>
+          <div
+            class="accordion-core group-open:animate-slide"
+          >
             <div
-              class="accordion-core group-open:animate-slide"
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-3 gap-4 xl:items-baseline"
             >
               <div
-                class="grid grid-cols-3 gap-4"
+                class="col-span-2 xl:col-span-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 gap-4"
               >
-                <div
-                  class="col-1 flex flex-col gap-2 justify-around"
-                >
-                  <div>
-                    <div
-                      data-error="false"
-                      data-variants="input-wrapper"
-                    >
-                      <input
-                        data-variants="input"
-                        placeholder="Salário"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      data-error="false"
-                      data-variants="input-wrapper"
-                    >
-                      <input
-                        data-variants="input"
-                        placeholder="Horas trabalhadas"
-                        type="text"
-                        value=""
-                      />
-                    </div>
+                <div>
+                  <div
+                    data-error="false"
+                    data-variants="input-wrapper"
+                  >
+                    <input
+                      data-variants="input"
+                      placeholder="Salário"
+                      type="text"
+                      value=""
+                    />
                   </div>
                 </div>
+                <div>
+                  <div
+                    data-error="false"
+                    data-variants="input-wrapper"
+                  >
+                    <input
+                      data-variants="input"
+                      placeholder="Horas trabalhadas"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-span-2 grid grid-cols-1 gap-4"
+              >
                 <div
-                  class="col-span-2 grid grid-cols-2 gap-4"
+                  class="grid overflow-x-auto whitespace-nowrap"
                 >
                   <table
                     class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
@@ -154,6 +154,10 @@ exports[`Page: Calculator should render correctly 1`] = `
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                <div
+                  class="grid overflow-x-auto whitespace-nowrap"
+                >
                   <table
                     class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
                   >
@@ -215,219 +219,241 @@ exports[`Page: Calculator should render correctly 1`] = `
                 </div>
               </div>
             </div>
-          </details>
-        </div>
-        <div>
-          <details
-            class="accordion-container group"
-          >
-            <summary
-              class="accordion-summary"
-            >
-              <p
-                class="flex flex-grow"
-              >
-                Acerto
-              </p>
-              <svg
-                aria-hidden="true"
-                class="group-open:animate-rotate-180 group-open:rotate-180 animate-rotate-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </summary>
-            <div
-              class="accordion-core group-open:animate-slide"
-            >
-              <div
-                class="grid grid-cols-2 gap-4"
-              >
-                <div
-                  class="flex flex-col gap-2 justify-around"
-                >
-                  <div>
-                    <div
-                      data-error="false"
-                      data-variants="input-wrapper"
-                    >
-                      <input
-                        data-variants="input"
-                        placeholder="Salário"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      data-error="false"
-                      data-variants="input-wrapper"
-                    >
-                      <input
-                        data-variants="input"
-                        placeholder="Meses trabalhados"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <table
-                  class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
-                >
-                  <thead>
-                    <tr>
-                      <th
-                        class="bg-teal-700 rounded-t-xl text-xlg font-bold leading-5 text-center p-2"
-                        colspan="2"
-                      >
-                        Salário
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      class="border-t"
-                    >
-                      <td
-                        class="px-6 py-1"
-                      >
-                        Férias
-                      </td>
-                      <td
-                        class="px-6 py-1"
-                      >
-                        R$ 0,00
-                      </td>
-                    </tr>
-                    <tr
-                      class="border-t"
-                    >
-                      <td
-                        class="px-6 py-1"
-                      >
-                        13º
-                      </td>
-                      <td
-                        class="px-6 py-1"
-                      >
-                        R$ 0,00
-                      </td>
-                    </tr>
-                    <tr
-                      class="border-t"
-                    >
-                      <td
-                        class="px-6 py-1"
-                      >
-                        Férias - 1/3
-                      </td>
-                      <td
-                        class="px-6 py-1"
-                      >
-                        R$ 0,00
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </details>
-        </div>
-        <div>
-          <details
-            class="accordion-container group"
-          >
-            <summary
-              class="accordion-summary"
-            >
-              <p
-                class="flex flex-grow"
-              >
-                Desconto
-              </p>
-              <svg
-                aria-hidden="true"
-                class="group-open:animate-rotate-180 group-open:rotate-180 animate-rotate-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </summary>
-            <div
-              class="accordion-core group-open:animate-slide"
-            >
-              <div
-                class="grid grid-cols-2 gap-4"
-              >
-                <div
-                  class="flex flex-col gap-2 justify-around"
-                >
-                  <div>
-                    <div
-                      data-error="false"
-                      data-variants="input-wrapper"
-                    >
-                      <input
-                        data-variants="input"
-                        placeholder="Dias faltados"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <table
-                  class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
-                >
-                  <thead>
-                    <tr>
-                      <th
-                        class="bg-teal-700 rounded-t-xl text-xlg font-bold leading-5 text-center p-2"
-                        colspan="2"
-                      >
-                        Salário
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      class="border-t"
-                    >
-                      <td
-                        class="px-6 py-1"
-                      >
-                        Dias faltados
-                      </td>
-                      <td
-                        class="px-6 py-1"
-                      >
-                        0
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </details>
-        </div>
+          </div>
+        </details>
       </div>
-      <div>
+      <div
+        class="col-span-2 md:col-span-1"
+      >
+        <details
+          class="accordion-container group"
+        >
+          <summary
+            class="accordion-summary"
+          >
+            <p
+              class="flex flex-grow"
+            >
+              Acerto
+            </p>
+            <svg
+              aria-hidden="true"
+              class="group-open:animate-rotate-180 group-open:rotate-180 animate-rotate-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </summary>
+          <div
+            class="accordion-core group-open:animate-slide"
+          >
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
+            >
+              <div
+                class="col-span-2 xl:col-span-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+              >
+                <div>
+                  <div
+                    data-error="false"
+                    data-variants="input-wrapper"
+                  >
+                    <input
+                      data-variants="input"
+                      placeholder="Salário"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div
+                    data-error="false"
+                    data-variants="input-wrapper"
+                  >
+                    <input
+                      data-variants="input"
+                      placeholder="Meses trabalhados"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-span-2"
+              >
+                <div
+                  class="grid overflow-x-auto whitespace-nowrap"
+                >
+                  <table
+                    class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="bg-teal-700 rounded-t-xl text-xlg font-bold leading-5 text-center p-2"
+                          colspan="2"
+                        >
+                          Férias
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        class="border-t"
+                      >
+                        <td
+                          class="px-6 py-1"
+                        >
+                          Férias
+                        </td>
+                        <td
+                          class="px-6 py-1"
+                        >
+                          R$ 0,00
+                        </td>
+                      </tr>
+                      <tr
+                        class="border-t"
+                      >
+                        <td
+                          class="px-6 py-1"
+                        >
+                          13º
+                        </td>
+                        <td
+                          class="px-6 py-1"
+                        >
+                          R$ 0,00
+                        </td>
+                      </tr>
+                      <tr
+                        class="border-t"
+                      >
+                        <td
+                          class="px-6 py-1"
+                        >
+                          Férias - 1/3
+                        </td>
+                        <td
+                          class="px-6 py-1"
+                        >
+                          R$ 0,00
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+      <div
+        class="col-span-2 md:col-span-1"
+      >
+        <details
+          class="accordion-container group"
+        >
+          <summary
+            class="accordion-summary"
+          >
+            <p
+              class="flex flex-grow"
+            >
+              Desconto
+            </p>
+            <svg
+              aria-hidden="true"
+              class="group-open:animate-rotate-180 group-open:rotate-180 animate-rotate-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </summary>
+          <div
+            class="accordion-core group-open:animate-slide"
+          >
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4"
+            >
+              <div
+                class="col-span-2 sm:col-span-1 grid items-center"
+              >
+                <div>
+                  <div
+                    data-error="false"
+                    data-variants="input-wrapper"
+                  >
+                    <input
+                      data-variants="input"
+                      placeholder="Dias faltados"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-span-2 sm:col-span-1"
+              >
+                <div
+                  class="grid overflow-x-auto whitespace-nowrap"
+                >
+                  <table
+                    class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="bg-teal-700 rounded-t-xl text-xlg font-bold leading-5 text-center p-2"
+                          colspan="2"
+                        >
+                          Desconto
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        class="border-t"
+                      >
+                        <td
+                          class="px-6 py-1"
+                        >
+                          Dias faltados
+                        </td>
+                        <td
+                          class="px-6 py-1"
+                        >
+                          0
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+      <div
+        class="col-span-2 md:col-span-1"
+      >
         <details
           class="accordion-container group"
         >
@@ -458,51 +484,63 @@ exports[`Page: Calculator should render correctly 1`] = `
             class="accordion-core group-open:animate-slide"
           >
             <div
-              class="grid grid-cols-2 gap-4 items-center"
+              class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-2 gap-4"
             >
-              <div>
-                <div
-                  data-error="false"
-                  data-variants="input-wrapper"
-                >
-                  <input
-                    data-variants="input"
-                    placeholder="Salário"
-                    type="text"
-                    value=""
-                  />
+              <div
+                class="col-span-2 sm:col-span-1 grid items-center"
+              >
+                <div>
+                  <div
+                    data-error="false"
+                    data-variants="input-wrapper"
+                  >
+                    <input
+                      data-variants="input"
+                      placeholder="Salário"
+                      type="text"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
-              <table
-                class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
+              <div
+                class="col-span-2 sm:col-span-2 md:col-span-1"
               >
-                <thead>
-                  <tr>
-                    <th
-                      class="bg-teal-700 rounded-t-xl text-xlg font-bold leading-5 text-center p-2"
-                      colspan="2"
-                    >
-                      Valor
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    class="border-t"
+                <div
+                  class="grid overflow-x-auto whitespace-nowrap"
+                >
+                  <table
+                    class="bg-teal-600 text-gray-100 rounded-xl hover:brightness-105 transition-all"
                   >
-                    <td
-                      class="px-6 py-1"
-                    >
-                      Insalubridade
-                    </td>
-                    <td
-                      class="px-6 py-1"
-                    >
-                      R$ 264,00
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    <thead>
+                      <tr>
+                        <th
+                          class="bg-teal-700 rounded-t-xl text-xlg font-bold leading-5 text-center p-2"
+                          colspan="2"
+                        >
+                          Valor
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        class="border-t"
+                      >
+                        <td
+                          class="px-6 py-1"
+                        >
+                          Insalubridade
+                        </td>
+                        <td
+                          class="px-6 py-1"
+                        >
+                          R$ 264,00
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </details>

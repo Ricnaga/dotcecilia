@@ -4,15 +4,129 @@ exports[`Page: Agreement should render correctly 1`] = `
 <div>
   <div>
     <p
-      class="text-5xl font-bold mt-8 mb-6"
+      class="text-5xl font-bold mt-8 mb-6 text-center lg:text-left"
     >
       Acerto
     </p>
     <div
-      class="grid grid-cols-3 gap-10"
+      class="grid grid-cols-1 2xl:grid-cols-3 gap-10"
     >
       <div
-        class="grid grid-cols-12 col-span-2"
+        class="col-span-2 2xl:col-span-1 md:px-14 md:py-2 xl:p-0"
+      >
+        <div
+          class="grid grid-cols-2 items-center"
+        >
+          <p
+            class="text-4xl font-bold leading-9"
+          >
+            Cálculos
+          </p>
+          <button
+            class="justify-self-end"
+            data-variants="smoosh"
+          >
+            <span
+              data-text="default"
+            >
+              Imprimir
+            </span>
+          </button>
+        </div>
+        <div
+          class="grid grid-cols-2 gap-4 mt-8"
+        >
+          <div
+            class="col-span-2"
+          >
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Digite o nome"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="salário"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <div
+                data-error="false"
+                data-variants="input-wrapper"
+              >
+                <input
+                  data-variants="input"
+                  placeholder="Descontos (R$)"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              class="text-lg ml-8 leading-6 font-medium"
+              for="date"
+            >
+              Data inicial
+              <div>
+                <div
+                  data-error="false"
+                  data-variants="input-wrapper"
+                >
+                  <input
+                    data-variants="input"
+                    type="date"
+                    value="2023-09-24"
+                  />
+                </div>
+              </div>
+            </label>
+          </div>
+          <div>
+            <label
+              class="text-lg ml-8 leading-6 font-medium"
+              for="date"
+            >
+              Data Final
+              <div>
+                <div
+                  data-error="false"
+                  data-variants="input-wrapper"
+                >
+                  <input
+                    data-variants="input"
+                    type="date"
+                    value="2023-09-24"
+                  />
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-span-2 grid grid-cols-1 overflow-auto"
       >
         <table
           class="col-span-12 h-1 bg-slate-100 border border-slate-800 text-slate-900"
@@ -256,118 +370,6 @@ exports[`Page: Agreement should render correctly 1`] = `
             </tr>
           </tfoot>
         </table>
-      </div>
-      <div>
-        <div
-          class="grid grid-cols-2 items-center"
-        >
-          <p
-            class="text-4xl font-bold leading-9"
-          >
-            Cálculos
-          </p>
-          <button
-            class="justify-self-end"
-            data-variants="smoosh"
-          >
-            <span
-              data-text="default"
-            >
-              Imprimir
-            </span>
-          </button>
-        </div>
-        <div
-          class="grid grid-cols-2 gap-4 mt-8"
-        >
-          <div
-            class="col-span-2"
-          >
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="Digite o nome"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="salário"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div
-                data-error="false"
-                data-variants="input-wrapper"
-              >
-                <input
-                  data-variants="input"
-                  placeholder="Descontos (R$)"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <label
-              class="text-lg ml-8 leading-6 font-medium"
-              for="date"
-            >
-              Data inicial
-              <div>
-                <div
-                  data-error="false"
-                  data-variants="input-wrapper"
-                >
-                  <input
-                    data-variants="input"
-                    type="date"
-                    value="2023-09-24"
-                  />
-                </div>
-              </div>
-            </label>
-          </div>
-          <div>
-            <label
-              class="text-lg ml-8 leading-6 font-medium"
-              for="date"
-            >
-              Data Final
-              <div>
-                <div
-                  data-error="false"
-                  data-variants="input-wrapper"
-                >
-                  <input
-                    data-variants="input"
-                    type="date"
-                    value="2023-09-24"
-                  />
-                </div>
-              </div>
-            </label>
-          </div>
-        </div>
       </div>
     </div>
   </div>
