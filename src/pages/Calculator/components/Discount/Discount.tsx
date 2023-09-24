@@ -15,21 +15,23 @@ export function Discount() {
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div className="flex flex-col gap-2 justify-around">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="col-span-2 sm:col-span-1 grid items-center">
         <InputNumber
           placeholder="Dias faltados"
           onChange={(value) => setValue(value)}
         />
       </div>
-      <CalculatorTable title="Salário">
-        {dataSalary.map((data) => (
-          <CalculatorTr key={data.label}>
-            <CalculatorTd>{data.label}</CalculatorTd>
-            <CalculatorTd>{data.value}</CalculatorTd>
-          </CalculatorTr>
-        ))}
-      </CalculatorTable>
+      <div className="col-span-2 sm:col-span-1">
+        <CalculatorTable title="Desconto">
+          {dataSalary.map((data) => (
+            <CalculatorTr key={data.label}>
+              <CalculatorTd>{data.label}</CalculatorTd>
+              <CalculatorTd>{data.value}</CalculatorTd>
+            </CalculatorTr>
+          ))}
+        </CalculatorTable>
+      </div>
     </div>
   );
 }

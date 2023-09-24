@@ -6,11 +6,6 @@ import { CalculatorTable, TBodyKey } from '../CalculatorTable/CalculatorTable';
 import { CalculatorTd } from '../CalculatorTable/CalculatorTd';
 import { CalculatorTr } from '../CalculatorTable/CalculatorTr';
 
-const MONTH_HOUR = 220;
-const VTR_DISCOUNT_VALUE = 0.06;
-const PREVIOUS_ADVANCE_VALUE = 0.4;
-const DISCOUNT_VALUE = 30;
-
 export function ExtraHour() {
   const {
     toBRL,
@@ -82,8 +77,8 @@ export function ExtraHour() {
   );
 
   return (
-    <div className="grid grid-cols-3 gap-4">
-      <div className="col-1 flex flex-col gap-2 justify-around">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-3 gap-4 xl:items-baseline">
+      <div className="col-span-2 xl:col-span-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 gap-4">
         <InputCurrency
           placeholder="Salário"
           onChange={(value) =>
@@ -97,7 +92,7 @@ export function ExtraHour() {
           }
         />
       </div>
-      <div className="col-span-2 grid grid-cols-2 gap-4">
+      <div className="col-span-2 grid grid-cols-1 gap-4">
         <CalculatorTable title="Salário">
           {dataSalary.map((data) => (
             <CalculatorTr key={data.label}>

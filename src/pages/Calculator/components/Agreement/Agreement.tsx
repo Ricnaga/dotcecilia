@@ -32,8 +32,8 @@ export function Agreement() {
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div className="flex flex-col gap-2 justify-around">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="col-span-2 xl:col-span-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
         <InputCurrency
           placeholder="Salário"
           onChange={(value) =>
@@ -47,14 +47,17 @@ export function Agreement() {
           }
         />
       </div>
-      <CalculatorTable title="Salário">
-        {dataSalary.map((data) => (
-          <CalculatorTr key={data.label}>
-            <CalculatorTd>{data.label}</CalculatorTd>
-            <CalculatorTd>{data.value}</CalculatorTd>
-          </CalculatorTr>
-        ))}
-      </CalculatorTable>
+
+      <div className="col-span-2">
+        <CalculatorTable title="Férias">
+          {dataSalary.map((data) => (
+            <CalculatorTr key={data.label}>
+              <CalculatorTd>{data.label}</CalculatorTd>
+              <CalculatorTd>{data.value}</CalculatorTd>
+            </CalculatorTr>
+          ))}
+        </CalculatorTable>
+      </div>
     </div>
   );
 }

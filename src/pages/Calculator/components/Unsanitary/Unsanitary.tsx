@@ -17,19 +17,23 @@ export function Unsanitary() {
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4 items-center">
-      <InputCurrency
-        placeholder="Salário"
-        onChange={(value) => setValue(value)}
-      />
-      <CalculatorTable title="Valor">
-        {dataSalary.map((data) => (
-          <CalculatorTr key={data.label}>
-            <CalculatorTd>{data.label}</CalculatorTd>
-            <CalculatorTd>{data.value}</CalculatorTd>
-          </CalculatorTr>
-        ))}
-      </CalculatorTable>
+    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="col-span-2 sm:col-span-1 grid items-center">
+        <InputCurrency
+          placeholder="Salário"
+          onChange={(value) => setValue(value)}
+        />
+      </div>
+      <div className="col-span-2 sm:col-span-2 md:col-span-1">
+        <CalculatorTable title="Valor">
+          {dataSalary.map((data) => (
+            <CalculatorTr key={data.label}>
+              <CalculatorTd>{data.label}</CalculatorTd>
+              <CalculatorTd>{data.value}</CalculatorTd>
+            </CalculatorTr>
+          ))}
+        </CalculatorTable>
+      </div>
     </div>
   );
 }
