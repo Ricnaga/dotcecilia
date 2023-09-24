@@ -38,17 +38,11 @@ describe('Hooks: usePaystubTableBody', () => {
     expect(result.current.data.formattedHours.fullExtra).toBeTruthy();
   });
 
-  // it('test unsanitary functions', () => {
-  //   const { result } = renderHook(() => usePaystubTableBody({ values }));
-  //   expect(result.current.data.formattedValues.total.slice(1)).toBe(
-  //     '10.000,00',
-  //   );
-
-  //   const { result: resultHook } = renderHook(() =>
-  //     usePaystubTableBody({
-  //       values: { ...values, hasUnsanitary: false, unsanitary: 100 },
-  //     }),
-  //   );
-  //   expect(resultHook.current.data.formattedValues.total.slice(1)).toBe('0,00');
-  // });
+  it('test all data', () => {
+    const { result } = renderHook(() => usePaystubTableBody({ values }));
+    expect(result.current.data.formattedHours).toBeDefined();
+    expect(result.current.data.formattedMissingDays).toBeDefined();
+    expect(result.current.data.formattedValues).toBeDefined();
+    expect(result.current.data.formattedVtr).toBeDefined();
+  });
 });
