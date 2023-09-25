@@ -54,65 +54,73 @@ exports[`Page: Paystub should render correctly 1`] = `
             </div>
           </div>
           <div
-            class="col-1 mt-2"
+            class="col-span-2 grid grid-cols-2 px-4"
           >
             <div
-              class="ml-8"
+              class="col-span-2"
+            >
+              <p
+                class="text-lg font-medium leading-6 text-center mb-2"
+              >
+                Opções
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-2"
+            >
+              <span
+                class="text-lg leading-6 font-medium"
+              >
+                Insalubridade ?
+              </span>
+              <label
+                class="checkbox-container"
+                for="Insalubridade ?"
+              >
+                <input
+                  class="peer sr-only"
+                  id="Insalubridade ?"
+                  type="checkbox"
+                />
+                <div
+                  class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
+                />
+              </label>
+            </div>
+            <div
+              class="grid grid-cols-1 justify-items-end"
             >
               <div
-                class="flex items-center gap-2"
+                class="col-span-1 mb-2"
               >
-                <span
-                  class="text-lg leading-6 font-medium"
+                <div
+                  class="flex items-center gap-2"
                 >
-                  Insalubridade ?
-                </span>
-                <label
-                  class="checkbox-container"
-                  for="Insalubridade ?"
-                >
-                  <input
-                    class="peer sr-only"
-                    id="Insalubridade ?"
-                    type="checkbox"
-                  />
-                  <div
-                    class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
-                  />
-                </label>
+                  <span
+                    class="text-lg leading-6 font-medium"
+                  >
+                    HE ?
+                  </span>
+                  <label
+                    class="checkbox-container"
+                    for="HE ?"
+                  >
+                    <input
+                      class="peer sr-only"
+                      id="HE ?"
+                      type="checkbox"
+                    />
+                    <div
+                      class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
+                    />
+                  </label>
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="grid grid-cols-2 mt-2"
-          >
-            <div
-              class="ml-8"
-            >
-              <div
-                class="flex items-center gap-2"
-              >
-                <span
-                  class="text-lg leading-6 font-medium"
-                >
-                  HE?
-                </span>
-                <label
-                  class="checkbox-container"
-                  for="HE?"
-                >
-                  <input
-                    class="peer sr-only"
-                    id="HE?"
-                    type="checkbox"
-                  />
-                  <div
-                    class="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800"
-                  />
-                </label>
-              </div>
-            </div>
-          </div>
+            class="col-span-2 grid grid-cols-2 gap-4"
+          />
           <div>
             <div>
               <div
@@ -187,7 +195,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <input
                     data-variants="input"
                     type="date"
-                    value="2023-09-24"
+                    value="2023-09-25"
                   />
                 </div>
               </div>
@@ -207,7 +215,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <input
                     data-variants="input"
                     type="date"
-                    value="2023-09-24"
+                    value="2023-09-25"
                   />
                 </div>
               </div>
@@ -331,7 +339,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                 colspan="2"
               >
                 Vtr - 
-                (24 à 24/09/2023)
+                (25 à 25/09/2023)
               </td>
               <td
                 class="border-r border-slate-800 text-center"
@@ -341,7 +349,7 @@ exports[`Page: Paystub should render correctly 1`] = `
               <td
                 class="border-r border-slate-800 text-center"
               >
-                16
+                17
               </td>
               <td
                 class="border-r border-slate-800 text-center"

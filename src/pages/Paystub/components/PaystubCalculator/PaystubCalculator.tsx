@@ -42,16 +42,37 @@ export function PaystubCalculator({
             onChange={({ target }) => onChange('name', target.value)}
           />
         </div>
-        <div className="col-1 mt-2">
-          <div className="ml-8">
-            <Switch
-              label="Insalubridade ?"
-              checked={values.hasUnsanitary}
-              onChange={() => onChecked && onChecked('hasUnsanitary')}
-            />
+        <div className="col-span-2 grid grid-cols-2 px-4">
+          <div className="col-span-2">
+            <p className="text-lg font-medium leading-6 text-center mb-2">
+              Opções
+            </p>
           </div>
+          <Switch
+            label="Insalubridade ?"
+            checked={values.hasUnsanitary}
+            onChange={() => onChecked && onChecked('hasUnsanitary')}
+          />
+          <div className="grid grid-cols-1 justify-items-end">
+            <div className="col-span-1 mb-2">
+              <Switch
+                label="HE ?"
+                checked={values.extraHour}
+                onChange={() => onChecked && onChecked('extraHour')}
+              />
+            </div>
+            {values.extraHour && (
+              <Switch
+                label="100% ?"
+                checked={values.fullExtra}
+                onChange={() => onChecked && onChecked('fullExtra')}
+              />
+            )}
+          </div>
+        </div>
+        <div className="col-span-2 grid grid-cols-2 gap-4">
           {values.hasUnsanitary && (
-            <div className="mt-1">
+            <div className="mt-1 col-span-1">
               <InputCurrency
                 placeholder="Valor insalubridade"
                 value={values.unsanitary}
@@ -59,32 +80,14 @@ export function PaystubCalculator({
               />
             </div>
           )}
-        </div>
-        <div className="grid grid-cols-2 mt-2">
-          <div className="ml-8">
-            <Switch
-              label="HE?"
-              checked={values.extraHour}
-              onChange={() => onChecked && onChecked('extraHour')}
-            />
-          </div>
           {values.extraHour && (
-            <>
-              <div>
-                <Switch
-                  label="100% ?"
-                  checked={values.fullExtra}
-                  onChange={() => onChecked && onChecked('fullExtra')}
-                />
-              </div>
-              <div className="col-span-2 mt-1">
-                <InputNumber
-                  placeholder="horas"
-                  value={values.hours}
-                  onChange={(value) => onChange('hours', value)}
-                />
-              </div>
-            </>
+            <div className="mt-1 col-span-1">
+              <InputNumber
+                placeholder="horas"
+                value={values.hours}
+                onChange={(value) => onChange('hours', value)}
+              />
+            </div>
           )}
         </div>
         <div>
