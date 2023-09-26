@@ -1,0 +1,4 @@
+.icon-button {
+  @apply color-yellow;
+  @apply p-4 rounded-full hover:brightness-105 transition-all active:brightness-95;
+}

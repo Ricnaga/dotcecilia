@@ -6,9 +6,11 @@ import {
   PAYSTUB,
   ADVANCEPAYMENT,
 } from '@application/routes/paths';
+import { useState } from 'react';
 import { useLocalStorage } from '../../../hooks/useLocalStorage';
 
 export const useNavbar = () => {
+  const [menuIsOpen, setMenuAsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const { deleteUserData } = useLocalStorage();
   const links = [
@@ -35,7 +37,7 @@ export const useNavbar = () => {
     navigate(LOGIN);
   };
   return {
-    data: { links },
-    functions: { logOut },
+    data: { links, menuIsOpen },
+    functions: { logOut, setMenuAsOpen },
   };
 };

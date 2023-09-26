@@ -1,3 +1,5 @@
+import { ComponentProps } from 'react';
+
 export type OnlyBooleanKeys<T extends object> = {
   [K in keyof T]-?: T[K] extends boolean ? K : never;
 }[keyof T];
@@ -19,3 +21,8 @@ export type ResultHook<T extends (...args: Array<unknown>) => unknown> = Record<
   'current',
   ReturnType<T>
 >;
+
+export type CallBackProps<
+  T extends keyof React.JSX.IntrinsicElements,
+  C extends object = object,
+> = (props?: ComponentProps<T>) => Omit<ComponentProps<T>, 'className'> & C;

@@ -38,5 +38,5 @@
 }
 
 [data-text='default'] {
-  @apply relative z-10 font-medium;
+  @apply relative z-10 font-medium leading-6;
 }
