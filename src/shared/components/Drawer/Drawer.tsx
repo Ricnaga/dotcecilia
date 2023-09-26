@@ -1,19 +1,15 @@
-import { PropsWithChildren } from 'react';
 import { XMarkIcon } from '@heroicons/react/20/solid';
+import { PropsWithChildren, forwardRef } from 'react';
 import { IconButton } from '../IconButton/IconButton';
+import { UseDrawerProps, useDrawer } from './hooks/useDrawer';
 
-type DrawerProps = {
-  isOpen: boolean;
-  onClose: () => void;
-};
+interface DrawerProps extends UseDrawerProps {}
 
-export function Drawer({
-  isOpen,
-  onClose,
-  children,
-}: PropsWithChildren<DrawerProps>) {
+export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
+  const { children, drawerProps, onClose } = useDrawer({ ...props, ref });
+
   return (
-    <section data-open={isOpen} className="drawer-wrapper">
+    <section {...drawerProps()}>
       <div className="flex justify-end">
         <IconButton onClick={onClose}>
           <XMarkIcon width={24} />
@@ -22,4 +18,6 @@ export function Drawer({
       <div>{children}</div>
     </section>
   );
-}
+});
+
+Drawer.displayName = 'DotCecilia.Drawer';

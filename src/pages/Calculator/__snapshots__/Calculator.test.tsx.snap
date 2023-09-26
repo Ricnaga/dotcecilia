@@ -21,7 +21,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             class="accordion-summary"
           >
             <p
-              class="flex flex-grow"
+              class="grow"
             >
               Hora extra
             </p>
@@ -41,7 +41,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             </svg>
           </summary>
           <div
-            class="accordion-core group-open:animate-slide"
+            class="accordion-core group-open:animate-soft-slide"
           >
             <div
               class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-3 gap-4 xl:items-baseline"
@@ -232,7 +232,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             class="accordion-summary"
           >
             <p
-              class="flex flex-grow"
+              class="grow"
             >
               Acerto
             </p>
@@ -252,7 +252,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             </svg>
           </summary>
           <div
-            class="accordion-core group-open:animate-slide"
+            class="accordion-core group-open:animate-soft-slide"
           >
             <div
               class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
@@ -367,7 +367,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             class="accordion-summary"
           >
             <p
-              class="flex flex-grow"
+              class="grow"
             >
               Desconto
             </p>
@@ -387,7 +387,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             </svg>
           </summary>
           <div
-            class="accordion-core group-open:animate-slide"
+            class="accordion-core group-open:animate-soft-slide"
           >
             <div
               class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4"
@@ -461,7 +461,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             class="accordion-summary"
           >
             <p
-              class="flex flex-grow"
+              class="grow"
             >
               Insalubridade
             </p>
@@ -481,7 +481,7 @@ exports[`Page: Calculator should render correctly 1`] = `
             </svg>
           </summary>
           <div
-            class="accordion-core group-open:animate-slide"
+            class="accordion-core group-open:animate-soft-slide"
           >
             <div
               class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-2 gap-4"

@@ -5,4 +5,4 @@ export * from './Input/InputDate/InputDate';
 export * from './Input/InputMonth/InputMonth';
 export * from './Input/InputNumber/InputNumber';
 export * from './Input/Switch/Switch';
-export * from './Navbar/Navbar';
+export * from './@dotcecilia/Navbar/Navbar';

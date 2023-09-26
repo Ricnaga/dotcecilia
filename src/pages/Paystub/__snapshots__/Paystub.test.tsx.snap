@@ -195,7 +195,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <input
                     data-variants="input"
                     type="date"
-                    value="2023-09-25"
+                    value="2023-09-26"
                   />
                 </div>
               </div>
@@ -215,7 +215,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <input
                     data-variants="input"
                     type="date"
-                    value="2023-09-25"
+                    value="2023-09-26"
                   />
                 </div>
               </div>
@@ -339,7 +339,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                 colspan="2"
               >
                 Vtr - 
-                (25 à 25/09/2023)
+                (26 à 26/09/2023)
               </td>
               <td
                 class="border-r border-slate-800 text-center"
@@ -349,7 +349,7 @@ exports[`Page: Paystub should render correctly 1`] = `
               <td
                 class="border-r border-slate-800 text-center"
               >
-                17
+                18
               </td>
               <td
                 class="border-r border-slate-800 text-center"

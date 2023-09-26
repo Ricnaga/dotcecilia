@@ -1,7 +1,7 @@
 import { Bars3Icon } from '@heroicons/react/20/solid';
-import { Button } from '../Button/Button';
-import { Drawer } from '../Drawer/Drawer';
-import { IconButton } from '../IconButton/IconButton';
+import { Button } from '../../Button/Button';
+import { Drawer } from '../../Drawer/Drawer';
+import { IconButton } from '../../IconButton/IconButton';
 import { useNavbar } from './hooks/useNavbar';
 
 export function Navbar() {

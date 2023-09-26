@@ -7,7 +7,7 @@ import {
   ADVANCEPAYMENT,
 } from '@application/routes/paths';
 import { useState } from 'react';
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
+import { useLocalStorage } from '../../../../hooks/useLocalStorage';
 
 export const useNavbar = () => {
   const [menuIsOpen, setMenuAsOpen] = useState<boolean>(false);
