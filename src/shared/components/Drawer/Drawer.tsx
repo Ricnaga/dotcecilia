@@ -1,5 +1,5 @@
 import { XMarkIcon } from '@heroicons/react/20/solid';
-import { PropsWithChildren, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { IconButton } from '../IconButton/IconButton';
 import { UseDrawerProps, useDrawer } from './hooks/useDrawer';
 
