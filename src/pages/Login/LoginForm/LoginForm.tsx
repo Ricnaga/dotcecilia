@@ -1,5 +1,5 @@
+import { LockClosedIcon, UserIcon } from '@heroicons/react/20/solid';
 import { Button, Input } from '@shared/components';
-import { useFormik } from 'formik';
 import { useLoginForm } from './hooks/useLoginForm';
 
 export enum FormFields {
@@ -9,20 +9,16 @@ export enum FormFields {
 
 export function LoginForm() {
   const {
-    data: { initialValues },
-    functions: { onSubmit },
+    data: { formik },
   } = useLoginForm();
-
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-  });
 
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="mb-4">
         <Input
+          startIcon={<UserIcon width={24} />}
           placeholder="Digite o usuário"
+          errorMessage={formik.errors.name}
           value={formik.values[FormFields.name]}
           onChange={formik.handleChange(FormFields.name)}
         />
@@ -30,8 +26,10 @@ export function LoginForm() {
 
       <div className="mb-4">
         <Input
+          startIcon={<LockClosedIcon width={24} />}
           placeholder="Digite a senha"
           type="password"
+          errorMessage={formik.errors.password}
           value={formik.values[FormFields.password]}
           onChange={formik.handleChange(FormFields.password)}
         />

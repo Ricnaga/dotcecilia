@@ -1,6 +1,5 @@
 import { ResultHook } from '@shared/utils/types';
-import { act, renderHook } from '@testing-library/react';
-import { FormFields } from '../LoginForm';
+import { renderHook } from '@testing-library/react';
 import { useLoginForm } from './useLoginForm';
 
 jest.mock('react-router-dom', () => ({
@@ -14,8 +13,6 @@ jest.mock('@config', () => ({
   ENV_PASSWORD: '',
 }));
 
-type FormikValues = Record<keyof typeof FormFields, string>;
-
 let resultHook: ResultHook<typeof useLoginForm>;
 
 describe('Hook: useLoginForm', () => {
@@ -24,16 +21,7 @@ describe('Hook: useLoginForm', () => {
     resultHook = result;
   });
 
-  it('should test submit function', () => {
-    const spyOnSubmit = jest.spyOn(resultHook.current.functions, 'onSubmit');
-
-    const values: FormikValues = {
-      [FormFields.name]: '',
-      [FormFields.password]: '',
-    };
-
-    act(() => resultHook.current.functions.onSubmit(values));
-
-    expect(spyOnSubmit).toHaveBeenCalled();
+  it('should test data', () => {
+    expect(resultHook.current.data).toBeDefined();
   });
 });

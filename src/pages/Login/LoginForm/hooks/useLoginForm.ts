@@ -1,3 +1,5 @@
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import { CALCULATOR } from '@application/routes/paths';
 import { ENV_PASSWORD, ENV_USER } from '@config';
 import { useLocalStorage } from '@shared/hooks/useLocalStorage';
@@ -9,6 +11,11 @@ type FormikValues = Record<keyof typeof FormFields, string>;
 export const useLoginForm = () => {
   const { saveUserData } = useLocalStorage();
   const navigate = useNavigate();
+
+  const validationSchema = yup.object({
+    [FormFields.name]: yup.string().required('Usuário é obrigatório'),
+    [FormFields.password]: yup.string().required('Senha é obrigatório'),
+  });
 
   const initialValues: FormikValues = {
     [FormFields.name]: '',
@@ -26,12 +33,15 @@ export const useLoginForm = () => {
     }
   };
 
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
+  });
+
   return {
     data: {
-      initialValues,
-    },
-    functions: {
-      onSubmit,
+      formik,
     },
   };
 };
