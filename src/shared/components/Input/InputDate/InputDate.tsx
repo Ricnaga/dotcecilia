@@ -1,31 +1,20 @@
-import { Input, InputProps } from '../Input';
-import { useInputDate } from './useInputDate';
+import { forwardRef } from 'react';
+import { Input } from '../Input';
+import { UseInputDateProps, useInputDate } from './hooks/useInputDate';
 
-export interface InputDateProps extends InputProps {
-  label?: string;
-  dateValue: Date;
-  onDateChange: (date: Date) => void;
-}
-export function InputDate({
-  label,
-  dateValue,
-  onDateChange,
-  ...props
-}: InputDateProps) {
-  const {
-    data: { formattedValue },
-    functions: { onChange },
-  } = useInputDate({ dateValue, onDateChange });
+export interface InputDateProps extends UseInputDateProps {}
 
-  return (
-    <label htmlFor="date" className="text-lg ml-8 leading-6 font-medium">
-      {label}
-      <Input
-        {...props}
-        type="date"
-        value={formattedValue}
-        onChange={onChange}
-      />
-    </label>
-  );
-}
+export const InputDate = forwardRef<HTMLInputElement, InputDateProps>(
+  (props, ref) => {
+    const { inputDateProps, label } = useInputDate({ ...props, ref });
+
+    return (
+      <label htmlFor="date" className="text-lg ml-8 leading-6 font-medium">
+        {label}
+        <Input {...inputDateProps()} />
+      </label>
+    );
+  },
+);
+
+InputDate.displayName = 'DotCecilia.InputDate';
