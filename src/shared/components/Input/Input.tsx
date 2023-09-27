@@ -1,24 +1,35 @@
-import { ComponentProps } from 'react';
+import { ReactNode, forwardRef, useMemo } from 'react';
+import { UseInputProps, useInput } from './hooks/useInput';
 
-export interface InputProps extends ComponentProps<'input'> {
-  isError?: boolean;
-  errorMessage?: string;
-}
+export type InputProps = UseInputProps;
 
-export function Input({
-  type = 'text',
-  errorMessage,
-  isError = false,
-  ...props
-}: InputProps) {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const { endIcon, errorMessage, inputProps, inputWrapperProps, startIcon } =
+    useInput({ ...props, ref });
+
+  const hasErrorMessage = errorMessage && (
+    <span className="text-red-500 ml-16">{errorMessage}</span>
+  );
+
+  const hasIcon = (icon: ReactNode) => icon && icon;
+
+  const input = useMemo(() => <input {...inputProps()} />, [inputProps]);
+
+  const inputWrapper = useMemo(
+    () => (
+      <div {...inputWrapperProps()}>
+        {hasIcon(startIcon)}
+        {input}
+        {hasIcon(endIcon)}
+      </div>
+    ),
+    [inputWrapperProps, input],
+  );
+
   return (
     <div>
-      <div data-error={isError} data-variants="input-wrapper">
-        <input type={type} data-variants="input" {...props} />
-      </div>
-      {errorMessage && (
-        <span className="text-red-500 ml-8">{errorMessage}</span>
-      )}
+      {inputWrapper}
+      {hasErrorMessage}
     </div>
   );
-}
+});

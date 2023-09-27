@@ -1,5 +1,6 @@
 [data-variants='input-wrapper'] {
-  @apply mx-auto flex items-center rounded-full border hover:shadow-md px-4 bg-white;
+  @apply transition-all mx-auto px-6 flex items-center gap-2;
+  @apply bg-white rounded-full border hover:shadow-lg;
   @apply data-[error=true]:border-red-500;
 }
 
