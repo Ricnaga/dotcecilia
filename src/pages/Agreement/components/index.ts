@@ -1,2 +1,2 @@
-export * from './AgreementTableBody/AgreementTableBody';
 export * from './AgreementCalculator/AgreementCalculator';
+export * from './AgreementTableBody/AgreementTableBody';

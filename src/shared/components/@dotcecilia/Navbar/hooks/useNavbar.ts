@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import {
+  ADVANCEPAYMENT,
   AGREEMENT,
   CALCULATOR,
   LOGIN,
   PAYSTUB,
-  ADVANCEPAYMENT,
 } from '@application/routes/paths';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../../../../hooks/useLocalStorage';
 
 export const useNavbar = () => {

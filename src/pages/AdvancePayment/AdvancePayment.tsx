@@ -7,9 +7,9 @@ import { useInputFields } from '@shared/hooks/useInputFields';
 import { useReactPrint } from '@shared/hooks/useReactPrint';
 import { useMemo } from 'react';
 import {
-  AdvancePaymentTableBody,
   AdvancePaymentCalculator,
   AdvancePaymentCalculatorFields,
+  AdvancePaymentTableBody,
 } from './components';
 
 export function AdvancePayment() {

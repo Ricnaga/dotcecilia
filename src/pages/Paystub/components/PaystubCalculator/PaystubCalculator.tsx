@@ -49,21 +49,21 @@ export function PaystubCalculator({
             </p>
           </div>
           <Switch
-            label="Insalubridade ?"
+            label="Insalub."
             checked={values.hasUnsanitary}
             onChange={() => onChecked && onChecked('hasUnsanitary')}
           />
           <div className="grid grid-cols-1 justify-items-end">
             <div className="col-span-1 mb-2">
               <Switch
-                label="HE ?"
+                label="HE"
                 checked={values.extraHour}
                 onChange={() => onChecked && onChecked('extraHour')}
               />
             </div>
             {values.extraHour && (
               <Switch
-                label="100% ?"
+                label="100%"
                 checked={values.fullExtra}
                 onChange={() => onChecked && onChecked('fullExtra')}
               />

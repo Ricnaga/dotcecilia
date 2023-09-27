@@ -1,7 +1,7 @@
 import { InputNumber } from '@shared/components';
 import { InputCurrency } from '@shared/components/Input/InputCurrency/InputCurrency';
-import { useState } from 'react';
 import { useCalc } from '@shared/hooks/useCalc';
+import { useState } from 'react';
 import { CalculatorTable, TBodyKey } from '../CalculatorTable/CalculatorTable';
 import { CalculatorTd } from '../CalculatorTable/CalculatorTd';
 import { CalculatorTr } from '../CalculatorTable/CalculatorTr';
