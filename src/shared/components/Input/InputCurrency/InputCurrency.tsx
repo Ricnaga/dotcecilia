@@ -1,27 +1,18 @@
-import { ChangeEvent, useState } from 'react';
-import { Input, InputProps } from '../Input';
+import { forwardRef } from 'react';
+import { Input } from '../Input';
+import {
+  UseInputCurrencyProps,
+  useInputCurrency,
+} from './hooks/useInputCurrency';
 
-interface InputCurrencyProps extends Omit<InputProps, 'onChange'> {
-  onChange: (value: number) => void;
-}
+interface InputCurrencyProps extends UseInputCurrencyProps {}
 
-export function InputCurrency({ onChange, ...props }: InputCurrencyProps) {
-  const [value, setValue] = useState<null | string>(null);
+export const InputCurrency = forwardRef<HTMLInputElement, InputCurrencyProps>(
+  (props, ref) => {
+    const { inputPasswordProps } = useInputCurrency({ ...props, ref });
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const targetValue = event.target.value
-      .replace(/[^0-9]/g, '')
-      .padStart(3, '0')
-      .replace(/^([0-9]*?)([0-9]{2})$/, '$1.$2');
+    return <Input {...inputPasswordProps()} />;
+  },
+);
 
-    const valueNumber = parseFloat(targetValue).toFixed(2);
-    const inputValue = !valueNumber
-      ? ''
-      : valueNumber.toString().replace('.', ',');
-
-    setValue(inputValue);
-    onChange(parseFloat(valueNumber));
-  };
-
-  return <Input {...props} onChange={handleChange} value={value || ''} />;
-}
+InputCurrency.displayName = 'DotCecilia.InputCurrency';
