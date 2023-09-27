@@ -25,3 +25,5 @@ export const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
     return <Input {...inputPasswordProps()} endIcon={isShowPassword} />;
   },
 );
+
+InputPassword.displayName = 'DotCecilia.InputPassword';

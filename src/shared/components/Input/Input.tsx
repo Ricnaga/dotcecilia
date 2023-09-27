@@ -33,3 +33,5 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     </div>
   );
 });
+
+Input.displayName = 'DotCecilia.Input';
