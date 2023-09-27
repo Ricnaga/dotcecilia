@@ -1,5 +1,6 @@
 import { LockClosedIcon, UserIcon } from '@heroicons/react/20/solid';
 import { Button, Input } from '@shared/components';
+import { InputPassword } from '@shared/components/Input/InputPassword/InputPassword';
 import { useLoginForm } from './hooks/useLoginForm';
 
 export enum FormFields {
@@ -25,10 +26,9 @@ export function LoginForm() {
       </div>
 
       <div className="mb-4">
-        <Input
+        <InputPassword
           startIcon={<LockClosedIcon width={24} />}
           placeholder="Digite a senha"
-          type="password"
           errorMessage={formik.errors.password}
           value={formik.values[FormFields.password]}
           onChange={formik.handleChange(FormFields.password)}
