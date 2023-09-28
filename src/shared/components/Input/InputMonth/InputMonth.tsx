@@ -1,34 +1,28 @@
-import { Input, InputProps } from '../Input';
-import { useInputMonth } from './useInputMonth';
+import { forwardRef, useMemo } from 'react';
+import { Input } from '../Input';
+import { UseInputMonthProps, useInputMonth } from './hooks/useInputMonth';
 
-export interface InputMonthProps extends InputProps {
-  label?: string;
-  dateValue: Date;
-  onMonthChange: (date: Date) => void;
-}
+export type InputMonthProps = UseInputMonthProps;
 
-export function InputMonth({
-  label,
-  dateValue,
-  onMonthChange,
-  ...props
-}: InputMonthProps) {
-  const {
-    data: { formattedValue },
-    functions: { handleMonthChange },
-  } = useInputMonth({ dateValue, onMonthChange });
+export const InputMonth = forwardRef<HTMLInputElement, InputMonthProps>(
+  (props, ref) => {
+    const { inputMonthProps, label, labelProps } = useInputMonth({
+      ...props,
+      ref,
+    });
 
-  return (
-    <label htmlFor="month" className="text-xl">
-      {label}
-      <Input
-        {...props}
-        type="month"
-        value={formattedValue}
-        onChange={({ target }) =>
-          target.valueAsDate && handleMonthChange(target.valueAsDate)
-        }
-      />
-    </label>
-  );
-}
+    const input = useMemo(
+      () => <Input {...inputMonthProps()} />,
+      [inputMonthProps],
+    );
+
+    return (
+      <label {...labelProps()} htmlFor="month">
+        {label}
+        {input}
+      </label>
+    );
+  },
+);
+
+InputMonth.displayName = 'DotCecilia.InputMonth';
