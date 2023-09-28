@@ -1,17 +1,47 @@
-import { InputProps } from '../Input';
+import { forwardRef, useMemo } from 'react';
+import { UseSwitchProps, useSwitch } from './hooks/useSwitch';
 
-interface SwitchProps extends InputProps {
-  label?: string;
-}
+type SwitchProps = UseSwitchProps;
 
-export function Switch({ label, ...props }: SwitchProps) {
-  return (
-    <div className="flex items-center gap-2">
-      <span className="text-lg leading-6 font-medium">{label}</span>
-      <label className="checkbox-container" htmlFor={label}>
-        <input {...props} id={label} type="checkbox" className="peer sr-only" />
-        <div className="checkbox-button peer peer-checked:bg-teal-700 peer-checked:after:translate-x-full peer-checked:after:border-teal-700 peer-focus:ring-green-800" />
-      </label>
-    </div>
-  );
-}
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
+  (props, ref) => {
+    const {
+      containerProps,
+      innerWrapperProps,
+      inputProps,
+      labelProps,
+      wrapperProps,
+      label,
+    } = useSwitch({ ...props, ref });
+
+    const input = useMemo(() => <input {...inputProps()} />, [inputProps]);
+    const innerWrapper = useMemo(
+      () => <div {...innerWrapperProps()} />,
+      [innerWrapperProps],
+    );
+
+    const wrapper = useMemo(
+      () => (
+        <label {...wrapperProps()} htmlFor={label}>
+          {input}
+          {innerWrapper}
+        </label>
+      ),
+      [wrapperProps, input, label],
+    );
+
+    const switchLabel = useMemo(
+      () => <span {...labelProps()}>{label}</span>,
+      [labelProps],
+    );
+
+    return (
+      <div {...containerProps()}>
+        {switchLabel}
+        {wrapper}
+      </div>
+    );
+  },
+);
+
+Switch.displayName = 'DotCecilia.Switch';
