@@ -71,15 +71,15 @@ exports[`Page: Paystub should render correctly 1`] = `
               <span
                 class="text-lg leading-6 font-medium"
               >
-                Insalubridade ?
+                Insalub.
               </span>
               <label
                 class="checkbox-container"
-                for="Insalubridade ?"
+                for="Insalub."
               >
                 <input
                   class="peer sr-only"
-                  id="Insalubridade ?"
+                  id="Insalub."
                   type="checkbox"
                 />
                 <div
@@ -99,15 +99,15 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <span
                     class="text-lg leading-6 font-medium"
                   >
-                    HE ?
+                    HE
                   </span>
                   <label
                     class="checkbox-container"
-                    for="HE ?"
+                    for="HE"
                   >
                     <input
                       class="peer sr-only"
-                      id="HE ?"
+                      id="HE"
                       type="checkbox"
                     />
                     <div
@@ -195,7 +195,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <input
                     data-variants="input"
                     type="date"
-                    value="2023-09-26"
+                    value="2023-09-28"
                   />
                 </div>
               </div>
@@ -215,7 +215,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                   <input
                     data-variants="input"
                     type="date"
-                    value="2023-09-26"
+                    value="2023-09-28"
                   />
                 </div>
               </div>
@@ -339,7 +339,7 @@ exports[`Page: Paystub should render correctly 1`] = `
                 colspan="2"
               >
                 Vtr - 
-                (26 à 26/09/2023)
+                (28 à 28/09/2023)
               </td>
               <td
                 class="border-r border-slate-800 text-center"
@@ -349,7 +349,7 @@ exports[`Page: Paystub should render correctly 1`] = `
               <td
                 class="border-r border-slate-800 text-center"
               >
-                18
+                20
               </td>
               <td
                 class="border-r border-slate-800 text-center"
